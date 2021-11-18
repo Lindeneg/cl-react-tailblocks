@@ -9,6 +9,7 @@ export type BlogWithImageItemsProps = WithTheme<{
 export function BlogWithImageItems({ data, theme }: BlogWithImageItemsProps) {
   return (
     <section
+      data-testid="blog-with-image-section"
       className={`body-font ${
         theme === "dark" ? "text-gray-400 bg-gray-900" : "text-gray-600"
       }`}

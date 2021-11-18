@@ -4,27 +4,27 @@ export const MOCK_ENTRIES = [
     label: "CATEGORY",
     title: "The Catalyzer",
     content:
-      "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+      "Cold-pressed photo booth fam kinfolk sriracha leggings jianbing microdosing tousled waistcoat.",
     views: 1200,
     comments: 6,
   },
   {
     imgSrc: "https://dummyimage.com/720x400",
     label: "CATEGORY",
-    title: "The Catalyzer",
+    title: "The 400 Blows",
     content:
-      "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
-    views: 1200,
-    comments: 6,
+      "Photo booth kinfolk fam jianbing cold-leggings-pressed microdosing tousled waistcoat sriracha.",
+    views: 25210,
+    comments: 256,
   },
   {
     imgSrc: "https://dummyimage.com/720x400",
     label: "CATEGORY",
-    title: "The Catalyzer",
+    title: "Shooting Stars",
     content:
-      "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
-    views: 1200,
-    comments: 6,
+      "Booth kinfolk leggings fam cold-pressed sriracha photo jianbing microdosing waistcoat tousled.",
+    views: 7592,
+    comments: 45,
   },
 ];
 
