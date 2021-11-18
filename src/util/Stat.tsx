@@ -1,7 +1,7 @@
 import React from "react";
 import { WithTheme } from "../types";
 
-function getThousands(target: number) {
+export function getThousands(target: number) {
   if (target >= 1000) {
     return `${(target / 1000).toFixed(1)}K`;
   }
