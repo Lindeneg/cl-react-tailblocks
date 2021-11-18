@@ -1,11 +1,12 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { MOCK_ENTRY } from "./mock-data";
 import {
   BlogWithImageItem,
   BlogWithImageItemProps,
 } from "../BlogWithImageItem";
 
 export default {
-  title: "BlogWithImageItem",
+  title: "Blog/BlogWithImageItem",
   component: BlogWithImageItem,
   argTypes: {
     linkNode: { control: "none" },
@@ -20,28 +21,12 @@ const MetaComp: Story<BlogWithImageItemProps> = (args) => (
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  imgSrc: "https://dummyimage.com/720x400",
-  imgAlt: "dummy-image-blog-item",
-  label: "CATEGORY",
-  title: "The Catalyzer",
-  content:
-    "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
-  views: 1200,
-  comments: 6,
+  ...MOCK_ENTRY,
   theme: "light",
-  linkText: "Learn More",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  imgSrc: "https://dummyimage.com/720x400",
-  imgAlt: "dummy-image-blog-item",
-  label: "CATEGORY",
-  title: "The Catalyzer",
-  content:
-    "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
-  views: 1200,
-  comments: 6,
+  ...MOCK_ENTRY,
   theme: "dark",
-  linkText: "Learn More",
 };
