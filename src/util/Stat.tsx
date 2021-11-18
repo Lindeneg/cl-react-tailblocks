@@ -20,6 +20,7 @@ export function Stat({ views, comments, theme }: StatProps) {
       {typeof views === "number" && typeof comments === "number" && (
         <>
           <span
+            data-testid="stat-views-span"
             className={`mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 text-gray-400 border-gray-${
               isDark ? "800" : "200"
             }`}
