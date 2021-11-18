@@ -32,11 +32,13 @@ export function BlogWithImageItem({
   const isDark = theme === "dark";
   return (
     <div
+      data-test-id="blog-with-image-item-outer"
       className={`p-4 md:w-1/3 ${
         includeWrapperBg && isDark ? "text-gray-400 bg-gray-900" : ""
       }`}
     >
       <div
+        data-test-id="blog-with-image-item-inner"
         className={`h-full border-2 border-gray-${
           isDark ? "800" : "200"
         } border-opacity-60 rounded-lg overflow-hidden`}
