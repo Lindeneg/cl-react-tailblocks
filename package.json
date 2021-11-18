@@ -1,0 +1,74 @@
+{
+  "name": "cl-react-tailblocks",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "homepage": "",
+  "author": {
+    "name": "Christian Lindeneg",
+    "email": "hi@lindeneg.org",
+    "url": "https://lindeneg.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lindeneg/cl-react-tailblocks.git"
+  },
+  "keywords": [
+    "react",
+    "tailwind",
+    "react-tailwind",
+    "tailblocks",
+    "react-tailblocks",
+    "react-component",
+    "react-library",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest --verbose",
+    "test:watch": "yarn test --watch",
+    "lint": "yarn prettier src --check",
+    "lint:fix": "yarn prettier src --write",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "clean": "yarn run clean:soft",
+    "clean:soft": "rm -rf lib story",
+    "clean:hard": "yarn run clean && rm -rf node_modules",
+    "clean:reset": "yarn run clean:hard && rm -f yarn.lock"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.3.12",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "autoprefixer": "^9",
+    "babel-loader": "^8.2.3",
+    "postcss": "^7",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.60.0",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.31.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {}
+}
