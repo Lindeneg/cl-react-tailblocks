@@ -3,9 +3,7 @@ import { WithTheme, WithoutTheme } from "../types";
 import { BlogWithImageItem, BlogWithImageItemProps } from "./BlogWithImageItem";
 
 export type BlogWithImageItemsProps = WithTheme<{
-  data: Array<
-    WithoutTheme<BlogWithImageItemProps, "includeWrapperBg" | "theme">
-  >;
+  data: Array<WithoutTheme<BlogWithImageItemProps, "includeWrapperBg">>;
 }>;
 
 export function BlogWithImageItems({ data, theme }: BlogWithImageItemsProps) {
