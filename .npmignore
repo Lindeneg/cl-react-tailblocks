@@ -1,8 +1,10 @@
+__mocks__
 .github
 .storybook
 node_modules
 src
 .gitignore
 *.js
+*.ts
 *.json
 yarn.lock
