@@ -1,4 +1,10 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "lib", "**/__stories__", "**/__tests__"]
+  "exclude": [
+    "node_modules",
+    "lib",
+    "**/__stories__",
+    "**/__tests__",
+    "jest-setup.ts"
+  ]
 }
