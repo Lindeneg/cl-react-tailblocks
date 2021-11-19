@@ -6,7 +6,7 @@ export type BlogWithImageItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithImageItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogWithImageItems({ data, theme }: BlogWithImageItemsProps) {
+export function BlogWithImageItems({ data, theme = "light" }: BlogWithImageItemsProps) {
   return (
     <section
       data-testid="blog-with-image-section"

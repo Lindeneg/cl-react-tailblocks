@@ -9,7 +9,7 @@ export type BlogWithAvatarItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithAvatarItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogWithAvatarItems({ data, theme }: BlogWithAvatarItemsProps) {
+export function BlogWithAvatarItems({ data, theme = "light" }: BlogWithAvatarItemsProps) {
   return (
     <section
       data-testid="blog-with-avatar-section"

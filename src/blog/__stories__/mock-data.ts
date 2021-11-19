@@ -1,3 +1,7 @@
+function getDate(i: number) {
+  return new Date("2019-05-" + (i + 1));
+}
+
 const MOCK_AVATARS = [
   {
     imgSrc: "https://dummyimage.com/104x104",
@@ -59,3 +63,14 @@ export const MOCK_ENTRIES_WITH_AVATAR = [MOCK_ENTRIES[0], MOCK_ENTRIES[1]].map(
 );
 
 export const MOCK_ENTRY_WITH_AVATAR = MOCK_ENTRIES_WITH_AVATAR[0];
+
+export const MOCK_ENTRIES_WITH_DATE = MOCK_ENTRIES.map(
+  ({ label, title, content }, i) => ({
+    label,
+    title,
+    content,
+    date: getDate(i),
+  })
+);
+
+export const MOCK_ENTRY_WITH_DATE = MOCK_ENTRIES_WITH_DATE[0];
