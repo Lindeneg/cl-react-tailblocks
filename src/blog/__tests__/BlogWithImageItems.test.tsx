@@ -4,11 +4,11 @@ import {
   BlogWithImageItems,
   BlogWithImageItemsProps,
 } from "../BlogWithImageItems";
-import { MOCK_ENTRIES } from "../__stories__/mock-data";
+import { MOCK_ENTRIES_WITH_IMG } from "../__stories__/mock-data";
 import { getThousands } from "../../util/Stat";
 
 function getEl({
-  data = MOCK_ENTRIES,
+  data = MOCK_ENTRIES_WITH_IMG,
   theme,
 }: Partial<BlogWithImageItemsProps>) {
   return <BlogWithImageItems data={data} theme={theme} />;
@@ -20,7 +20,7 @@ describe("BlogWithImageItems", () => {
     expect(getByTestId("blog-with-image-section")).toHaveClass(
       "body-font text-gray-600"
     );
-    MOCK_ENTRIES.forEach((entry) => {
+    MOCK_ENTRIES_WITH_IMG.forEach((entry) => {
       expect(getByText(entry.title)).toBeDefined();
       expect(getByText(entry.content)).toBeDefined();
       expect(getByText(getThousands(entry.comments))).toBeDefined();
@@ -33,7 +33,7 @@ describe("BlogWithImageItems", () => {
     expect(getByTestId("blog-with-image-section")).toHaveClass(
       "body-font text-gray-400 bg-gray-900"
     );
-    MOCK_ENTRIES.forEach((entry) => {
+    MOCK_ENTRIES_WITH_IMG.forEach((entry) => {
       expect(getByText(entry.title)).toBeDefined();
       expect(getByText(entry.content)).toBeDefined();
       expect(getByText(getThousands(entry.comments))).toBeDefined();

@@ -1,5 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { MOCK_ENTRY } from "./mock-data";
+import { MOCK_ENTRY_WITH_IMG } from "./mock-data";
 import {
   BlogWithImageItem,
   BlogWithImageItemProps,
@@ -21,12 +21,12 @@ const MetaComp: Story<BlogWithImageItemProps> = (args) => (
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  ...MOCK_ENTRY,
+  ...MOCK_ENTRY_WITH_IMG,
   theme: "light",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  ...MOCK_ENTRY,
+  ...MOCK_ENTRY_WITH_IMG,
   theme: "dark",
 };
