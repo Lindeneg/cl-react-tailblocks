@@ -59,7 +59,7 @@ export function BlogWithImageItem({
             {title}
           </h1>
           <p className="leading-relaxed mb-3">{content}</p>
-          <div className="flex items-center content-between flex-wrap">
+          <div className="flex items-center place-content-between flex-wrap">
             {linkNode ? (
               linkNode
             ) : (
