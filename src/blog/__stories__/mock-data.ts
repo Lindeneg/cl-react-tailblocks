@@ -59,3 +59,14 @@ export const MOCK_ENTRIES_WITH_AVATAR = [MOCK_ENTRIES[0], MOCK_ENTRIES[1]].map(
 );
 
 export const MOCK_ENTRY_WITH_AVATAR = MOCK_ENTRIES_WITH_AVATAR[0];
+
+export const MOCK_ENTRIES_WITH_DATE = MOCK_ENTRIES.map(
+  ({ label, title, content }) => ({
+    label,
+    title,
+    content,
+    date: new Date(),
+  })
+);
+
+export const MOCK_ENTRY_WITH_DATE = MOCK_ENTRIES_WITH_DATE[0];
