@@ -22,6 +22,7 @@ export function BlogWithDateItem({
   const isDark = theme === "dark";
   return (
     <div
+      data-testid="blog-date-item-outer"
       className={`py-8 flex flex-wrap md:flex-nowrap ${
         isDark && includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
       }`}
