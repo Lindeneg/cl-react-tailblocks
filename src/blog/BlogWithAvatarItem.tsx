@@ -1,7 +1,8 @@
 import React from "react";
-import { BlogItemProps, LearnMore } from "..";
+import { BlogItemProps } from "./BlogItem";
 import { Avatar, AvatarProps } from "../util/Avatar";
 import { Stat } from "../util/Stat";
+import { LearnMore } from "../util/LearnMore";
 import { WithoutTheme } from "../types";
 
 export type BlogWithAvatarItemProps = BlogItemProps & WithoutTheme<AvatarProps>;
