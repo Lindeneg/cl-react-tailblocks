@@ -2,12 +2,9 @@ import React from "react";
 import { BlogItemProps } from "./BlogItem";
 import { LearnMore } from "../util/LearnMore";
 import { Stat } from "../util/Stat";
-import { WithTheme, WithoutTheme } from "../types";
+import { Image, WithTheme, WithoutTheme } from "../types";
 
-export type BlogWithImageItemProps = WithTheme<{
-  imgSrc: string;
-  imgAlt?: string;
-}> &
+export type BlogWithImageItemProps = WithTheme<Image> &
   WithoutTheme<BlogItemProps>;
 
 export function BlogWithImageItem({
@@ -59,13 +56,13 @@ export function BlogWithImageItem({
             {title}
           </h1>
           <p className="leading-relaxed mb-3">{content}</p>
-          <div className="flex items-center content-between flex-wrap">
+          <div className="flex items-center place-content-between flex-wrap">
             {linkNode ? (
               linkNode
             ) : (
               <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
             )}
-            <div className="mt-2">
+            <div className="mt-2 sm:mt-0">
               <Stat views={views} comments={comments} theme={theme} />
             </div>
           </div>

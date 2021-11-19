@@ -1,5 +1,10 @@
 export type Theme = "light" | "dark";
 
+export type Image = {
+  imgSrc: string;
+  imgAlt?: string;
+};
+
 export type WithTheme<T extends Record<string, unknown>> = T & {
   theme?: Theme;
 };
