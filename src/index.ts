@@ -8,6 +8,8 @@ export { BlogWithImageItem } from "./blog/BlogWithImageItem";
 export { BlogWithImageItems } from "./blog/BlogWithImageItems";
 export { BlogWithAvatarItem } from "./blog/BlogWithAvatarItem";
 export { BlogWithAvatarItems } from "./blog/BlogWithAvatarItems";
+export { BlogWithDateItem } from "./blog/BlogWithDateItem";
+export { BlogWithDateItems } from "./blog/BlogWithDateItems";
 
 export type { Theme, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -20,3 +22,5 @@ export type { BlogWithImageItemProps } from "./blog/BlogWithImageItem";
 export type { BlogWithImageItemsProps } from "./blog/BlogWithImageItems";
 export type { BlogWithAvatarItemProps } from "./blog/BlogWithAvatarItem";
 export type { BlogWithAvatarItemsProps } from "./blog/BlogWithAvatarItems";
+export type { BlogWithDateItemProps } from "./blog/BlogWithDateItem";
+export type { BlogWithDateItemsProps } from "./blog/BlogWithDateItems";
