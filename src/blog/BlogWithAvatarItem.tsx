@@ -22,6 +22,7 @@ export function BlogWithAvatarItem({
   const isDark = theme === "dark";
   return (
     <div
+      data-testid="blog-with-avatar-item-outer"
       className={`p-12 md:w-1/2 flex flex-col items-start ${
         isDark && includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
       }`}
@@ -42,9 +43,10 @@ export function BlogWithAvatarItem({
       </h2>
       <p className="leading-relaxed mb-8">{content}</p>
       <div
+        data-testid="blog-with-avatar-item-inner"
         className={`flex items-baseline sm:items-center sm:flex-row flex-col flex-wrap pb-4 mb-4 border-b-2 border-gray-${
           isDark ? "800" : "100"
-        }  w-full place-content-between`}
+        } w-full place-content-between`}
       >
         {linkNode ? (
           linkNode
