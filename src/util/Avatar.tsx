@@ -22,6 +22,7 @@ export function Avatar({
   return (
     <a className="inline-flex items-center">
       <img
+        data-testid="avatar-image"
         alt={imgAlt}
         src={imgSrc}
         className={`w-${width} h-${height} rounded-full flex-shrink-0 object-cover object-center`}
