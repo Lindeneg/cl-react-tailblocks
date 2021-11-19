@@ -1,13 +1,10 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { MOCK_ENTRY_WITH_IMG } from "./mock-data";
-import {
-  BlogWithImageItem,
-  BlogWithImageItemProps,
-} from "../BlogWithImageItem";
+import { MOCK_ENTRY } from "./mock-data";
+import { BlogItem, BlogItemProps } from "../BlogItem";
 
 export default {
-  title: "Blog/BlogWithImageItem",
-  component: BlogWithImageItem,
+  title: "Blog/BlogItem",
+  component: BlogItem,
   argTypes: {
     linkNode: { control: "none" },
     includeWrapperBg: { control: "none" },
@@ -15,18 +12,16 @@ export default {
   },
 } as Meta;
 
-const MetaComp: Story<BlogWithImageItemProps> = (args) => (
-  <BlogWithImageItem {...args} />
-);
+const MetaComp: Story<BlogItemProps> = (args) => <BlogItem {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  ...MOCK_ENTRY_WITH_IMG,
+  ...MOCK_ENTRY,
   theme: "light",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  ...MOCK_ENTRY_WITH_IMG,
+  ...MOCK_ENTRY,
   theme: "dark",
 };

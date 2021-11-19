@@ -1,6 +1,5 @@
 export const MOCK_ENTRIES = [
   {
-    imgSrc: "https://dummyimage.com/720x400",
     label: "CATEGORY",
     title: "The Catalyzer",
     content:
@@ -9,7 +8,6 @@ export const MOCK_ENTRIES = [
     comments: 6,
   },
   {
-    imgSrc: "https://dummyimage.com/720x400",
     label: "CATEGORY",
     title: "The 400 Blows",
     content:
@@ -18,7 +16,6 @@ export const MOCK_ENTRIES = [
     comments: 256,
   },
   {
-    imgSrc: "https://dummyimage.com/720x400",
     label: "CATEGORY",
     title: "Shooting Stars",
     content:
@@ -29,3 +26,10 @@ export const MOCK_ENTRIES = [
 ];
 
 export const MOCK_ENTRY = MOCK_ENTRIES[0];
+
+export const MOCK_ENTRIES_WITH_IMG = MOCK_ENTRIES.map((e) => ({
+  ...e,
+  imgSrc: "https://dummyimage.com/720x400",
+}));
+
+export const MOCK_ENTRY_WITH_IMG = MOCK_ENTRIES_WITH_IMG[0];
