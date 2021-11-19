@@ -22,3 +22,6 @@ Dark.args = {
   theme: "dark",
   linkText: "Learn More",
 };
+Dark.parameters = {
+  backgrounds: { default: "dark" },
+};

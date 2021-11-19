@@ -21,3 +21,6 @@ Dark.args = {
   views: 1200,
   comments: 6,
 };
+Dark.parameters = {
+  backgrounds: { default: "dark" },
+};
