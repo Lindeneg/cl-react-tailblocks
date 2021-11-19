@@ -12,6 +12,7 @@ export type BlogWithAvatarItemsProps = WithTheme<{
 export function BlogWithAvatarItems({ data, theme }: BlogWithAvatarItemsProps) {
   return (
     <section
+      data-testid="blog-with-avatar-section"
       className={`${
         theme === "dark" ? "text-gray-400 bg-gray-900" : "text-gray-600"
       } body-font overflow-hidden`}
