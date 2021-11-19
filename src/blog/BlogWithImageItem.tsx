@@ -2,12 +2,9 @@ import React from "react";
 import { BlogItemProps } from "./BlogItem";
 import { LearnMore } from "../util/LearnMore";
 import { Stat } from "../util/Stat";
-import { WithTheme, WithoutTheme } from "../types";
+import { Image, WithTheme, WithoutTheme } from "../types";
 
-export type BlogWithImageItemProps = WithTheme<{
-  imgSrc: string;
-  imgAlt?: string;
-}> &
+export type BlogWithImageItemProps = WithTheme<Image> &
   WithoutTheme<BlogItemProps>;
 
 export function BlogWithImageItem({
@@ -65,7 +62,7 @@ export function BlogWithImageItem({
             ) : (
               <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
             )}
-            <div className="mt-2">
+            <div className="mt-2 sm:mt-0">
               <Stat views={views} comments={comments} theme={theme} />
             </div>
           </div>
