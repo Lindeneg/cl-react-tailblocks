@@ -1,5 +1,5 @@
 function getDate(i: number) {
-  return new Date("2019-05-" + i);
+  return new Date("2019-05-" + (i + 1));
 }
 
 const MOCK_AVATARS = [
