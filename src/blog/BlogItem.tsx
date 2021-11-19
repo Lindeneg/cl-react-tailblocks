@@ -28,11 +28,13 @@ export function BlogItem({
   const isDark = theme === "dark";
   return (
     <div
+      data-testid="blog-item-outer"
       className={`p-4 lg:w-1/3 ${
         includeWrapperBg && isDark ? "text-gray-400 bg-gray-900" : ""
       }`}
     >
       <div
+        data-testid="blog-item-inner"
         className={`h-full bg-gray-${
           isDark ? "800" : "100"
         } bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative`}
@@ -52,7 +54,11 @@ export function BlogItem({
           {title}
         </h1>
         <p className="leading-relaxed mb-3">{content}</p>
-        <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
+        {linkNode ? (
+          linkNode
+        ) : (
+          <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
+        )}
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
           <div>
             <Stat comments={comments} views={views} theme={theme} />
