@@ -1,3 +1,20 @@
+const MOCK_AVATARS = [
+  {
+    imgSrc: "https://dummyimage.com/104x104",
+    height: 12,
+    width: 12,
+    name: "Holden Caulfield",
+    role: "DESIGNER",
+  },
+  {
+    imgSrc: "https://dummyimage.com/104x104",
+    height: 12,
+    width: 12,
+    name: "Miles Davis",
+    role: "DEVELOPER",
+  },
+];
+
 export const MOCK_ENTRIES = [
   {
     label: "CATEGORY",
@@ -33,3 +50,12 @@ export const MOCK_ENTRIES_WITH_IMG = MOCK_ENTRIES.map((e) => ({
 }));
 
 export const MOCK_ENTRY_WITH_IMG = MOCK_ENTRIES_WITH_IMG[0];
+
+export const MOCK_ENTRIES_WITH_AVATAR = [MOCK_ENTRIES[0], MOCK_ENTRIES[1]].map(
+  (e, i) => ({
+    ...e,
+    ...MOCK_AVATARS[i],
+  })
+);
+
+export const MOCK_ENTRY_WITH_AVATAR = MOCK_ENTRIES_WITH_AVATAR[0];
