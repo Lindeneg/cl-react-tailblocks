@@ -17,7 +17,7 @@ export function LearnMore({
       onClick={onClick}
       className={getClass(
         theme,
-        "`cursor-pointer inline-flex items-center md:mb-2 lg:mb-0",
+        "cursor-pointer inline-flex items-center md:mb-2 lg:mb-0",
         "text-indigo-500 hover:text-indigo-600",
         "text-indigo-400 hover:text-indigo-500"
       )}

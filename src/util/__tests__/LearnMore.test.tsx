@@ -1,7 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { LearnMore, LearnMoreProps } from "../LearnMore";
-import { getThousands } from "../../util/Stat";
 
 function getEl({ theme, linkText, onClick }: LearnMoreProps) {
   return <LearnMore linkText={linkText} theme={theme} onClick={onClick} />;
