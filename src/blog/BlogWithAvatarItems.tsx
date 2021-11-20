@@ -3,19 +3,22 @@ import {
   BlogWithAvatarItem,
   BlogWithAvatarItemProps,
 } from "./BlogWithAvatarItem";
+import { Section } from "../util/Section";
 import { WithTheme, WithoutTheme } from "../types";
 
 export type BlogWithAvatarItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithAvatarItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogWithAvatarItems({ data, theme = "light" }: BlogWithAvatarItemsProps) {
+export function BlogWithAvatarItems({
+  data,
+  theme = "light",
+}: BlogWithAvatarItemsProps) {
   return (
-    <section
-      data-testid="blog-with-avatar-section"
-      className={`${
-        theme === "dark" ? "text-gray-400 bg-gray-900" : "text-gray-600"
-      } body-font overflow-hidden`}
+    <Section
+      theme={theme}
+      testId="blog-with-avatar-section"
+      extendClass="overflow-hidden"
     >
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-12">
@@ -29,6 +32,6 @@ export function BlogWithAvatarItems({ data, theme = "light" }: BlogWithAvatarIte
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

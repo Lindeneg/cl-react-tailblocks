@@ -1,19 +1,18 @@
 import React from "react";
 import { WithTheme, WithoutTheme } from "../types";
 import { BlogWithImageItem, BlogWithImageItemProps } from "./BlogWithImageItem";
+import { Section } from "../util/Section";
 
 export type BlogWithImageItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithImageItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogWithImageItems({ data, theme = "light" }: BlogWithImageItemsProps) {
+export function BlogWithImageItems({
+  data,
+  theme = "light",
+}: BlogWithImageItemsProps) {
   return (
-    <section
-      data-testid="blog-with-image-section"
-      className={`body-font ${
-        theme === "dark" ? "text-gray-400 bg-gray-900" : "text-gray-600"
-      }`}
-    >
+    <Section theme={theme} testId="blog-with-image-section">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {data.map((entry, idx) => (
@@ -26,6 +25,6 @@ export function BlogWithImageItems({ data, theme = "light" }: BlogWithImageItems
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

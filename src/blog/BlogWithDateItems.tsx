@@ -1,6 +1,7 @@
 import React from "react";
 import { WithoutTheme, WithTheme } from "../types";
 import { BlogWithDateItem, BlogWithDateItemProps } from "./BlogWithDateItem";
+import { Section } from "../util/Section";
 
 export type BlogWithDateItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithDateItemProps, "includeWrapperBg">>;
@@ -12,11 +13,10 @@ export function BlogWithDateItems({
 }: BlogWithDateItemsProps) {
   const isDark = theme === "dark";
   return (
-    <section
-      data-testid="blog-with-date-section"
-      className={`${
-        isDark ? "text-gray-400 bg-gray-900" : "text-gray-600"
-      } body-font overflow-hidden`}
+    <Section
+      theme={theme}
+      testId="blog-with-date-section"
+      extendClass="overflow-hidden"
     >
       <div className="container px-5 py-24 mx-auto">
         <div
@@ -33,6 +33,6 @@ export function BlogWithDateItems({
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
