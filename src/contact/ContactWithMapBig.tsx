@@ -1,37 +1,30 @@
 import React, { useRef } from "react";
 import { Input, TextArea } from "../util/Input";
-import { WithTheme } from "../types";
 import { Button } from "../util/Button";
 import { Section } from "../util/Section";
+import { EmbededMap } from "../util/EmbededMap";
+import { SharedFormProps, ReactInputProps } from "../types";
 
 // TODO stories | tests
 
-export type ContactWithMapBigProps = WithTheme<{
-  label: string;
-  topDescription: string;
-  bottomDescription: string;
-  inputLabel: string;
-  textAreaLabel: string;
-  buttonLabel: string;
-  mapIframeSrc: string;
+export type ContactWithMapBigProps = SharedFormProps & {
   onSubmit: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     inputValue: string,
     textAreaValue: string
   ) => void;
-  inputProps?: {};
-  textAreaProps?: {};
-}>;
+  inputProps?: ReactInputProps;
+};
 
 export function ContactWithMapBig({
   label,
   topDescription,
   bottomDescription,
-  inputLabel,
-  textAreaLabel,
   buttonLabel,
   onSubmit,
   mapIframeSrc,
+  inputProps = {},
+  textAreaProps = {},
   theme = "light",
 }: ContactWithMapBigProps) {
   const isDark = theme === "dark";
@@ -44,17 +37,7 @@ export function ContactWithMapBig({
       extendClass="relative"
     >
       <div className={`absolute inset-0 bg-gray-${isDark ? "900" : "300"}`}>
-        <iframe
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          marginHeight={0}
-          marginWidth={0}
-          title="map"
-          scrolling="no"
-          src={mapIframeSrc}
-          style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
-        />
+        <EmbededMap src={mapIframeSrc} theme={theme} />
       </div>
       <div className="container px-5 py-24 mx-auto flex">
         <div
@@ -69,31 +52,43 @@ export function ContactWithMapBig({
           >
             {label}
           </h2>
-          <p
-            className={`leading-relaxed mb-5 text-gray-${
-              isDark ? "400" : "600"
-            }`}
-          >
-            {topDescription}
-          </p>
+          {topDescription && (
+            <p
+              className={`leading-relaxed mb-5 text-gray-${
+                isDark ? "400" : "600"
+              }`}
+            >
+              {topDescription}
+            </p>
+          )}
           <div className="relative mb-4">
             <Input
+              type="email"
+              id="email"
+              name="email"
+              label="Email"
               elementRef={inputRef}
               theme={theme}
-              label={inputLabel}
               extendClass="w-full leading-8"
+              // overwrite values with user-defined props
+              {...inputProps}
             />
           </div>
           <div className="relative mb-4">
             <TextArea
+              type="text"
+              id="message"
+              name="message"
+              label="Message"
               elementRef={textAreaRef}
               theme={theme}
-              label={textAreaLabel}
               extendClass="w-full h-40 resize-none leading-6"
+              // overwrite values with user-defined props
+              {...textAreaProps}
             />
           </div>
           <Button
-            text={buttonLabel}
+            text={buttonLabel || "Button"}
             onClick={(e) => {
               console.log(
                 inputRef.current?.value || "",
@@ -106,9 +101,11 @@ export function ContactWithMapBig({
               );
             }}
           />
-          <p className={`text-xs text-gray-${isDark ? "400" : "500"} mt-3`}>
-            {bottomDescription}
-          </p>
+          {bottomDescription && (
+            <p className={`text-xs text-gray-${isDark ? "400" : "500"} mt-3`}>
+              {bottomDescription}
+            </p>
+          )}
         </div>
       </div>
     </Section>
