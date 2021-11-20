@@ -1,3 +1,4 @@
+export { getClass, getRefValue } from "./shared";
 export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
 export { Button } from "./util/Button";
