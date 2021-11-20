@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme } from "../types";
+import { getClass } from "../shared";
 
 // TODO stories | tests
 
@@ -24,7 +25,14 @@ export function EmbededMap({
       scrolling="no"
       src={src}
       className={className}
-      style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
+      style={{
+        filter: getClass(
+          theme,
+          "grayscale(1) contrast(1.2)",
+          "opacity(0.4)",
+          "opacity(0.16)"
+        ),
+      }}
     />
   );
 }

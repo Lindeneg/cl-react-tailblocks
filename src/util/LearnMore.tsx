@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme } from "../types";
+import { getClass } from "../shared";
 
 export type LearnMoreProps = WithTheme<{
   onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
@@ -11,15 +12,15 @@ export function LearnMore({
   theme = "light",
   linkText = "Learn More",
 }: LearnMoreProps) {
-  const isDark = theme === "dark";
   return (
     <a
       onClick={onClick}
-      className={`cursor-pointer text-indigo-${
-        isDark ? "400" : "500"
-      } hover:text-indigo-${
-        isDark ? "500" : "600"
-      } inline-flex items-center md:mb-2 lg:mb-0`}
+      className={getClass(
+        theme,
+        "`cursor-pointer inline-flex items-center md:mb-2 lg:mb-0",
+        "text-indigo-500 hover:text-indigo-600",
+        "text-indigo-400 hover:text-indigo-500"
+      )}
     >
       {linkText}
       <svg

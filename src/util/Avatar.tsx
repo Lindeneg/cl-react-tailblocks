@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme, Image } from "../types";
+import { getClass } from "../shared";
 
 export type AvatarProps = WithTheme<{
   height: number;
@@ -18,7 +19,7 @@ export function Avatar({
   theme = "light",
   imgAlt = "avatar-image",
 }: AvatarProps) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   return (
     <a className="inline-flex items-center">
       <img
@@ -29,16 +30,20 @@ export function Avatar({
       />
       <span className="flex-grow flex flex-col pl-4">
         <span
-          className={`title-font font-medium ${
-            isDark ? "text-white" : "text-gray-900"
-          }`}
+          className={cls(
+            "title-font font-medium",
+            "text-gray-900",
+            "text-white"
+          )}
         >
           {name}
         </span>
         <span
-          className={`text-gray-${
-            isDark ? "500" : "400"
-          } text-xs tracking-widest mt-0.5`}
+          className={cls(
+            "text-xs tracking-widest mt-0.5",
+            "text-gray-400",
+            "text-gray-500"
+          )}
         >
           {role}
         </span>

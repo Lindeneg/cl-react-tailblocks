@@ -2,6 +2,7 @@ import React from "react";
 import { BlogItemProps } from "./BlogItem";
 import { LearnMore } from "../util/LearnMore";
 import { WithTheme, WithoutTheme } from "../types";
+import { getClass } from "../shared";
 
 export type BlogWithDateItemProps = WithTheme<{
   date: Date;
@@ -19,19 +20,23 @@ export function BlogWithDateItem({
   theme = "light",
   includeWrapperBg = true,
 }: BlogWithDateItemProps) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   return (
     <div
       data-testid="blog-date-item-outer"
-      className={`py-8 flex flex-wrap md:flex-nowrap ${
-        isDark && includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
-      }`}
+      className={cls(
+        "py-8 flex flex-wrap md:flex-nowrap",
+        "",
+        includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
+      )}
     >
       <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
         <span
-          className={`font-semibold title-font ${
-            isDark ? "text-white" : "text-gray-700"
-          }`}
+          className={cls(
+            "font-semibold title-font",
+            "text-gray-700",
+            "text-white"
+          )}
         >
           {label}
         </span>
@@ -41,9 +46,11 @@ export function BlogWithDateItem({
       </div>
       <div className="md:flex-grow">
         <h2
-          className={`text-2xl font-medium ${
-            isDark ? "text-white" : "text-gray-900"
-          } title-font mb-2`}
+          className={cls(
+            "text-2xl font-medium title-font mb-2",
+            "text-gray-900",
+            "text-white"
+          )}
         >
           {title}
         </h2>
