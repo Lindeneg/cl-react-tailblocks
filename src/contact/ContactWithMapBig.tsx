@@ -4,6 +4,7 @@ import { Button } from "../util/Button";
 import { Section } from "../util/Section";
 import { EmbededMap } from "../util/EmbededMap";
 import { SharedFormProps, ReactInputProps } from "../types";
+import { getClass, getRefValue } from "../shared";
 
 // TODO stories | tests
 
@@ -36,7 +37,14 @@ export function ContactWithMapBig({
       theme={theme}
       extendClass="relative"
     >
-      <div className={`absolute inset-0 bg-gray-${isDark ? "900" : "300"}`}>
+      <div
+        className={getClass(
+          theme,
+          "absolute inset-0",
+          "bg-gray-300",
+          "bg-gray-900"
+        )}
+      >
         <EmbededMap src={mapIframeSrc} theme={theme} />
       </div>
       <div className="container px-5 py-24 mx-auto flex">
@@ -70,7 +78,6 @@ export function ContactWithMapBig({
               elementRef={inputRef}
               theme={theme}
               extendClass="w-full leading-8"
-              // overwrite values with user-defined props
               {...inputProps}
             />
           </div>
@@ -82,23 +89,15 @@ export function ContactWithMapBig({
               label="Message"
               elementRef={textAreaRef}
               theme={theme}
-              extendClass="w-full h-40 resize-none leading-6"
-              // overwrite values with user-defined props
+              extendClass="w-full h-32 resize-none leading-6"
               {...textAreaProps}
             />
           </div>
           <Button
             text={buttonLabel || "Button"}
             onClick={(e) => {
-              console.log(
-                inputRef.current?.value || "",
-                textAreaRef.current?.value || ""
-              );
-              onSubmit(
-                e,
-                inputRef.current?.value || "",
-                textAreaRef.current?.value || ""
-              );
+              console.log(getRefValue(inputRef), getRefValue(textAreaRef));
+              onSubmit(e, getRefValue(inputRef), getRefValue(textAreaRef));
             }}
           />
           {bottomDescription && (

@@ -4,8 +4,9 @@ import { EmbededMap } from "../util/EmbededMap";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
+import { getRefValue } from "../shared";
 
-// TODO stories | tests
+// TODO stories | tests | dark-mode
 
 export type ContactWithMapSmallProps = SharedFormProps & {
   onSubmit: (
@@ -37,6 +38,9 @@ export function ContactWithMapSmall({
   theme = "light",
 }: ContactWithMapSmallProps) {
   const isDark = theme === "dark";
+  const inputTopRef = useRef<HTMLInputElement>(null);
+  const inputBottomRef = useRef<HTMLInputElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <Section
       testId="contact-with-map-small-section"
@@ -50,73 +54,100 @@ export function ContactWithMapSmall({
             theme={theme}
             className="absolute inset-0"
           />
-          <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                Photo booth tattooed prism, portland taiyaki hoodie neutra
-                typewriter
-              </p>
+          {(address || email || phone) && (
+            <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+              {address && (
+                <div className="lg:w-1/2 px-6">
+                  <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                    ADDRESS
+                  </h2>
+                  <p className="mt-1">{address}</p>
+                </div>
+              )}
+              {(email || phone) && (
+                <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                  {email && (
+                    <>
+                      <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                        EMAIL
+                      </h2>
+                      <a className="text-indigo-500 leading-relaxed">{email}</a>
+                    </>
+                  )}
+                  {phone && (
+                    <>
+                      <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
+                        PHONE
+                      </h2>
+                      <p className="leading-relaxed">{phone}</p>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                EMAIL
-              </h2>
-              <a className="text-indigo-500 leading-relaxed">
-                example@email.com
-              </a>
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
-                PHONE
-              </h2>
-              <p className="leading-relaxed">123-456-7890</p>
-            </div>
-          </div>
+          )}
         </div>
         <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-            Feedback
+            {label}
           </h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
-            Post-ironic portland shabby chic echo park, banjo fashion axe
-          </p>
+          {topDescription && (
+            <p className="leading-relaxed mb-5 text-gray-600">
+              Post-ironic portland shabby chic echo park, banjo fashion axe
+            </p>
+          )}
           <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm text-gray-600">
-              Name
-            </label>
-            <input
+            <Input
               type="text"
               id="name"
               name="name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              label="Name"
+              elementRef={inputTopRef}
+              theme={theme}
+              extendClass="w-full leading-8"
+              {...inputTopProps}
             />
           </div>
           <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
+            <Input
               type="email"
               id="email"
               name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              label="Email"
+              elementRef={inputBottomRef}
+              theme={theme}
+              extendClass="w-full leading-8"
+              {...inputBottomProps}
             />
           </div>
           <div className="relative mb-4">
-            <label
-              htmlFor="message"
-              className="leading-7 text-sm text-gray-600"
-            >
-              Message
-            </label>
-            <textarea
+            <TextArea
+              type="text"
               id="message"
               name="message"
-              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-            ></textarea>
+              label="Message"
+              elementRef={textAreaRef}
+              theme={theme}
+              extendClass="w-full h-32 resize-none leading-6"
+              {...textAreaProps}
+            />
           </div>
-          <Button text={buttonLabel || "Button"} onClick={(e) => {}} />
+          <Button
+            text={buttonLabel || "Button"}
+            onClick={(e) => {
+              console.log(
+                getRefValue(inputTopRef),
+                getRefValue(inputBottomRef),
+                getRefValue(textAreaRef)
+              );
+              onSubmit(
+                e,
+                getRefValue(inputTopRef),
+                getRefValue(inputBottomRef),
+                getRefValue(textAreaRef)
+              );
+            }}
+          />
           {bottomDescription && (
             <p className={`text-xs text-gray-${isDark ? "400" : "500"} mt-3`}>
               {bottomDescription}
