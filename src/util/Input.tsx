@@ -1,10 +1,7 @@
 import React from "react";
-import { WithTheme } from "../types";
+import { WithTheme, ReactHTMLInputElementProps } from "../types";
 
 // TODO stories | tests
-
-type ReactHTMLProps<T extends HTMLInputElement | HTMLTextAreaElement> =
-  React.DetailedHTMLProps<React.InputHTMLAttributes<T>, T>;
 
 type BaseProps<T extends "input" | "text-area"> = WithTheme<{
   element: T;
@@ -15,7 +12,9 @@ type BaseProps<T extends "input" | "text-area"> = WithTheme<{
   >;
 }> &
   Omit<
-    ReactHTMLProps<T extends "input" ? HTMLInputElement : HTMLTextAreaElement>,
+    ReactHTMLInputElementProps<
+      T extends "input" ? HTMLInputElement : HTMLTextAreaElement
+    >,
     "className" | "ref"
   >;
 
@@ -42,7 +41,7 @@ function Base<T extends "input" | "text-area">({
       content = (
         <input
           ref={elementRef as React.MutableRefObject<HTMLInputElement>}
-          {...(inputProps as ReactHTMLProps<HTMLInputElement>)}
+          {...(inputProps as ReactHTMLInputElementProps<HTMLInputElement>)}
         />
       );
       break;
@@ -50,7 +49,7 @@ function Base<T extends "input" | "text-area">({
       content = (
         <textarea
           ref={elementRef as React.MutableRefObject<HTMLTextAreaElement>}
-          {...(inputProps as ReactHTMLProps<HTMLTextAreaElement>)}
+          {...(inputProps as ReactHTMLInputElementProps<HTMLTextAreaElement>)}
         />
       );
       break;

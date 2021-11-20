@@ -1,5 +1,27 @@
 export type Theme = "light" | "dark";
 
+export type ReactHTMLInputElementProps<
+  T extends HTMLInputElement | HTMLTextAreaElement
+> = React.DetailedHTMLProps<React.InputHTMLAttributes<T>, T>;
+
+export type ReactInputProps = Omit<
+  ReactHTMLInputElementProps<HTMLInputElement>,
+  "className" | "ref"
+> & { label?: string };
+export type ReactTextAreaProps = Omit<
+  ReactHTMLInputElementProps<HTMLTextAreaElement>,
+  "className" | "ref"
+> & { label?: string };
+
+export type SharedFormProps = WithTheme<{
+  label: string;
+  mapIframeSrc: string;
+  topDescription?: string;
+  bottomDescription?: string;
+  buttonLabel?: string;
+  textAreaProps?: ReactTextAreaProps;
+}>;
+
 export type Image = {
   imgSrc: string;
   imgAlt?: string;
