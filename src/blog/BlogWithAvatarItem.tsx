@@ -4,6 +4,7 @@ import { Avatar, AvatarProps } from "../util/Avatar";
 import { Stat } from "../util/Stat";
 import { LearnMore } from "../util/LearnMore";
 import { WithoutTheme } from "../types";
+import { getClass } from "../shared";
 
 export type BlogWithAvatarItemProps = BlogItemProps & WithoutTheme<AvatarProps>;
 
@@ -20,34 +21,42 @@ export function BlogWithAvatarItem({
   includeWrapperBg = true,
   ...avatarProps
 }: BlogWithAvatarItemProps) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   return (
     <div
       data-testid="blog-with-avatar-item-outer"
-      className={`p-12 md:w-1/2 flex flex-col items-start ${
-        isDark && includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
-      }`}
+      className={cls(
+        "p-12 md:w-1/2 flex flex-col items-start",
+        "",
+        includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
+      )}
     >
       <span
-        className={`inline-block py-1 px-2 rounded ${
-          isDark ? "bg-gray-800 text-gray-400" : "bg-indigo-50 text-indigo-500"
-        } text-xs font-medium tracking-widest`}
+        className={cls(
+          "inline-block py-1 px-2 rounded text-xs font-medium tracking-widest",
+          "bg-indigo-50 text-indigo-500",
+          "bg-gray-800 text-gray-400"
+        )}
       >
         {label}
       </span>
       <h2
-        className={`sm:text-3xl text-2xl title-font font-medium ${
-          isDark ? "text-white" : "text-gray-900"
-        } mt-4 mb-4`}
+        className={cls(
+          "sm:text-3xl text-2xl title-font font-medium mt-4 mb-4",
+          "text-gray-900",
+          "text-white"
+        )}
       >
         {title}
       </h2>
       <p className="leading-relaxed mb-8">{content}</p>
       <div
         data-testid="blog-with-avatar-item-inner"
-        className={`flex items-baseline sm:items-center sm:flex-row flex-col flex-wrap pb-4 mb-4 border-b-2 border-gray-${
-          isDark ? "800" : "100"
-        } w-full place-content-between`}
+        className={cls(
+          "w-full place-content-between flex items-baseline sm:items-center sm:flex-row flex-col flex-wrap pb-4 mb-4 border-b-2",
+          "border-gray-100",
+          "border-gray-800"
+        )}
       >
         {linkNode ? (
           linkNode

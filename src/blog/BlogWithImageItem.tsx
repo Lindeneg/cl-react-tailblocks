@@ -3,6 +3,7 @@ import { BlogItemProps } from "./BlogItem";
 import { LearnMore } from "../util/LearnMore";
 import { Stat } from "../util/Stat";
 import { Image, WithTheme, WithoutTheme } from "../types";
+import { getClass } from "../shared";
 
 export type BlogWithImageItemProps = WithTheme<Image> &
   WithoutTheme<BlogItemProps>;
@@ -21,19 +22,23 @@ export function BlogWithImageItem({
   imgAlt = "blog-with-image-alt",
   includeWrapperBg = true,
 }: BlogWithImageItemProps) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   return (
     <div
       data-testid="blog-with-image-item-outer"
-      className={`p-4 md:w-1/3 ${
-        includeWrapperBg && isDark ? "text-gray-400 bg-gray-900" : ""
-      }`}
+      className={cls(
+        "p-4 md:w-1/3",
+        "",
+        includeWrapperBg ? "text-gray-400 bg-gray-900" : ""
+      )}
     >
       <div
         data-testid="blog-with-image-item-inner"
-        className={`h-full border-2 border-gray-${
-          isDark ? "800" : "200"
-        } border-opacity-60 rounded-lg overflow-hidden`}
+        className={cls(
+          "h-full border-2 border-opacity-60 rounded-lg overflow-hidden",
+          "border-gray-200",
+          "border-gray-800"
+        )}
       >
         <img
           className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -42,16 +47,20 @@ export function BlogWithImageItem({
         />
         <div className="p-6">
           <h2
-            className={`tracking-widest text-xs title-font font-medium text-gray-${
-              isDark ? "500" : "400"
-            } mb-1`}
+            className={cls(
+              "tracking-widest text-xs title-font font-medium mb-1",
+              "text-gray-400",
+              "text-gray-500"
+            )}
           >
             {label}
           </h2>
           <h1
-            className={`title-font text-lg font-medium ${
-              isDark ? "text-white" : "text-gray-900"
-            } mb-3`}
+            className={cls(
+              "title-font text-lg font-medium mb-3",
+              "text-gray-900",
+              "text-white"
+            )}
           >
             {title}
           </h1>

@@ -4,7 +4,7 @@ import { EmbededMap } from "../util/EmbededMap";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
-import { getRefValue } from "../shared";
+import { getClass, getRefValue } from "../shared";
 
 // TODO stories | tests | dark-mode
 
@@ -37,6 +37,7 @@ export function ContactWithMapSmall({
   textAreaProps = {},
   theme = "light",
 }: ContactWithMapSmallProps) {
+  const cls = getClass.bind(null, theme);
   const isDark = theme === "dark";
   const inputTopRef = useRef<HTMLInputElement>(null);
   const inputBottomRef = useRef<HTMLInputElement>(null);

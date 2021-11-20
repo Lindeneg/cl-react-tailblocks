@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme } from "../types";
+import { getClass } from "../shared";
 
 export function getThousands(target: number) {
   if (target >= 1000) {
@@ -13,17 +14,19 @@ export type StatProps = WithTheme<{
   comments?: number | null;
 }>;
 
-export function Stat({ views, comments, theme }: StatProps) {
-  const isDark = theme === "dark";
+export function Stat({ views, comments, theme = "light" }: StatProps) {
   return (
     <>
       {typeof views === "number" && typeof comments === "number" && (
         <>
           <span
             data-testid="stat-views-span"
-            className={`mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 text-gray-400 border-gray-${
-              isDark ? "800" : "200"
-            }`}
+            className={getClass(
+              theme,
+              "mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 text-gray-400",
+              "border-gray-200",
+              "border-gray-800"
+            )}
           >
             <svg
               className="w-4 h-4 mr-1"

@@ -28,7 +28,7 @@ export function ContactWithMapBig({
   textAreaProps = {},
   theme = "light",
 }: ContactWithMapBigProps) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   const inputRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
@@ -37,34 +37,33 @@ export function ContactWithMapBig({
       theme={theme}
       extendClass="relative"
     >
-      <div
-        className={getClass(
-          theme,
-          "absolute inset-0",
-          "bg-gray-300",
-          "bg-gray-900"
-        )}
-      >
+      <div className={cls("absolute inset-0", "bg-gray-300", "bg-gray-900")}>
         <EmbededMap src={mapIframeSrc} theme={theme} />
       </div>
       <div className="container px-5 py-24 mx-auto flex">
         <div
-          className={`lg:w-1/3 md:w-1/2 ${
-            isDark ? "bg-gray-900" : "bg-white"
-          } rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md`}
+          className={cls(
+            "lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md",
+            "bg-white",
+            "bg-gray-900"
+          )}
         >
           <h2
-            className={`${
-              isDark ? "text-white" : "text-gray-900"
-            } text-lg mb-1 font-medium title-font`}
+            className={cls(
+              "text-lg mb-1 font-medium title-font",
+              "text-gray-900",
+              "text-white"
+            )}
           >
             {label}
           </h2>
           {topDescription && (
             <p
-              className={`leading-relaxed mb-5 text-gray-${
-                isDark ? "400" : "600"
-              }`}
+              className={cls(
+                "leading-relaxed mb-5",
+                "text-gray-600",
+                "text-gray-400"
+              )}
             >
               {topDescription}
             </p>
@@ -101,7 +100,9 @@ export function ContactWithMapBig({
             }}
           />
           {bottomDescription && (
-            <p className={`text-xs text-gray-${isDark ? "400" : "500"} mt-3`}>
+            <p
+              className={cls("text-xs mt-3", "text-gray-500", "text-gray-400")}
+            >
               {bottomDescription}
             </p>
           )}

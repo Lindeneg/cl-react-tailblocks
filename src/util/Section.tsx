@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme } from "../types";
+import { getClass } from "../shared";
 
 // TODO stories | tests
 
@@ -18,9 +19,12 @@ export function Section({
   return (
     <section
       data-testid={testId}
-      className={`${
-        theme === "dark" ? "text-gray-400 bg-gray-900" : "text-gray-600"
-      } body-font ${extendClass}`}
+      className={getClass(
+        theme,
+        `body-font ${extendClass}`,
+        "text-gray-600",
+        "text-gray-400 bg-gray-900"
+      )}
     >
       {children}
     </section>

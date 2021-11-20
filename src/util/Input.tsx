@@ -1,5 +1,6 @@
 import React from "react";
 import { WithTheme, ReactHTMLInputElementProps } from "../types";
+import { getClass } from "../shared";
 
 // TODO stories | tests
 
@@ -26,14 +27,14 @@ function Base<T extends "input" | "text-area">({
   theme = "light",
   ...props
 }: BaseProps<T>) {
-  const isDark = theme === "dark";
+  const cls = getClass.bind(null, theme);
   const inputProps = {
     ...props,
-    className: `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-indigo-500 transition-colors duration-200 ease-in-out ${
-      isDark
-        ? "bg-gray-800 border-gray-700 focus:ring-indigo-900 text-gray-100"
-        : "bg-white border-gray-300 focus:ring-indigo-200 text-gray-700"
-    } ${extendClass}`,
+    className: cls(
+      `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-indigo-500 transition-colors duration-200 ease-in-out ${extendClass}`,
+      "bg-white border-gray-300 focus:ring-indigo-200 text-gray-700",
+      "bg-gray-800 border-gray-700 focus:ring-indigo-900 text-gray-100"
+    ),
   };
   let content: JSX.Element | null;
   switch (element) {
@@ -61,7 +62,7 @@ function Base<T extends "input" | "text-area">({
     <>
       <label
         htmlFor={label}
-        className={`leading-7 text-sm text-gray-${isDark ? "400" : "600"}`}
+        className={cls("leading-7 text-sm", "text-gray-600", "text-gray-400")}
       >
         {label}
       </label>
