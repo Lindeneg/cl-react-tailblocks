@@ -10,15 +10,19 @@ type BaseProps<T extends "input" | "text-area"> = WithTheme<{
   element: T;
   label: string;
   extendClass?: string;
+  elementRef?: React.MutableRefObject<
+    HTMLInputElement | HTMLTextAreaElement | null
+  >;
 }> &
   Omit<
     ReactHTMLProps<T extends "input" ? HTMLInputElement : HTMLTextAreaElement>,
-    "className"
+    "className" | "ref"
   >;
 
 function Base<T extends "input" | "text-area">({
   element,
   label,
+  elementRef,
   extendClass = "",
   theme = "light",
   ...props
@@ -35,11 +39,19 @@ function Base<T extends "input" | "text-area">({
   let content: JSX.Element | null;
   switch (element) {
     case "input":
-      content = <input {...(inputProps as ReactHTMLProps<HTMLInputElement>)} />;
+      content = (
+        <input
+          ref={elementRef as React.MutableRefObject<HTMLInputElement>}
+          {...(inputProps as ReactHTMLProps<HTMLInputElement>)}
+        />
+      );
       break;
     case "text-area":
       content = (
-        <textarea {...(inputProps as ReactHTMLProps<HTMLTextAreaElement>)} />
+        <textarea
+          ref={elementRef as React.MutableRefObject<HTMLTextAreaElement>}
+          {...(inputProps as ReactHTMLProps<HTMLTextAreaElement>)}
+        />
       );
       break;
     default:
@@ -55,7 +67,6 @@ function Base<T extends "input" | "text-area">({
         {label}
       </label>
       {content}
-      <input />
     </>
   );
 }
