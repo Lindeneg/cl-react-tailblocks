@@ -9,7 +9,7 @@ export type ContentAItemsProps = WithTheme<{
   label: string;
   title: string;
   description: string;
-  data: Array<WithoutTheme<ContentAItemProps, "theme">>;
+  data: Array<WithoutTheme<ContentAItemProps>>;
 }> &
   Pick<ButtonProps, "onClick">;
 

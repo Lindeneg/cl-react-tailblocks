@@ -22,6 +22,7 @@ export function ContentAItem({
   const cls = getClass.bind(null, theme);
   return (
     <div
+      data-testid="content-a-item-div"
       className={cls(
         "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-opacity-60",
         "border-gray-200",
