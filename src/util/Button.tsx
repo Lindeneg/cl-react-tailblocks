@@ -1,12 +1,12 @@
 import React from "react";
-import { Color } from "../types";
+import { ThemeColor } from "../types";
 
 export type ButtonProps = {
   text: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   overrideClass?: string;
   extendClass?: string;
-  color?: Color;
+  color?: ThemeColor;
 };
 
 export function Button({

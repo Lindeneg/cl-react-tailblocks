@@ -73,7 +73,7 @@ export function Base<T extends "input" | "text-area">({
 }
 
 export type InputProps = Omit<BaseProps<"input">, "element" | "color"> & {
-  themeColor: ThemeColor;
+  themeColor?: ThemeColor;
 };
 
 export function Input({ themeColor, ...props }: InputProps) {
@@ -84,7 +84,7 @@ export type TextAreaProps = Omit<
   BaseProps<"text-area">,
   "element" | "color"
 > & {
-  themeColor: ThemeColor;
+  themeColor?: ThemeColor;
 };
 
 export function TextArea({ themeColor, ...props }: TextAreaProps) {
