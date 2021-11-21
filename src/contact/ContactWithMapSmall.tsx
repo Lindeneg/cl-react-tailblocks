@@ -6,7 +6,7 @@ import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests | dark-mode
+// TODO stories | tests
 
 export type ContactWithMapSmallProps = SharedFormProps & {
   onSubmit: (
@@ -38,7 +38,6 @@ export function ContactWithMapSmall({
   theme = "light",
 }: ContactWithMapSmallProps) {
   const cls = getClass.bind(null, theme);
-  const isDark = theme === "dark";
   const inputTopRef = useRef<HTMLInputElement>(null);
   const inputBottomRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -49,17 +48,35 @@ export function ContactWithMapSmall({
       extendClass="relative"
     >
       <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <div
+          className={cls(
+            "lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative",
+            "bg-gray-300",
+            "bg-gray-900"
+          )}
+        >
           <EmbededMap
             src={mapIframeSrc}
             theme={theme}
             className="absolute inset-0"
           />
           {(address || email || phone) && (
-            <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+            <div
+              className={cls(
+                "relative flex flex-wrap py-6 rounded shadow-md",
+                "bg-white",
+                "bg-gray-900"
+              )}
+            >
               {address && (
                 <div className="lg:w-1/2 px-6">
-                  <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                  <h2
+                    className={cls(
+                      "title-font font-semibold tracking-widest text-xs",
+                      "text-gray-900",
+                      "text-white"
+                    )}
+                  >
                     ADDRESS
                   </h2>
                   <p className="mt-1">{address}</p>
@@ -69,15 +86,35 @@ export function ContactWithMapSmall({
                 <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                   {email && (
                     <>
-                      <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
+                      <h2
+                        className={cls(
+                          "title-font font-semibold tracking-widest text-xs",
+                          "text-gray-900",
+                          "text-white"
+                        )}
+                      >
                         EMAIL
                       </h2>
-                      <a className="text-indigo-500 leading-relaxed">{email}</a>
+                      <a
+                        className={cls(
+                          "leading-relaxed",
+                          "text-indigo-500",
+                          "text-indigo-400"
+                        )}
+                      >
+                        {email}
+                      </a>
                     </>
                   )}
                   {phone && (
                     <>
-                      <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
+                      <h2
+                        className={cls(
+                          "title-font font-semibold tracking-widest text-xs mt-4",
+                          "text-gray-900",
+                          "text-white"
+                        )}
+                      >
                         PHONE
                       </h2>
                       <p className="leading-relaxed">{phone}</p>
@@ -88,12 +125,24 @@ export function ContactWithMapSmall({
             </div>
           )}
         </div>
-        <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+        <div
+          className={cls(
+            "lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0",
+            "bg-white",
+            ""
+          )}
+        >
+          <h2
+            className={cls(
+              "text-lg mb-1 font-medium title-font",
+              "text-gray-900",
+              "text-white"
+            )}
+          >
             {label}
           </h2>
           {topDescription && (
-            <p className="leading-relaxed mb-5 text-gray-600">
+            <p className={cls("leading-relaxed mb-5", "text-gray-600", "")}>
               Post-ironic portland shabby chic echo park, banjo fashion axe
             </p>
           )}
@@ -150,7 +199,9 @@ export function ContactWithMapSmall({
             }}
           />
           {bottomDescription && (
-            <p className={`text-xs text-gray-${isDark ? "400" : "500"} mt-3`}>
+            <p
+              className={cls("text-xs mt-3", "text-gray-500", "text-gray-400")}
+            >
               {bottomDescription}
             </p>
           )}
