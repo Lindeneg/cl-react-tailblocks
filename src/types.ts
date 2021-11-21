@@ -1,5 +1,14 @@
 export type Theme = "light" | "dark";
 
+export type Color =
+  | "indigo"
+  | "yellow"
+  | "red"
+  | "purple"
+  | "pink"
+  | "blue"
+  | "green";
+
 export type ReactHTMLInputElementProps<
   T extends HTMLInputElement | HTMLTextAreaElement
 > = React.DetailedHTMLProps<React.InputHTMLAttributes<T>, T>;
@@ -29,9 +38,10 @@ export type Image = {
 
 export type WithTheme<T extends Record<string, unknown>> = T & {
   theme?: Theme;
+  color?: Color;
 };
 
 export type WithoutTheme<
   T extends Record<string, unknown>,
   K extends keyof T = ""
-> = Omit<T, "theme" | K>;
+> = Omit<T, "theme" | "color" | K>;
