@@ -17,6 +17,7 @@ const MetaComp: Story<ContactWithSocialsProps> = (args) => (
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
+  color: "indigo",
   label: "Contact Us",
   description:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.",
@@ -35,6 +36,7 @@ Light.args = {
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
+  color: "indigo",
   label: "Contact Us",
   description:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.",

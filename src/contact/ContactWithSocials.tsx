@@ -36,6 +36,7 @@ export function ContactWithSocials({
   inputLeftProps = {},
   textAreaProps = {},
   theme = "light",
+  color = "indigo",
   ...socials
 }: ContactWithSocialsProps) {
   const cls = getClass.bind(null, theme);
@@ -74,6 +75,7 @@ export function ContactWithSocials({
                   label="Name"
                   elementRef={inputLeftRef}
                   theme={theme}
+                  themeColor={color}
                   extendClass="w-full leading-8"
                   {...inputLeftProps}
                 />
@@ -88,6 +90,7 @@ export function ContactWithSocials({
                   label="Email"
                   elementRef={inputRightRef}
                   theme={theme}
+                  themeColor={color}
                   extendClass="w-full leading-8"
                   {...inputRightrops}
                 />
@@ -102,6 +105,7 @@ export function ContactWithSocials({
                   label="Message"
                   elementRef={textAreaRef}
                   theme={theme}
+                  themeColor={color}
                   extendClass="w-full h-32 resize-none leading-6"
                   {...textAreaProps}
                 />
@@ -109,6 +113,7 @@ export function ContactWithSocials({
             </div>
             <div className="p-2 w-full">
               <Button
+                color={color}
                 text={buttonLabel || "Button"}
                 extendClass="flex mx-auto"
                 onClick={(e) => {
@@ -129,7 +134,9 @@ export function ContactWithSocials({
               )}
             >
               {email && (
-                <a className={cls("", "text-indigo-500", "text-indigo-400")}>
+                <a
+                  className={cls("", `text-${color}-500`, `text-${color}-400`)}
+                >
                   {email}
                 </a>
               )}

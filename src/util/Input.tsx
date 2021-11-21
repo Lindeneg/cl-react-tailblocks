@@ -1,8 +1,8 @@
 import React from "react";
-import { WithTheme, ReactHTMLInputElementProps } from "../types";
+import { WithTheme, ReactHTMLInputElementProps, ThemeColor } from "../types";
 import { getClass } from "../shared";
 
-type BaseProps<T extends "input" | "text-area"> = WithTheme<{
+export type BaseProps<T extends "input" | "text-area"> = WithTheme<{
   element: T;
   label: string;
   extendClass?: string;
@@ -14,24 +14,25 @@ type BaseProps<T extends "input" | "text-area"> = WithTheme<{
     ReactHTMLInputElementProps<
       T extends "input" ? HTMLInputElement : HTMLTextAreaElement
     >,
-    "className" | "ref"
+    "className" | "ref" | "color"
   >;
 
-function Base<T extends "input" | "text-area">({
+export function Base<T extends "input" | "text-area">({
   element,
   label,
   elementRef,
   extendClass = "",
   theme = "light",
+  color = "indigo",
   ...props
 }: BaseProps<T>) {
   const cls = getClass.bind(null, theme);
   const inputProps = {
     ...props,
     className: cls(
-      `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-indigo-500 transition-colors duration-200 ease-in-out ${extendClass}`,
-      "bg-white border-gray-300 focus:ring-indigo-200 text-gray-700",
-      "bg-gray-800 border-gray-700 focus:ring-indigo-900 text-gray-100"
+      `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-${color}-500 transition-colors duration-200 ease-in-out ${extendClass}`,
+      `bg-white border-gray-300 focus:ring-${color}-200 text-gray-700`,
+      `bg-gray-800 border-gray-700 focus:ring-${color}-900 text-gray-100`
     ),
   };
   let content: JSX.Element | null;
@@ -71,14 +72,21 @@ function Base<T extends "input" | "text-area">({
   );
 }
 
-export type InputProps = Omit<BaseProps<"input">, "element">;
+export type InputProps = Omit<BaseProps<"input">, "element" | "color"> & {
+  themeColor?: ThemeColor;
+};
 
-export function Input(props: InputProps) {
-  return <Base {...props} element="input" />;
+export function Input({ themeColor, ...props }: InputProps) {
+  return <Base {...props} color={themeColor} element="input" />;
 }
 
-export type TextAreaProps = Omit<BaseProps<"text-area">, "element">;
+export type TextAreaProps = Omit<
+  BaseProps<"text-area">,
+  "element" | "color"
+> & {
+  themeColor?: ThemeColor;
+};
 
-export function TextArea(props: TextAreaProps) {
-  return <Base {...props} element="text-area" />;
+export function TextArea({ themeColor, ...props }: TextAreaProps) {
+  return <Base {...props} color={themeColor} element="text-area" />;
 }

@@ -1,28 +1,29 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { LearnMore, LearnMoreProps } from "../LearnMore";
+import { MOCK_DATA_A_ENTRY } from "./mock-data";
+import { ContentAItem, ContentAItemProps } from "../ContentAItem";
 
 export default {
-  title: "Util/LearnMore",
-  component: LearnMore,
+  title: "Content/ContentAItem",
+  component: ContentAItem,
   argTypes: {
-    onClick: { action: "onClick" },
+    linkNode: { control: "none" },
   },
 } as Meta;
 
-const MetaComp: Story<LearnMoreProps> = (args) => <LearnMore {...args} />;
+const MetaComp: Story<ContentAItemProps> = (args) => <ContentAItem {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {
+  ...MOCK_DATA_A_ENTRY,
   theme: "light",
   color: "indigo",
-  linkText: "Learn More",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
+  ...MOCK_DATA_A_ENTRY,
   theme: "dark",
   color: "indigo",
-  linkText: "Learn More",
 };
 Dark.parameters = {
   backgrounds: { default: "dark" },

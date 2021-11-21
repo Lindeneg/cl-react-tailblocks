@@ -24,6 +24,7 @@ export function BlogItem({
   views,
   onClick,
   theme = "light",
+  color = "indigo",
   includeWrapperBg = true,
 }: BlogItemProps) {
   const cls = getClass.bind(null, theme);
@@ -66,11 +67,21 @@ export function BlogItem({
         {linkNode ? (
           linkNode
         ) : (
-          <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
+          <LearnMore
+            onClick={onClick}
+            theme={theme}
+            color={color}
+            linkText={linkText}
+          />
         )}
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
           <div>
-            <Stat comments={comments} views={views} theme={theme} />
+            <Stat
+              comments={comments}
+              views={views}
+              theme={theme}
+              color={color}
+            />
           </div>
         </div>
       </div>

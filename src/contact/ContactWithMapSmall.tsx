@@ -34,6 +34,7 @@ export function ContactWithMapSmall({
   inputBottomProps = {},
   textAreaProps = {},
   theme = "light",
+  color = "indigo",
 }: ContactWithMapSmallProps) {
   const cls = getClass.bind(null, theme);
   const inputTopRef = useRef<HTMLInputElement>(null);
@@ -98,8 +99,8 @@ export function ContactWithMapSmall({
                       <a
                         className={cls(
                           "leading-relaxed",
-                          "text-indigo-500",
-                          "text-indigo-400"
+                          `text-${color}-500`,
+                          `text-${color}-400`
                         )}
                       >
                         {email}
@@ -154,6 +155,7 @@ export function ContactWithMapSmall({
               label="Name"
               elementRef={inputTopRef}
               theme={theme}
+              themeColor={color}
               extendClass="w-full leading-8"
               {...inputTopProps}
             />
@@ -166,6 +168,7 @@ export function ContactWithMapSmall({
               label="Email"
               elementRef={inputBottomRef}
               theme={theme}
+              themeColor={color}
               extendClass="w-full leading-8"
               {...inputBottomProps}
             />
@@ -178,11 +181,13 @@ export function ContactWithMapSmall({
               label="Message"
               elementRef={textAreaRef}
               theme={theme}
+              themeColor={color}
               extendClass="w-full h-32 resize-none leading-6"
               {...textAreaProps}
             />
           </div>
           <Button
+            color={color}
             text={buttonLabel || "Button"}
             onClick={(e) => {
               onSubmit(

@@ -10,6 +10,7 @@ export type LearnMoreProps = WithTheme<{
 export function LearnMore({
   onClick,
   theme = "light",
+  color = "indigo",
   linkText = "Learn More",
 }: LearnMoreProps) {
   return (
@@ -18,8 +19,8 @@ export function LearnMore({
       className={getClass(
         theme,
         "cursor-pointer inline-flex items-center md:mb-2 lg:mb-0",
-        "text-indigo-500 hover:text-indigo-600",
-        "text-indigo-400 hover:text-indigo-500"
+        `text-${color}-500 hover:text-${color}-600`,
+        `text-${color}-400 hover:text-${color}-500`
       )}
     >
       {linkText}

@@ -18,8 +18,10 @@ export { BlogWithDateItems } from "./blog/BlogWithDateItems";
 export { ContactWithMapBig } from "./contact/ContactWithMapBig";
 export { ContactWithMapSmall } from "./contact/ContactWithMapSmall";
 export { ContactWithSocials } from "./contact/ContactWithSocials";
+export { ContentAItem } from "./content/ContentAItem";
+export { ContentAItems } from "./content/ContentAItems";
 
-export type { Theme, WithTheme, WithoutTheme } from "./types";
+export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
 export type { StatProps } from "./util/Stat";
 export type { ButtonProps } from "./util/Button";
@@ -39,3 +41,5 @@ export type { BlogWithDateItemsProps } from "./blog/BlogWithDateItems";
 export type { ContactWithMapBigProps } from "./contact/ContactWithMapBig";
 export type { ContactWithMapSmallProps } from "./contact/ContactWithMapSmall";
 export type { ContactWithSocialsProps } from "./contact/ContactWithSocials";
+export type { ContentAItemProps } from "./content/ContentAItem";
+export type { ContentAItemsProps } from "./content/ContentAItems";

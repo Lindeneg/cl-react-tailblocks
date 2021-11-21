@@ -23,10 +23,12 @@ export const Light = MetaComp.bind({});
 Light.args = {
   ...MOCK_ENTRY_WITH_IMG,
   theme: "light",
+  color: "indigo",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
   ...MOCK_ENTRY_WITH_IMG,
   theme: "dark",
+  color: "indigo",
 };

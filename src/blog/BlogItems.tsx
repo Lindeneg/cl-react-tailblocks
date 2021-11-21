@@ -7,7 +7,11 @@ export type BlogItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogItems({ data, theme = "light" }: BlogItemsProps) {
+export function BlogItems({
+  data,
+  theme = "light",
+  color = "indigo",
+}: BlogItemsProps) {
   return (
     <Section theme={theme} testId="blog-items-section">
       <div className="container px-5 py-24 mx-auto">
@@ -16,6 +20,7 @@ export function BlogItems({ data, theme = "light" }: BlogItemsProps) {
             <BlogItem
               {...entry}
               theme={theme}
+              color={color}
               includeWrapperBg={false}
               key={entry.label + idx}
             />

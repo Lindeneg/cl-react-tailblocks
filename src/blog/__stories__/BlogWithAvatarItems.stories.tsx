@@ -24,6 +24,7 @@ Light.args = {
     },
   })),
   theme: "light",
+  color: "indigo",
 };
 
 export const Dark = MetaComp.bind({});
@@ -35,4 +36,5 @@ Dark.args = {
     },
   })),
   theme: "dark",
+  color: "indigo",
 };

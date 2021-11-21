@@ -11,6 +11,7 @@ export type BlogWithDateItemsProps = WithTheme<{
 export function BlogWithDateItems({
   data,
   theme = "light",
+  color = "indigo",
 }: BlogWithDateItemsProps) {
   return (
     <Section
@@ -32,6 +33,7 @@ export function BlogWithDateItems({
             <BlogWithDateItem
               {...entry}
               theme={theme}
+              color={color}
               includeWrapperBg={false}
               key={entry.label + idx}
             />

@@ -18,6 +18,7 @@ export function BlogWithDateItem({
   linkText,
   onClick,
   theme = "light",
+  color = "indigo",
   includeWrapperBg = true,
 }: BlogWithDateItemProps) {
   const cls = getClass.bind(null, theme);
@@ -59,7 +60,12 @@ export function BlogWithDateItem({
           linkNode
         ) : (
           <div className="mt-4">
-            <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
+            <LearnMore
+              onClick={onClick}
+              theme={theme}
+              color={color}
+              linkText={linkText}
+            />
           </div>
         )}
       </div>
