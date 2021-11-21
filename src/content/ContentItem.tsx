@@ -41,8 +41,8 @@ export function ContentItem({
       <p
         className={cls(
           "leading-relaxed text-base mb-4",
-          "text-gray-900",
-          "text-gray-300"
+          "text-gray-600",
+          "text-gray-400"
         )}
       >
         {description}

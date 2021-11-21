@@ -1,13 +1,13 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { ContentItems, ContentItemsProps } from "../ContentItems";
-import { MOCK_DATA_A_ENTRIES } from "../__stories__/mock-data";
+import { MOCK_DATA_PLAIN_ENTRIES } from "../__stories__/mock-data";
 
 function getEl({
   label = "some label",
   description = "some description",
   title = "some title",
-  data = MOCK_DATA_A_ENTRIES,
+  data = MOCK_DATA_PLAIN_ENTRIES,
   onClick = () => {},
   ...props
 }: Partial<ContentItemsProps>) {
@@ -36,7 +36,7 @@ describe("ContentItems", () => {
       "sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
     );
     expect(getByText("some description")).toBeDefined();
-    MOCK_DATA_A_ENTRIES.forEach((entry) => {
+    MOCK_DATA_PLAIN_ENTRIES.forEach((entry) => {
       expect(getByText(entry.description)).toBeDefined();
       expect(getByText(entry.label)).toBeDefined();
     });
@@ -54,7 +54,7 @@ describe("ContentItems", () => {
       "sm:text-3xl text-2xl font-medium title-font mb-4 text-white"
     );
     expect(getByText("some description")).toBeDefined();
-    MOCK_DATA_A_ENTRIES.forEach((entry) => {
+    MOCK_DATA_PLAIN_ENTRIES.forEach((entry) => {
       expect(getByText(entry.description)).toBeDefined();
       expect(getByText(entry.label)).toBeDefined();
     });
