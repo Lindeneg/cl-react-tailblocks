@@ -1,19 +1,19 @@
 import React from "react";
-import { ContentAItem, ContentAItemProps } from "./ContentAItem";
+import { ContentItem, ContentItemProps } from "./ContentItem";
 import { Button, ButtonProps } from "../util/Button";
 import { Section } from "../util/Section";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
-export type ContentAItemsProps = WithTheme<{
+export type ContentItemsProps = WithTheme<{
   label: string;
   title: string;
   description: string;
-  data: Array<WithoutTheme<ContentAItemProps>>;
+  data: Array<WithoutTheme<ContentItemProps>>;
 }> &
   Pick<ButtonProps, "onClick">;
 
-export function ContentAItems({
+export function ContentItems({
   data,
   label,
   title,
@@ -21,7 +21,7 @@ export function ContentAItems({
   onClick,
   theme = "light",
   color = "indigo",
-}: ContentAItemsProps) {
+}: ContentItemsProps) {
   const cls = getClass.bind(null, theme);
   return (
     <Section
@@ -55,12 +55,7 @@ export function ContentAItems({
         </div>
         <div className="flex flex-wrap">
           {data.map((e, i) => (
-            <ContentAItem
-              {...e}
-              color={color}
-              key={e.label + i}
-              theme={theme}
-            />
+            <ContentItem {...e} color={color} key={e.label + i} theme={theme} />
           ))}
         </div>
         <Button

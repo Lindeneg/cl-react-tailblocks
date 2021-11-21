@@ -1,23 +1,21 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { action } from "@storybook/addon-actions";
-import { MOCK_DATA_A_ENTRIES } from "./mock-data";
-import { ContentAItems, ContentAItemsProps } from "../ContentAItems";
+import { MOCK_DATA_PLAIN_ENTRIES } from "./mock-data";
+import { ContentItems, ContentItemsProps } from "../ContentItems";
 
 export default {
-  title: "Content/ContentAItems",
-  component: ContentAItems,
+  title: "Content/ContentItems",
+  component: ContentItems,
   argTypes: {
     onClick: { action: "onClick" },
   },
 } as Meta;
 
-const MetaComp: Story<ContentAItemsProps> = (args) => (
-  <ContentAItems {...args} />
-);
+const MetaComp: Story<ContentItemsProps> = (args) => <ContentItems {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  data: MOCK_DATA_A_ENTRIES.map((e) => ({
+  data: MOCK_DATA_PLAIN_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
       action("onLearnMore")(e);
@@ -33,7 +31,7 @@ Light.args = {
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  data: MOCK_DATA_A_ENTRIES.map((e) => ({
+  data: MOCK_DATA_PLAIN_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
       action("onLearnMore")(e);
