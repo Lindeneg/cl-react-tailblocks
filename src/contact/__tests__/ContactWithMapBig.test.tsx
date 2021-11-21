@@ -1,5 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import {
   ContactWithMapBig,
   ContactWithMapBigProps,
@@ -63,11 +64,19 @@ describe("ContactWithMapBig", () => {
     );
   });
   test("handles onClick", () => {
-    const fn = jest.fn();
-    const { getByText } = render(getEl({ onSubmit: fn }));
+    const results = { i: "", j: "" };
+    const fn = jest.fn((_, i, j) => {
+      results.i = i;
+      results.j = j;
+    });
+    const { getByText, getByTestId } = render(getEl({ onSubmit: fn }));
 
+    userEvent.type(getByTestId("input-test-id"), "hello");
+    userEvent.type(getByTestId("texarea-test-id"), "some message");
     fireEvent.click(getByText("Button"));
 
     expect(fn).toHaveBeenCalledTimes(1);
+    expect(results.i).toEqual("hello");
+    expect(results.j).toEqual("some message");
   });
 });
