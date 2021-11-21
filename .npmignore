@@ -8,3 +8,4 @@ src
 *.ts
 *.json
 yarn.lock
+test.template
