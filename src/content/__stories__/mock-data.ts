@@ -101,3 +101,11 @@ export const MOCK_DATA_ICON_ENTRIES: {
   },
 ];
 export const MOCK_DATA_ICON_ENTRY = MOCK_DATA_ICON_ENTRIES[0];
+
+export const MOCK_AVATAR_AND_IMAGE_ENTRY = {
+  title: "Phoebe Caulfield",
+  description:
+    "Raclette knausgaard hella meggs normcore williamsburg enamel pin sartorial venmo tbh hot chicken gentrify portland.",
+  content: `Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party. Locavore small batch listicle gastropub farm-to-table lumbersexual salvia messenger bag. Coloring book flannel truffaut craft beer drinking vinegar sartorial, disrupt fashion axe normcore meh butcher. Portland 90's scenester vexillologist forage post-ironic asymmetrical, chartreuse disrupt butcher paleo intelligentsia pabst before they sold out four loko. 3 wolf moon brooklyn.`,
+  imgSrc: "https://dummyimage.com/1200x500",
+};
