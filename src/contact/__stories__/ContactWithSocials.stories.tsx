@@ -16,29 +16,29 @@ const MetaComp: Story<ContactWithSocialsProps> = (args) => (
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
-  label: "Feedback",
-  topDescription:
-    "Post-ironic portland shabby chic echo park, banjo fashion axe",
-  bottomDescription:
-    "Chicharrones blog helvetica normcore iceland tousled brook viral artisan.",
+  label: "Contact Us",
+  description:
+    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.",
   buttonLabel: "Submit",
-  address:
-    "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
+  street: "49 Smith St.",
+  city: "Saint Cloud, MN 56301",
   email: "example@email.com",
-  phone: "123-456-7890",
+  facebook: "https://facebook.com",
+  twitter: "https://twitter.com",
+  instagram: "https://instagram.com",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
-  label: "Feedback",
-  topDescription:
-    "Post-ironic portland shabby chic echo park, banjo fashion axe",
-  bottomDescription:
-    "Chicharrones blog helvetica normcore iceland tousled brook viral artisan.",
+  label: "Contact Us",
+  description:
+    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.",
   buttonLabel: "Submit",
-  address:
-    "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
+  street: "49 Smith St.",
+  city: "Saint Cloud, MN 56301",
   email: "example@email.com",
-  phone: "123-456-7890",
+  facebook: "https://facebook.com",
+  twitter: "https://twitter.com",
+  instagram: "https://instagram.com",
 };
