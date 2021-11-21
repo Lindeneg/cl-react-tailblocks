@@ -21,7 +21,10 @@ export function ContentWithImageSmallItem({
   const cls = getClass.bind(null, theme);
   return (
     <div className="xl:w-1/4 md:w-1/2 p-4">
-      <div className={cls("p-6 rounded-lg", "bg-gray-100", "bg-gray-800")}>
+      <div
+        data-testid="content-with-image-small-item-div"
+        className={cls("p-6 rounded-lg", "bg-gray-100", "bg-gray-800")}
+      >
         <img
           className="h-40 rounded w-full object-cover object-center mb-6"
           src={imgSrc}

@@ -17,7 +17,7 @@ describe("ContentItem", () => {
       "text-lg sm:text-xl font-medium title-font mb-2 text-gray-900"
     );
     expect(getByText(MOCK_DATA_PLAIN_ENTRY.description)).toHaveClass(
-      "leading-relaxed text-base mb-4 text-gray-900"
+      "leading-relaxed text-base mb-4 text-gray-600"
     );
   });
   test("renders dark component", () => {
@@ -29,7 +29,7 @@ describe("ContentItem", () => {
       "text-lg sm:text-xl font-medium title-font mb-2 text-white"
     );
     expect(getByText(MOCK_DATA_PLAIN_ENTRY.description)).toHaveClass(
-      "leading-relaxed text-base mb-4 text-gray-300"
+      "leading-relaxed text-base mb-4 text-gray-400"
     );
   });
   test("handles onClick", () => {
