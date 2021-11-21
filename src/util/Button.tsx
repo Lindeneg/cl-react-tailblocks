@@ -7,8 +7,6 @@ export type ButtonProps = {
   extendClass?: string;
 };
 
-// TODO tests
-
 export function Button({
   text,
   overrideClass,
