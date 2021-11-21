@@ -92,17 +92,4 @@ describe("Socials", () => {
     expect(wrapper).toHaveAttribute("target", "_blank");
     expect(wrapper).toHaveAttribute("rel", "no-referrer");
   });
-  test("renders non-blank mail component", () => {
-    const { getByTestId } = render(
-      getEl({ mail: { href: "hello", newTab: false } })
-    );
-    const wrapper = getByTestId("test-id-icon-wrapper");
-    expect(getByTestId("mail-path")).toHaveAttribute(
-      "d",
-      "M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
-    );
-    expect(wrapper).toHaveAttribute("href", "mailto:hello");
-    expect(wrapper).not.toHaveAttribute("target", "_blank");
-    expect(wrapper).not.toHaveAttribute("rel", "no-referrer");
-  });
 });
