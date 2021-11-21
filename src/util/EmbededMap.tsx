@@ -2,8 +2,6 @@ import React from "react";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
-// TODO stories | tests
-
 export type EmbededMapProps = WithTheme<{
   src?: string;
   className?: string;
@@ -16,6 +14,7 @@ export function EmbededMap({
 }: EmbededMapProps) {
   return (
     <iframe
+      data-testid="embeded-map-iframe"
       width="100%"
       height="100%"
       frameBorder="0"

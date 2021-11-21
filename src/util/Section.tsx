@@ -2,8 +2,6 @@ import React from "react";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
-// TODO stories | tests
-
 export type SectionProps = WithTheme<{
   children: React.ReactNode;
   testId?: string;

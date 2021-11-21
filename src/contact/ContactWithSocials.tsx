@@ -6,8 +6,6 @@ import { Socials, SocialConstraints } from "../util/Socials";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests
-
 export type ContactWithSocialsProps = Omit<
   SharedFormProps,
   "topDescription" | "bottomDescription" | "mapIframeSrc"
@@ -15,15 +13,15 @@ export type ContactWithSocialsProps = Omit<
   description: string;
   onSubmit: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    topInputValue: string,
-    bottomInputValue: string,
+    rightInputValue: string,
+    leftInputValue: string,
     textAreaValue: string
   ) => void;
   city?: string;
   street?: string;
   email?: string;
-  inputTopProps?: ReactInputProps;
-  inputBottomProps?: ReactInputProps;
+  inputRightrops?: ReactInputProps;
+  inputLeftProps?: ReactInputProps;
 } & Omit<SocialConstraints, "mail">;
 
 export function ContactWithSocials({
@@ -34,19 +32,19 @@ export function ContactWithSocials({
   city,
   email,
   street,
-  inputTopProps = {},
-  inputBottomProps = {},
+  inputRightrops = {},
+  inputLeftProps = {},
   textAreaProps = {},
   theme = "light",
   ...socials
 }: ContactWithSocialsProps) {
   const cls = getClass.bind(null, theme);
-  const inputTopRef = useRef<HTMLInputElement>(null);
-  const inputBottomRef = useRef<HTMLInputElement>(null);
+  const inputRightRef = useRef<HTMLInputElement>(null);
+  const inputLeftRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <Section
-      testId="contact-with-map-socials-section"
+      testId="contact-with-socials-section"
       theme={theme}
       extendClass="relative"
     >
@@ -74,10 +72,10 @@ export function ContactWithSocials({
                   id="name"
                   name="name"
                   label="Name"
-                  elementRef={inputTopRef}
+                  elementRef={inputLeftRef}
                   theme={theme}
                   extendClass="w-full leading-8"
-                  {...inputTopProps}
+                  {...inputLeftProps}
                 />
               </div>
             </div>
@@ -88,10 +86,10 @@ export function ContactWithSocials({
                   id="email"
                   name="email"
                   label="Email"
-                  elementRef={inputBottomRef}
+                  elementRef={inputRightRef}
                   theme={theme}
                   extendClass="w-full leading-8"
-                  {...inputBottomProps}
+                  {...inputRightrops}
                 />
               </div>
             </div>
@@ -112,17 +110,12 @@ export function ContactWithSocials({
             <div className="p-2 w-full">
               <Button
                 text={buttonLabel || "Button"}
-                extendClass="flex mx-auto "
+                extendClass="flex mx-auto"
                 onClick={(e) => {
-                  console.log(
-                    getRefValue(inputTopRef),
-                    getRefValue(inputBottomRef),
-                    getRefValue(textAreaRef)
-                  );
                   onSubmit(
                     e,
-                    getRefValue(inputTopRef),
-                    getRefValue(inputBottomRef),
+                    getRefValue(inputRightRef),
+                    getRefValue(inputLeftRef),
                     getRefValue(textAreaRef)
                   );
                 }}

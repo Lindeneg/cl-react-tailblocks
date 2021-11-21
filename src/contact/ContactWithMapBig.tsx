@@ -6,8 +6,6 @@ import { EmbededMap } from "../util/EmbededMap";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests
-
 export type ContactWithMapBigProps = SharedFormProps & {
   onSubmit: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -42,6 +40,7 @@ export function ContactWithMapBig({
       </div>
       <div className="container px-5 py-24 mx-auto flex">
         <div
+          data-testid="contact-with-map-big-div"
           className={cls(
             "lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md",
             "bg-white",
@@ -95,7 +94,6 @@ export function ContactWithMapBig({
           <Button
             text={buttonLabel || "Button"}
             onClick={(e) => {
-              console.log(getRefValue(inputRef), getRefValue(textAreaRef));
               onSubmit(e, getRefValue(inputRef), getRefValue(textAreaRef));
             }}
           />

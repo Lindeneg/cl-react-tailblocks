@@ -6,8 +6,6 @@ import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests
-
 export type ContactWithMapSmallProps = SharedFormProps & {
   onSubmit: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -49,6 +47,7 @@ export function ContactWithMapSmall({
     >
       <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
         <div
+          data-testid="contact-with-map-small-div"
           className={cls(
             "lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative",
             "bg-gray-300",
@@ -62,6 +61,7 @@ export function ContactWithMapSmall({
           />
           {(address || email || phone) && (
             <div
+              data-testid="contact-with-map-small-inner-div"
               className={cls(
                 "relative flex flex-wrap py-6 rounded shadow-md",
                 "bg-white",
@@ -185,11 +185,6 @@ export function ContactWithMapSmall({
           <Button
             text={buttonLabel || "Button"}
             onClick={(e) => {
-              console.log(
-                getRefValue(inputTopRef),
-                getRefValue(inputBottomRef),
-                getRefValue(textAreaRef)
-              );
               onSubmit(
                 e,
                 getRefValue(inputTopRef),
