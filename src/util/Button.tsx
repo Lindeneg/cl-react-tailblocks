@@ -7,7 +7,7 @@ export type ButtonProps = {
   extendClass?: string;
 };
 
-// TODO stories | tests
+// TODO tests
 
 export function Button({
   text,

@@ -2,7 +2,7 @@ import React from "react";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
-// TODO stories | tests
+// TODO tests
 
 export type EmbededMapProps = WithTheme<{
   src?: string;
