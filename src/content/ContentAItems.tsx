@@ -20,6 +20,7 @@ export function ContentAItems({
   description,
   onClick,
   theme = "light",
+  color = "indigo",
 }: ContentAItemsProps) {
   const cls = getClass.bind(null, theme);
   return (
@@ -33,8 +34,8 @@ export function ContentAItems({
           <h2
             className={cls(
               "text-xs tracking-widest font-medium title-font mb-1",
-              "text-indigo-500",
-              "text-indigo-400"
+              `text-${color}-500`,
+              `text-${color}-400`
             )}
           >
             {label}
@@ -54,13 +55,19 @@ export function ContentAItems({
         </div>
         <div className="flex flex-wrap">
           {data.map((e, i) => (
-            <ContentAItem {...e} key={e.label + i} theme={theme} />
+            <ContentAItem
+              {...e}
+              color={color}
+              key={e.label + i}
+              theme={theme}
+            />
           ))}
         </div>
         <Button
           text="Button"
           extendClass="flex mx-auto mt-16"
           onClick={onClick}
+          color={color}
         />
       </div>
     </Section>

@@ -10,14 +10,6 @@ export type ContentAItemProps = WithTheme<{
 }> &
   WithoutTheme<LearnMoreProps>;
 
-const MOCK_ENTIRES = [
-  {
-    label: "Shooting Stars",
-    description:
-      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.",
-  },
-];
-
 export function ContentAItem({
   label,
   description,
