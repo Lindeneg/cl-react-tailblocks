@@ -1,4 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { action } from "@storybook/addon-actions";
 import { MOCK_ENTRIES } from "./mock-data";
 import { BlogItems, BlogItemsProps } from "../BlogItems";
 
@@ -11,12 +12,22 @@ const MetaComp: Story<BlogItemsProps> = (args) => <BlogItems {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  data: MOCK_ENTRIES,
+  data: MOCK_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onClick")(e);
+    },
+  })),
   theme: "light",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  data: MOCK_ENTRIES,
+  data: MOCK_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onClick")(e);
+    },
+  })),
   theme: "dark",
 };
