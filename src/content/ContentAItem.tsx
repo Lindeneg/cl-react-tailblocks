@@ -37,7 +37,15 @@ export function ContentAItem({
       >
         {label}
       </h2>
-      <p className="leading-relaxed text-base mb-4">{description}</p>
+      <p
+        className={cls(
+          "leading-relaxed text-base mb-4",
+          "text-gray-900",
+          "text-gray-300"
+        )}
+      >
+        {description}
+      </p>
       {linkNode ? (
         linkNode
       ) : (
