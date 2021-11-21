@@ -25,6 +25,9 @@ export { ContentWithImageSmallItem } from "./content/ContentWithImageSmallItem";
 export { ContentWithImageSmallItems } from "./content/ContentWithImageSmallItems";
 export { ContentWithIconItem } from "./content/ContentWithIconItem";
 export { ContentWithIconItems } from "./content/ContentWithIconItems";
+export { ContentWithAvatarAndImage } from "./content/ContentWithAvatarAndImage";
+export { ContentWithImageBigItem } from "./content/ContentWithImageBigItem";
+export { ContentWithImageBigItems } from "./content/ContentWithImageBigItems";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -53,3 +56,6 @@ export type { ContentWithImageSmallItemProps } from "./content/ContentWithImageS
 export type { ContentWithImageSmallItemsProps } from "./content/ContentWithImageSmallItems";
 export type { ContentWithIconItemProps } from "./content/ContentWithIconItem";
 export type { ContentWithIconItemsProps } from "./content/ContentWithIconItems";
+export type { ContentWithAvatarAndImageProps } from "./content/ContentWithAvatarAndImage";
+export type { ContentWithImageBigItemProps } from "./content/ContentWithImageBigItem";
+export type { ContentWithImageBigItemsProps } from "./content/ContentWithImageBigItems";
