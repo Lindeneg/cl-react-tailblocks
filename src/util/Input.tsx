@@ -2,8 +2,6 @@ import React from "react";
 import { WithTheme, ReactHTMLInputElementProps } from "../types";
 import { getClass } from "../shared";
 
-// TODO stories | tests
-
 type BaseProps<T extends "input" | "text-area"> = WithTheme<{
   element: T;
   label: string;
@@ -41,6 +39,7 @@ function Base<T extends "input" | "text-area">({
     case "input":
       content = (
         <input
+          data-testid="input-test-id"
           ref={elementRef as React.MutableRefObject<HTMLInputElement>}
           {...(inputProps as ReactHTMLInputElementProps<HTMLInputElement>)}
         />
@@ -49,6 +48,7 @@ function Base<T extends "input" | "text-area">({
     case "text-area":
       content = (
         <textarea
+          data-testid="texarea-test-id"
           ref={elementRef as React.MutableRefObject<HTMLTextAreaElement>}
           {...(inputProps as ReactHTMLInputElementProps<HTMLTextAreaElement>)}
         />
