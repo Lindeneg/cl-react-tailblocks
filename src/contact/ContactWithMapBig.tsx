@@ -25,6 +25,7 @@ export function ContactWithMapBig({
   inputProps = {},
   textAreaProps = {},
   theme = "light",
+  color = "indigo",
 }: ContactWithMapBigProps) {
   const cls = getClass.bind(null, theme);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -75,6 +76,7 @@ export function ContactWithMapBig({
               label="Email"
               elementRef={inputRef}
               theme={theme}
+              themeColor={color}
               extendClass="w-full leading-8"
               {...inputProps}
             />
@@ -87,11 +89,13 @@ export function ContactWithMapBig({
               label="Message"
               elementRef={textAreaRef}
               theme={theme}
+              themeColor={color}
               extendClass="w-full h-32 resize-none leading-6"
               {...textAreaProps}
             />
           </div>
           <Button
+            color={color}
             text={buttonLabel || "Button"}
             onClick={(e) => {
               onSubmit(e, getRefValue(inputRef), getRefValue(textAreaRef));

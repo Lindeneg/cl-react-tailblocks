@@ -17,6 +17,7 @@ const MetaComp: Story<ContactWithMapSmallProps> = (args) => (
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
+  color: "indigo",
   label: "Feedback",
   onSubmit: (_, inputTop, inputBottom, textArea) => {
     action("onSubmit")({ inputTop, inputBottom, textArea });
@@ -37,6 +38,7 @@ Light.args = {
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
+  color: "indigo",
   label: "Feedback",
   onSubmit: (_, inputTop, inputBottom, textArea) => {
     action("onSubmit")({ inputTop, inputBottom, textArea });

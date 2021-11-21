@@ -16,4 +16,5 @@ Default.args = {
   text: "Button",
   overrideClass: "",
   extendClass: "",
+  color: "indigo",
 };

@@ -17,6 +17,7 @@ const MetaComp: Story<ContactWithMapBigProps> = (args) => (
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
+  color: "indigo",
   label: "Feedback",
   topDescription:
     "Post-ironic portland shabby chic echo park, banjo fashion axe",
@@ -33,6 +34,7 @@ Light.args = {
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
+  color: "indigo",
   label: "Feedback",
   topDescription:
     "Post-ironic portland shabby chic echo park, banjo fashion axe",

@@ -10,6 +10,7 @@ export type BlogWithImageItemsProps = WithTheme<{
 export function BlogWithImageItems({
   data,
   theme = "light",
+  color = "indigo",
 }: BlogWithImageItemsProps) {
   return (
     <Section theme={theme} testId="blog-with-image-section">
@@ -19,6 +20,7 @@ export function BlogWithImageItems({
             <BlogWithImageItem
               {...entry}
               theme={theme}
+              color={color}
               includeWrapperBg={false}
               key={entry.label + idx}
             />

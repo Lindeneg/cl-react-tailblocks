@@ -17,6 +17,7 @@ export function ContentAItem({
   onClick,
   linkNode,
   theme = "light",
+  color = "indigo",
 }: ContentAItemProps) {
   const cls = getClass.bind(null, theme);
   return (
@@ -40,7 +41,12 @@ export function ContentAItem({
       {linkNode ? (
         linkNode
       ) : (
-        <LearnMore theme={theme} onClick={onClick} linkText={linkText} />
+        <LearnMore
+          theme={theme}
+          color={color}
+          onClick={onClick}
+          linkText={linkText}
+        />
       )}
     </div>
   );

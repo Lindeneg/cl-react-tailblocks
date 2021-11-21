@@ -13,6 +13,7 @@ export type BlogWithAvatarItemsProps = WithTheme<{
 export function BlogWithAvatarItems({
   data,
   theme = "light",
+  color = "indigo",
 }: BlogWithAvatarItemsProps) {
   return (
     <Section
@@ -26,6 +27,7 @@ export function BlogWithAvatarItems({
             <BlogWithAvatarItem
               {...entry}
               theme={theme}
+              color={color}
               includeWrapperBg={false}
               key={entry.label + idx}
             />

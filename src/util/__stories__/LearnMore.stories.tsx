@@ -14,12 +14,14 @@ const MetaComp: Story<LearnMoreProps> = (args) => <LearnMore {...args} />;
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
+  color: "indigo",
   linkText: "Learn More",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
+  color: "indigo",
   linkText: "Learn More",
 };
 Dark.parameters = {

@@ -19,6 +19,7 @@ export function BlogWithImageItem({
   onClick,
   linkText,
   theme = "light",
+  color = "indigo",
   imgAlt = "blog-with-image-alt",
   includeWrapperBg = true,
 }: BlogWithImageItemProps) {
@@ -69,10 +70,20 @@ export function BlogWithImageItem({
             {linkNode ? (
               linkNode
             ) : (
-              <LearnMore onClick={onClick} theme={theme} linkText={linkText} />
+              <LearnMore
+                onClick={onClick}
+                theme={theme}
+                color={color}
+                linkText={linkText}
+              />
             )}
             <div className="mt-2 sm:mt-0">
-              <Stat views={views} comments={comments} theme={theme} />
+              <Stat
+                views={views}
+                comments={comments}
+                theme={theme}
+                color={color}
+              />
             </div>
           </div>
         </div>

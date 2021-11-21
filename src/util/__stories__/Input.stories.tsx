@@ -18,6 +18,7 @@ const MetaComp: Story<InputProps> = (args) => (
 export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
+  themeColor: "indigo",
   label: "Label",
   extendClass: "w-full leading-8",
 };
@@ -25,6 +26,7 @@ Light.args = {
 export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
+  themeColor: "indigo",
   label: "Label",
   extendClass: "w-full leading-8",
 };

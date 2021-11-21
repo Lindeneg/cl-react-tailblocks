@@ -1,6 +1,6 @@
 export type Theme = "light" | "dark";
 
-export type Color =
+export type ThemeColor =
   | "indigo"
   | "yellow"
   | "red"
@@ -38,7 +38,7 @@ export type Image = {
 
 export type WithTheme<T extends Record<string, unknown>> = T & {
   theme?: Theme;
-  color?: Color;
+  color?: ThemeColor;
 };
 
 export type WithoutTheme<
