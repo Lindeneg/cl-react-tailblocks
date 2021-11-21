@@ -20,6 +20,8 @@ export { ContactWithMapSmall } from "./contact/ContactWithMapSmall";
 export { ContactWithSocials } from "./contact/ContactWithSocials";
 export { ContentItem } from "./content/ContentItem";
 export { ContentItems } from "./content/ContentItems";
+export { ContentWithImageSmallItem } from "./content/ContentWithImageSmallItem";
+export { ContentWithImageSmallItems } from "./content/ContentWithImageSmallItems";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -43,3 +45,5 @@ export type { ContactWithMapSmallProps } from "./contact/ContactWithMapSmall";
 export type { ContactWithSocialsProps } from "./contact/ContactWithSocials";
 export type { ContentItemProps } from "./content/ContentItem";
 export type { ContentItemsProps } from "./content/ContentItems";
+export type { ContentWithImageSmallItemProps } from "./content/ContentWithImageSmallItem";
+export type { ContentWithImageSmallItemsProps } from "./content/ContentWithImageSmallItems";
