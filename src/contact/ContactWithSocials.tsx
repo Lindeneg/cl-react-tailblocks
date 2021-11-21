@@ -6,8 +6,6 @@ import { Socials, SocialConstraints } from "../util/Socials";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO tests
-
 export type ContactWithSocialsProps = Omit<
   SharedFormProps,
   "topDescription" | "bottomDescription" | "mapIframeSrc"
@@ -46,7 +44,7 @@ export function ContactWithSocials({
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <Section
-      testId="contact-with-map-socials-section"
+      testId="contact-with-socials-section"
       theme={theme}
       extendClass="relative"
     >
@@ -114,11 +112,6 @@ export function ContactWithSocials({
                 text={buttonLabel || "Button"}
                 extendClass="flex mx-auto"
                 onClick={(e) => {
-                  console.log(
-                    getRefValue(inputRightRef),
-                    getRefValue(inputLeftRef),
-                    getRefValue(textAreaRef)
-                  );
                   onSubmit(
                     e,
                     getRefValue(inputRightRef),
