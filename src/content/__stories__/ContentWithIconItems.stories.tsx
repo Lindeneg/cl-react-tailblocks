@@ -14,14 +14,9 @@ const MetaComp: Story<ContentWithIconItemsProps> = (args) => (
   <ContentWithIconItems {...args} />
 );
 
-const MOCK_DATA = { data: MOCK_DATA_ICON_ENTRIES } as Pick<
-  ContentWithIconItemsProps,
-  "data"
->;
-
 export const Light = MetaComp.bind({});
 Light.args = {
-  ...MOCK_DATA,
+  data: MOCK_DATA_ICON_ENTRIES,
   theme: "light",
   color: "indigo",
   buttonText: "Button",
@@ -32,7 +27,7 @@ Light.args = {
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  ...MOCK_DATA,
+  data: MOCK_DATA_ICON_ENTRIES,
   theme: "dark",
   color: "indigo",
   buttonText: "Button",
