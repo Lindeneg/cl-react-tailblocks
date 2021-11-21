@@ -97,8 +97,8 @@ describe("ContactWithMapSmall", () => {
     fireEvent.click(getByText("Button"));
 
     expect(fn).toHaveBeenCalledTimes(1);
-    expect(results.j).toEqual("hello");
-    expect(results.i).toEqual("there");
+    expect(results.i).toEqual("hello");
+    expect(results.j).toEqual("there");
     expect(results.s).toEqual("some message");
   });
 });

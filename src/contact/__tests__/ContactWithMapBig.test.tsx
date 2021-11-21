@@ -76,7 +76,7 @@ describe("ContactWithMapBig", () => {
     fireEvent.click(getByText("Button"));
 
     expect(fn).toHaveBeenCalledTimes(1);
-    expect(results.j).toEqual("hello");
+    expect(results.i).toEqual("hello");
     expect(results.j).toEqual("some message");
   });
 });
