@@ -25,8 +25,8 @@ describe("ContentWithImageBigItems", () => {
       "body-font text-gray-600"
     );
     MOCK_DATA_BIG_IMAGE_ENTRIES.forEach((entry) => {
-      expect(getByText(entry.title)).toBeDefined();
-      expect(getByText(entry.description)).toBeDefined();
+      expect(getByText(new RegExp(entry.title, "i"))).toBeDefined();
+      expect(getByText(new RegExp(entry.description, "i"))).toBeDefined();
     });
     done();
   });
@@ -36,8 +36,8 @@ describe("ContentWithImageBigItems", () => {
       "body-font text-gray-400 bg-gray-900"
     );
     MOCK_DATA_BIG_IMAGE_ENTRIES.forEach((entry) => {
-      expect(getByText(entry.title)).toBeDefined();
-      expect(getByText(entry.description)).toBeDefined();
+      expect(getByText(new RegExp(entry.title, "i"))).toBeDefined();
+      expect(getByText(new RegExp(entry.description, "i"))).toBeDefined();
     });
     done();
   });

@@ -120,7 +120,7 @@ export const MOCK_DATA_BIG_IMAGE_ENTRIES = [
   {
     title: "The Catalyzer",
     description:
-      "Sustainable snackwave Pinterest williamsburg occupy  gochujang. Cornhole brunch, slow-carb neutra irony.",
+      "Sustainable snackwave Pinterest williamsburg occupy gochujang. Cornhole brunch, slow-carb neutra irony.",
     imgSrc: "https://dummyimage.com/1201x501",
   },
 ];
