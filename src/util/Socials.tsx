@@ -1,7 +1,5 @@
 import React from "react";
 
-// TODO stories | tests
-
 export type SocialEntry = string | { href: string; newTab: boolean };
 
 export type IconWrapperProps = {
