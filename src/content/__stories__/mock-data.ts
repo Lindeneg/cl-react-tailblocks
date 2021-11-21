@@ -1,3 +1,5 @@
+import { IconConstraints } from "../../util/Icon";
+
 export const MOCK_DATA_PLAIN_ENTRIES = [
   {
     label: "Shooting Stars",
@@ -56,7 +58,11 @@ export const MOCK_DATA_SMALL_IMAGE_ENTRIES = [
 
 export const MOCK_DATA_SMALL_IMAGE_ENTRY = MOCK_DATA_SMALL_IMAGE_ENTRIES[0];
 
-export const MOCK_DATA_ICON_ENTRIES = [
+export const MOCK_DATA_ICON_ENTRIES: {
+  title: string;
+  description: string;
+  icon: IconConstraints;
+}[] = [
   {
     title: "Shooting Stars",
     description:
