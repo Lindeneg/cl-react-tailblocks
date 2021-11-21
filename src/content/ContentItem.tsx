@@ -3,14 +3,14 @@ import { LearnMore, LearnMoreProps } from "../util/LearnMore";
 import { WithoutTheme, WithTheme } from "../types";
 import { getClass } from "../shared";
 
-export type ContentAItemProps = WithTheme<{
+export type ContentItemProps = WithTheme<{
   label: string;
   description: string;
   linkNode?: React.ReactNode;
 }> &
   WithoutTheme<LearnMoreProps>;
 
-export function ContentAItem({
+export function ContentItem({
   label,
   description,
   linkText,
@@ -18,7 +18,7 @@ export function ContentAItem({
   linkNode,
   theme = "light",
   color = "indigo",
-}: ContentAItemProps) {
+}: ContentItemProps) {
   const cls = getClass.bind(null, theme);
   return (
     <div

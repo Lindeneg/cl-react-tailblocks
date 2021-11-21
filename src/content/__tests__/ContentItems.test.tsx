@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { ContentAItems, ContentAItemsProps } from "../ContentAItems";
+import { ContentItems, ContentItemsProps } from "../ContentItems";
 import { MOCK_DATA_A_ENTRIES } from "../__stories__/mock-data";
 
 function getEl({
@@ -10,9 +10,9 @@ function getEl({
   data = MOCK_DATA_A_ENTRIES,
   onClick = () => {},
   ...props
-}: Partial<ContentAItemsProps>) {
+}: Partial<ContentItemsProps>) {
   return (
-    <ContentAItems
+    <ContentItems
       label={label}
       description={description}
       title={title}
@@ -23,7 +23,7 @@ function getEl({
   );
 }
 
-describe("ContentAItems", () => {
+describe("ContentItems", () => {
   test("renders light component", (done) => {
     const { getByTestId, getByText } = render(getEl({ theme: "light" }));
     expect(getByTestId("content-a-items-section")).toHaveClass(

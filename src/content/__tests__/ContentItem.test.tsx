@@ -1,13 +1,13 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { ContentAItem, ContentAItemProps } from "../ContentAItem";
+import { ContentItem, ContentItemProps } from "../ContentItem";
 import { MOCK_DATA_A_ENTRY } from "../__stories__/mock-data";
 
-function getEl({ ...props }: Partial<ContentAItemProps>) {
-  return <ContentAItem {...MOCK_DATA_A_ENTRY} {...props} />;
+function getEl({ ...props }: Partial<ContentItemProps>) {
+  return <ContentItem {...MOCK_DATA_A_ENTRY} {...props} />;
 }
 
-describe("ContentAItem", () => {
+describe("ContentItem", () => {
   test("renders light component", () => {
     const { getByTestId, getByText } = render(getEl({ theme: "light" }));
     expect(getByTestId("content-a-item-div")).toHaveClass(

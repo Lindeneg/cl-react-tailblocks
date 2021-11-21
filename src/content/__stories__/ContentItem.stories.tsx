@@ -1,16 +1,16 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { MOCK_DATA_A_ENTRY } from "./mock-data";
-import { ContentAItem, ContentAItemProps } from "../ContentAItem";
+import { ContentItem, ContentItemProps } from "../ContentItem";
 
 export default {
-  title: "Content/ContentAItem",
-  component: ContentAItem,
+  title: "Content/ContentItem",
+  component: ContentItem,
   argTypes: {
     linkNode: { control: "none" },
   },
 } as Meta;
 
-const MetaComp: Story<ContentAItemProps> = (args) => <ContentAItem {...args} />;
+const MetaComp: Story<ContentItemProps> = (args) => <ContentItem {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {
