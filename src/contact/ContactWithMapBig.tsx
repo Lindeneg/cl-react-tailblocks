@@ -6,7 +6,7 @@ import { EmbededMap } from "../util/EmbededMap";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests
+// TODO tests
 
 export type ContactWithMapBigProps = SharedFormProps & {
   onSubmit: (

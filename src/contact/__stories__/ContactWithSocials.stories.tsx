@@ -1,4 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { action } from "@storybook/addon-actions";
 import {
   ContactWithSocials,
   ContactWithSocialsProps,
@@ -26,6 +27,9 @@ Light.args = {
   facebook: "https://facebook.com",
   twitter: "https://twitter.com",
   instagram: "https://instagram.com",
+  onSubmit: (_, inputRight, inputLeft, textArea) => {
+    action("onSubmit")({ inputRight, inputLeft, textArea });
+  },
 };
 
 export const Dark = MetaComp.bind({});
@@ -41,4 +45,7 @@ Dark.args = {
   facebook: "https://facebook.com",
   twitter: "https://twitter.com",
   instagram: "https://instagram.com",
+  onSubmit: (_, inputRight, inputLeft, textArea) => {
+    action("onSubmit")({ inputRight, inputLeft, textArea });
+  },
 };

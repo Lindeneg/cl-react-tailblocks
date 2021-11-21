@@ -6,7 +6,7 @@ import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
-// TODO stories | tests
+// TODO tests
 
 export type ContactWithMapSmallProps = SharedFormProps & {
   onSubmit: (

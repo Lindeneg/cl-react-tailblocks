@@ -1,4 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { action } from "@storybook/addon-actions";
 import {
   ContactWithMapSmall,
   ContactWithMapSmallProps,
@@ -17,6 +18,9 @@ export const Light = MetaComp.bind({});
 Light.args = {
   theme: "light",
   label: "Feedback",
+  onSubmit: (_, inputTop, inputBottom, textArea) => {
+    action("onSubmit")({ inputTop, inputBottom, textArea });
+  },
   topDescription:
     "Post-ironic portland shabby chic echo park, banjo fashion axe",
   bottomDescription:
@@ -34,6 +38,9 @@ export const Dark = MetaComp.bind({});
 Dark.args = {
   theme: "dark",
   label: "Feedback",
+  onSubmit: (_, inputTop, inputBottom, textArea) => {
+    action("onSubmit")({ inputTop, inputBottom, textArea });
+  },
   topDescription:
     "Post-ironic portland shabby chic echo park, banjo fashion axe",
   bottomDescription:
