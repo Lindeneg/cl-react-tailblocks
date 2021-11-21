@@ -33,3 +33,6 @@ Dark.args = {
   theme: "dark",
   color: "indigo",
 };
+Dark.parameters = {
+  backgrounds: { default: "dark" },
+};

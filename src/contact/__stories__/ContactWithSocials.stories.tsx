@@ -51,3 +51,6 @@ Dark.args = {
     action("onSubmit")({ inputRight, inputLeft, textArea });
   },
 };
+Dark.parameters = {
+  backgrounds: { default: "dark" },
+};
