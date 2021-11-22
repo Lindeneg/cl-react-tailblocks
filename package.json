@@ -33,6 +33,7 @@
     "test": "jest --verbose",
     "test:watch": "yarn test --watch",
     "lint": "yarn prettier src --check",
+    "prepublish": "yarn clean && yarn test && yarn build",
     "lint:fix": "yarn prettier src --write",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
