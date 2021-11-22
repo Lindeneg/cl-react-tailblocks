@@ -71,7 +71,7 @@ export function CtaWithFormRow({
               type="text"
               id="name"
               name="name"
-              label="Name"
+              label="Full Name"
               elementRef={inputTopRef}
               theme={theme}
               themeColor={color}
