@@ -1,12 +1,12 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { EmbededMap, EmbededMapProps } from "../EmbededMap";
+import { EmbeddedMap, EmbeddedMapProps } from "../EmbeddedMap";
 
 export default {
-  title: "Util/EmbededMap",
-  component: EmbededMap,
+  title: "Util/EmbeddedMap",
+  component: EmbeddedMap,
 } as Meta;
 
-const MetaComp: Story<EmbededMapProps> = (args) => <EmbededMap {...args} />;
+const MetaComp: Story<EmbeddedMapProps> = (args) => <EmbeddedMap {...args} />;
 
 export const Light = MetaComp.bind({});
 Light.args = {

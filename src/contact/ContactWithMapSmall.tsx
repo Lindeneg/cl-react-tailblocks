@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Section } from "../util/Section";
-import { EmbededMap } from "../util/EmbededMap";
+import { EmbeddedMap } from "../util/EmbeddedMap";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { SharedFormProps, ReactInputProps } from "../types";
@@ -55,7 +55,7 @@ export function ContactWithMapSmall({
             "bg-gray-900"
           )}
         >
-          <EmbededMap
+          <EmbeddedMap
             src={mapIframeSrc}
             theme={theme}
             className="absolute inset-0"
@@ -144,7 +144,7 @@ export function ContactWithMapSmall({
           </h2>
           {topDescription && (
             <p className={cls("leading-relaxed mb-5", "text-gray-600", "")}>
-              Post-ironic portland shabby chic echo park, banjo fashion axe
+              {topDescription}
             </p>
           )}
           <div className="relative mb-4">
