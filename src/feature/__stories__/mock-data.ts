@@ -26,3 +26,23 @@ export const MOCK_DATA_WITH_ICON_ENTRIES: {
 ];
 
 export const MOCK_DATA_WITH_ICON_ENTRY = MOCK_DATA_WITH_ICON_ENTRIES[0];
+
+export const MOCK_DATA_WITH_ICON_BIG_ENTRIES = [
+  {
+    ...MOCK_DATA_WITH_ICON_ENTRIES[0],
+    description:
+      "Taxidermy gastropub indxgo juice poutin. Ramps blue bottle crucifix vinyl post-ironic four dollar toast VHS try-hard vegan t microdosing banh mi pug.",
+  },
+  {
+    ...MOCK_DATA_WITH_ICON_ENTRIES[1],
+    description:
+      "Gastropub indxgo juice poutine, ramps blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Microdosing banh mi pug VHS try-hard.",
+  },
+  {
+    ...MOCK_DATA_WITH_ICON_ENTRIES[2],
+    description:
+      "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Microdosing banh mi pug VHS try-hard gastropub indxgo juice poutine ramps.",
+  },
+];
+
+export const MOCK_DATA_WITH_ICON_BIG_ENTRY = MOCK_DATA_WITH_ICON_BIG_ENTRIES[0];
