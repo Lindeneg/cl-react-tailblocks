@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { Section } from "../util/Section";
-import { EmbededMap } from "../util/EmbededMap";
+import { EmbeddedMap } from "../util/EmbeddedMap";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -37,7 +37,7 @@ export function ContactWithMapBig({
       extendClass="relative"
     >
       <div className={cls("absolute inset-0", "bg-gray-300", "bg-gray-900")}>
-        <EmbededMap src={mapIframeSrc} theme={theme} />
+        <EmbeddedMap src={mapIframeSrc} theme={theme} />
       </div>
       <div className="container px-5 py-24 mx-auto flex">
         <div

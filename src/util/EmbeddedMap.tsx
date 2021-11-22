@@ -2,19 +2,19 @@ import React from "react";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
-export type EmbededMapProps = WithTheme<{
+export type EmbeddedMapProps = WithTheme<{
   src?: string;
   className?: string;
 }>;
 
-export function EmbededMap({
+export function EmbeddedMap({
   src,
   className,
   theme = "light",
-}: EmbededMapProps) {
+}: EmbeddedMapProps) {
   return (
     <iframe
-      data-testid="embeded-map-iframe"
+      data-testid="embedded-map-iframe"
       width="100%"
       height="100%"
       frameBorder="0"

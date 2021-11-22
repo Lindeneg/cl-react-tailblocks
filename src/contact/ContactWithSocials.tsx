@@ -20,7 +20,7 @@ export type ContactWithSocialsProps = Omit<
   city?: string;
   street?: string;
   email?: string;
-  inputRightrops?: ReactInputProps;
+  inputRightProps?: ReactInputProps;
   inputLeftProps?: ReactInputProps;
 } & Omit<SocialConstraints, "mail">;
 
@@ -32,7 +32,7 @@ export function ContactWithSocials({
   city,
   email,
   street,
-  inputRightrops = {},
+  inputRightProps = {},
   inputLeftProps = {},
   textAreaProps = {},
   theme = "light",
@@ -92,7 +92,7 @@ export function ContactWithSocials({
                   theme={theme}
                   themeColor={color}
                   extendClass="w-full leading-8"
-                  {...inputRightrops}
+                  {...inputRightProps}
                 />
               </div>
             </div>
