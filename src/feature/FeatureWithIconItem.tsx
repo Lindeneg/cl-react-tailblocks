@@ -7,6 +7,7 @@ import { getClass } from "../shared";
 export type FeatureWithIconItemProps = WithTheme<{
   outerClass?: string;
   innerClass?: string;
+  tightClass?: string | null;
   title: string;
   description: string;
   linkNode?: React.ReactNode;
@@ -20,6 +21,7 @@ export function FeatureWithIconItem({
   linkNode,
   onClick,
   linkText,
+  tightClass = null,
   outerClass = "",
   innerClass = "",
   theme = "light",
@@ -27,7 +29,7 @@ export function FeatureWithIconItem({
   ...iconProps
 }: FeatureWithIconItemProps) {
   const cls = getClass.bind(null, theme);
-  return (
+  return !tightClass ? (
     <div className={outerClass}>
       <Icon {...iconProps} theme={theme} color={color} />
       <div className={innerClass}>
@@ -43,6 +45,35 @@ export function FeatureWithIconItem({
         <p className={cls("leading-relaxed text-base", "", "text-gray-400")}>
           {description}
         </p>
+        {linkNode ? (
+          linkNode
+        ) : (
+          <LearnMore
+            extendClass="mt-3"
+            linkText={linkText}
+            onClick={onClick}
+            theme={theme}
+            color={color}
+          />
+        )}
+      </div>
+    </div>
+  ) : (
+    <div className={outerClass}>
+      <div className={tightClass}>
+        <Icon {...iconProps} theme={theme} color={color} />
+        <h2
+          className={cls(
+            "text-lg title-font font-medium",
+            "text-gray-900",
+            "text-white"
+          )}
+        >
+          {title}
+        </h2>
+      </div>
+      <div className={innerClass}>
+        <p className="leading-relaxed text-base">{description}</p>
         {linkNode ? (
           linkNode
         ) : (
