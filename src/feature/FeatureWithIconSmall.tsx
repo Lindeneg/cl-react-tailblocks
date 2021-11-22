@@ -35,7 +35,7 @@ export function FeatureWithIconSmall({
           )}
         >
           {typeof title === "string" ? (
-            { title }
+            <>{title}</>
           ) : (
             <>
               {title.top}

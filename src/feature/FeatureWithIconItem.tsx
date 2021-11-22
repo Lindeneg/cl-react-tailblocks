@@ -26,25 +26,28 @@ export function FeatureWithIconItem({
   color = "indigo",
   ...iconProps
 }: FeatureWithIconItemProps) {
+  const cls = getClass.bind(null, theme);
   return (
     <div className={outerClass}>
       <Icon {...iconProps} />
       <div className={innerClass}>
         <h2
-          className={getClass(
-            theme,
+          className={cls(
             "text-lg title-font font-medium mb-2",
             "text-gray-900",
-            ""
+            "text-white"
           )}
         >
           {title}
         </h2>
-        <p className="leading-relaxed text-base">{description}</p>
+        <p className={cls("leading-relaxed text-base", "", "text-gray-400")}>
+          {description}
+        </p>
         {linkNode ? (
           linkNode
         ) : (
           <LearnMore
+            extendClass="mt-3"
             linkText={linkText}
             onClick={onClick}
             theme={theme}
