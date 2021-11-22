@@ -31,6 +31,9 @@ export { ContentWithImageBigItems } from "./content/ContentWithImageBigItems";
 export { Cta } from "./cta/Cta";
 export { CtaWithFormRow } from "./cta/CtaWithFormRow";
 export { CtaWithFormCol } from "./cta/CtaWithFormCol";
+export { FeatureWithIconItem } from "./feature/FeatureWithIconItem";
+export { FeatureWithIconSmall } from "./feature/FeatureWithIconSmall";
+export { FeatureWithIconBig } from "./feature/FeatureWithIconBig";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -65,3 +68,6 @@ export type { ContentWithImageBigItemsProps } from "./content/ContentWithImageBi
 export type { CtaProps } from "./cta/Cta";
 export type { CtaWithFormRowProps } from "./cta/CtaWithFormRow";
 export type { CtaWithFormColProps } from "./cta/CtaWithFormCol";
+export type { FeatureWithIconItemProps } from "./feature/FeatureWithIconItem";
+export type { FeatureWithIconSmallProps } from "./feature/FeatureWithIconSmall";
+export type { FeatureWithIconBigProps } from "./feature/FeatureWithIconBig";
