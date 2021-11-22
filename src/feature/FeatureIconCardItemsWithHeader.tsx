@@ -11,7 +11,15 @@ export type FeatureIconCardItemsWithHeaderProps = WithTheme<{
   label: string;
   title: string;
   data: Array<
-    WithoutTheme<FeatureWithIconItemProps, "outerClass" | "innerClass">
+    WithoutTheme<
+      FeatureWithIconItemProps,
+      | "outerClass"
+      | "innerClass"
+      | "tightClass"
+      | "extendClass"
+      | "extendDivClass"
+      | "extendSvgClass"
+    >
   >;
 }>;
 
@@ -22,14 +30,27 @@ export function FeatureIconCardItemsWithHeader({
   theme = "light",
   color = "indigo",
 }: FeatureIconCardItemsWithHeaderProps) {
+  const cls = getClass.bind(null, theme);
   return (
-    <section className="text-gray-600 body-font">
+    <Section testId="feature-with-icon-and-header-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
-          <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
+          <h2
+            className={cls(
+              "text-xs tracking-widest font-medium title-font mb-1",
+              `text-${color}-500`,
+              `text-${color}-400`
+            )}
+          >
             {label}
           </h2>
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
+          <h1
+            className={cls(
+              "sm:text-3xl text-2xl font-medium title-font",
+              "text-gray-900",
+              "text-white"
+            )}
+          >
             {title}
           </h1>
         </div>
@@ -38,7 +59,11 @@ export function FeatureIconCardItemsWithHeader({
             <div className="p-4 md:w-1/3">
               <FeatureWithIconItem
                 {...entry}
-                outerClass="flex rounded-lg h-full bg-gray-100 p-8 flex-col"
+                outerClass={cls(
+                  "flex rounded-lg h-full p-8 flex-col",
+                  "bg-gray-100",
+                  "bg-gray-800 bg-opacity-60"
+                )}
                 innerClass="flex-grow"
                 tightClass="flex items-center mb-3"
                 extendDivClass="w-8 h-8 mr-3 flex-shrink-0"
@@ -51,6 +76,6 @@ export function FeatureIconCardItemsWithHeader({
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

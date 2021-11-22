@@ -12,7 +12,12 @@ export type FeatureWithIconSmallProps = WithTheme<{
   data: Array<
     WithoutTheme<
       FeatureWithIconItemProps,
-      "extendDivClass" | "extendSvgClass" | "innerClass" | "outerClass"
+      | "outerClass"
+      | "innerClass"
+      | "tightClass"
+      | "extendClass"
+      | "extendDivClass"
+      | "extendSvgClass"
     >
   >;
 }>;

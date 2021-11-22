@@ -9,7 +9,15 @@ import { getClass } from "../shared";
 
 export type FeatureIconCardItemsProps = WithTheme<{
   data: Array<
-    WithoutTheme<FeatureWithIconItemProps, "outerClass" | "innerClass">
+    WithoutTheme<
+      FeatureWithIconItemProps,
+      | "outerClass"
+      | "innerClass"
+      | "tightClass"
+      | "extendClass"
+      | "extendDivClass"
+      | "extendSvgClass"
+    >
   >;
 }>;
 

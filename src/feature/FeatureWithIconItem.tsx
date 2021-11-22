@@ -5,6 +5,7 @@ import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
 export type FeatureWithIconItemProps = WithTheme<{
+  iconPlacement?: "start" | "end";
   outerClass?: string;
   innerClass?: string;
   tightClass?: string | null;
@@ -22,6 +23,7 @@ export function FeatureWithIconItem({
   onClick,
   linkText,
   tightClass = null,
+  iconPlacement = "start",
   outerClass = "",
   innerClass = "",
   theme = "light",
@@ -31,7 +33,9 @@ export function FeatureWithIconItem({
   const cls = getClass.bind(null, theme);
   return !tightClass ? (
     <div className={outerClass}>
-      <Icon {...iconProps} theme={theme} color={color} />
+      {iconPlacement === "start" && (
+        <Icon {...iconProps} theme={theme} color={color} />
+      )}
       <div className={innerClass}>
         <h2
           className={cls(
@@ -57,6 +61,9 @@ export function FeatureWithIconItem({
           />
         )}
       </div>
+      {iconPlacement === "end" && (
+        <Icon {...iconProps} theme={theme} color={color} />
+      )}
     </div>
   ) : (
     <div className={outerClass}>
