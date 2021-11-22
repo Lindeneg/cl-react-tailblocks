@@ -1,9 +1,9 @@
 import React from "react";
+import { FeatureWithIconItem } from "./FeatureWithIconItem";
 import { Section } from "../util/Section";
-import { Icon, IconProps } from "../util/Icon";
-import { LearnMore, LearnMoreProps } from "../util/LearnMore";
+import { IconProps } from "../util/Icon";
+import { LearnMoreProps } from "../util/LearnMore";
 import { WithTheme, WithoutTheme, Image } from "../types";
-import { getClass } from "../shared";
 
 export type FeatureWithImageProps = WithTheme<{
   data: Array<
@@ -34,39 +34,18 @@ export function FeatureWithImage({
           />
         </div>
         <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-          {data.map(
-            ({ title, description, linkText, onClick, ...iconProps }) => (
-              <div className="flex flex-col mb-10 lg:items-start items-center">
-                <Icon
-                  {...iconProps}
-                  theme={theme}
-                  color={color}
-                  extendDivClass="w-12 h-12 mb-5"
-                  extendSvgClass="w-6 h-6"
-                />
-                <div className="flex-grow">
-                  <h2
-                    className={getClass(
-                      theme,
-                      "text-lg title-font font-medium mb-3",
-                      "text-gray-900",
-                      "text-white"
-                    )}
-                  >
-                    {title}
-                  </h2>
-                  <p className="leading-relaxed text-base">{description}</p>
-                  <LearnMore
-                    extendClass="mt-3"
-                    linkText={linkText}
-                    onClick={onClick}
-                    theme={theme}
-                    color={color}
-                  />
-                </div>
-              </div>
-            )
-          )}
+          {data.map((entry, idx) => (
+            <FeatureWithIconItem
+              {...entry}
+              key={entry.title + idx}
+              theme={theme}
+              color={color}
+              outerClass="flex flex-col mb-10 lg:items-start items-center"
+              innerClass="flex-grow"
+              extendDivClass="w-12 h-12 mb-5"
+              extendSvgClass="w-6 h-6"
+            />
+          ))}
         </div>
       </div>
     </Section>

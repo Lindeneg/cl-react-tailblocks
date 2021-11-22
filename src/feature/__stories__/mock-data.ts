@@ -64,3 +64,11 @@ export const MOCK_DATA_WITH_IMAGE_ENTRIES = [
       "Toast vegan taxidermy blue bottle crucifix vinyl post-ironic four dollar. VHS try-hard gastropub indxgo juice poutine ramps microdosing banh mi pug.",
   },
 ];
+
+export const MOCK_DATA_WITH_ICON_CARD_ENTRIES = [
+  MOCK_DATA_WITH_IMAGE_ENTRIES[0],
+  MOCK_DATA_WITH_IMAGE_ENTRIES[1],
+];
+
+export const MOCK_DATA_WITH_ICON_CARD_ENTRY =
+  MOCK_DATA_WITH_ICON_CARD_ENTRIES[0];

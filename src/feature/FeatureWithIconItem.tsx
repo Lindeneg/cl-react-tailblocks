@@ -29,7 +29,7 @@ export function FeatureWithIconItem({
   const cls = getClass.bind(null, theme);
   return (
     <div className={outerClass}>
-      <Icon {...iconProps} />
+      <Icon {...iconProps} theme={theme} color={color} />
       <div className={innerClass}>
         <h2
           className={cls(
