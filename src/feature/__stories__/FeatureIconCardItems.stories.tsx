@@ -1,4 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { action } from "@storybook/addon-actions";
 import {
   FeatureIconCardItems,
   FeatureIconCardItemsProps,
@@ -16,14 +17,24 @@ const MetaComp: Story<FeatureIconCardItemsProps> = (args) => (
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  data: MOCK_DATA_WITH_ICON_CARD_ENTRIES,
+  data: MOCK_DATA_WITH_ICON_CARD_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onClick")(e);
+    },
+  })),
   theme: "light",
   color: "indigo",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  data: MOCK_DATA_WITH_ICON_CARD_ENTRIES,
+  data: MOCK_DATA_WITH_ICON_CARD_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onClick")(e);
+    },
+  })),
   theme: "dark",
   color: "indigo",
 };

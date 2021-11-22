@@ -1,4 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
+import { action } from "@storybook/addon-actions";
 import {
   FeatureWithIconBig,
   FeatureWithIconBigProps,
@@ -19,7 +20,13 @@ const MetaComp: Story<FeatureWithIconBigProps> = (args) => (
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  data: MOCK_DATA_WITH_ICON_BIG_ENTRIES,
+  data: MOCK_DATA_WITH_ICON_BIG_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onLearnMore")(e);
+    },
+  })),
+  buttonText: "Button",
   title: "Raw Denim Heirloom Man Braid",
   description:
     "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.",
@@ -29,7 +36,13 @@ Light.args = {
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  data: MOCK_DATA_WITH_ICON_BIG_ENTRIES,
+  data: MOCK_DATA_WITH_ICON_BIG_ENTRIES.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onLearnMore")(e);
+    },
+  })),
+  buttonText: "Button",
   title: "Raw Denim Heirloom Man Braid",
   description:
     "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.",
