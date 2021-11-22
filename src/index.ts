@@ -31,6 +31,13 @@ export { ContentWithImageBigItems } from "./content/ContentWithImageBigItems";
 export { Cta } from "./cta/Cta";
 export { CtaWithFormRow } from "./cta/CtaWithFormRow";
 export { CtaWithFormCol } from "./cta/CtaWithFormCol";
+export { FeatureIconCardItems } from "./feature/FeatureIconCardItems";
+export { FeatureIconCardItemsWithHeader } from "./feature/FeatureIconCardItemsWithHeader";
+export { FeatureWithIconBig } from "./feature/FeatureWithIconBig";
+export { FeatureWithIconSmall } from "./feature/FeatureWithIconSmall";
+export { FeatureWithIconBigCol } from "./feature/FeatureWithIconBigCol";
+export { FeatureWithIconItem } from "./feature/FeatureWithIconItem";
+export { FeatureWithImage } from "./feature/FeatureWithImage";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -65,3 +72,10 @@ export type { ContentWithImageBigItemsProps } from "./content/ContentWithImageBi
 export type { CtaProps } from "./cta/Cta";
 export type { CtaWithFormRowProps } from "./cta/CtaWithFormRow";
 export type { CtaWithFormColProps } from "./cta/CtaWithFormCol";
+export type { FeatureIconCardItemsProps } from "./feature/FeatureIconCardItems";
+export type { FeatureIconCardItemsWithHeaderProps } from "./feature/FeatureIconCardItemsWithHeader";
+export type { FeatureWithIconBigProps } from "./feature/FeatureWithIconBig";
+export type { FeatureWithIconSmallProps } from "./feature/FeatureWithIconSmall";
+export type { FeatureWithIconBigColProps } from "./feature/FeatureWithIconBigCol";
+export type { FeatureWithIconItemProps } from "./feature/FeatureWithIconItem";
+export type { FeatureWithImageProps } from "./feature/FeatureWithImage";

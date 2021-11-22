@@ -5,10 +5,12 @@ import { getClass } from "../shared";
 export type LearnMoreProps = WithTheme<{
   onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   linkText?: string;
+  extendClass?: string;
 }>;
 
 export function LearnMore({
   onClick,
+  extendClass = "",
   theme = "light",
   color = "indigo",
   linkText = "Learn More",
@@ -18,7 +20,7 @@ export function LearnMore({
       onClick={onClick}
       className={getClass(
         theme,
-        "cursor-pointer inline-flex items-center md:mb-2 lg:mb-0",
+        `cursor-pointer inline-flex items-center md:mb-2 lg:mb-0 ${extendClass}`,
         `text-${color}-500 hover:text-${color}-600`,
         `text-${color}-400 hover:text-${color}-500`
       )}
