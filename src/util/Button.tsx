@@ -3,7 +3,7 @@ import { ThemeColor } from "../types";
 
 export type ButtonProps = {
   text: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   overrideClass?: string;
   extendClass?: string;
   color?: ThemeColor;
