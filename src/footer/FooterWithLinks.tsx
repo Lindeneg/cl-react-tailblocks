@@ -14,13 +14,12 @@ export type FooterWithLinksProps = {
 export function FooterWithLinks({
   name,
   description,
-  credit,
   socials,
   links,
-  linkNode,
   theme = "light",
   color = "indigo",
   reverse = false,
+  ...props
 }: FooterWithLinksProps) {
   const cls = getClass.bind(null, theme);
   const jsx = (
@@ -34,6 +33,7 @@ export function FooterWithLinks({
       {links.map((link, i) => (
         <FooterLinks
           {...link}
+          extendClass="lg:w-1/4 md:w-1/2"
           title={link.title}
           key={link.title + i}
           theme={theme}
@@ -45,8 +45,8 @@ export function FooterWithLinks({
     <FooterSection testId="footer-with-links-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         {reverse && jsx}
-        {linkNode ? (
-          linkNode
+        {"linkNode" in props ? (
+          props.linkNode
         ) : (
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <a
@@ -77,21 +77,23 @@ export function FooterWithLinks({
       </div>
       <div className={cls("", "bg-gray-100", "bg-gray-800 bg-opacity-75")}>
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p
-            className={cls(
-              "text-sm text-center sm:text-left",
-              "hover:text-gray-500",
-              "text-gray-400"
-            )}
-          >
-            © {credit.year || ""} {name} —
-            <a
-              className={cls("ml-1", "text-gray-600", "text-gray-400")}
-              {...credit.aProps}
+          {"credit" in props && (
+            <p
+              className={cls(
+                "text-sm text-center sm:text-left",
+                "hover:text-gray-500",
+                "text-gray-400"
+              )}
             >
-              {credit.label}
-            </a>
-          </p>
+              © {props.credit.year || ""} {name} —
+              <a
+                className={cls("ml-1", "text-gray-600", "text-gray-400")}
+                {...props.credit.aProps}
+              >
+                {props.credit.label}
+              </a>
+            </p>
+          )}
           <Socials
             {...socials}
             className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"

@@ -4,12 +4,10 @@ import { Input } from "../util/Input";
 import { FooterSection } from "../util/Section";
 import { Button } from "../util/Button";
 import { WithoutTheme, ReactInputProps } from "../types";
-import { getClass } from "../shared";
-import { getRefValue } from "..";
+import { getClass, getRefValue } from "../shared";
 
 export type FooterWithLinksAndInputSmallProps = {
   formHeader: string;
-  formLabel: string;
   formDescription: string | React.ReactNode;
   buttonText?: string;
   links: Array<WithoutTheme<FooterLinksProps, "extendClass">>;
@@ -22,7 +20,6 @@ export type FooterWithLinksAndInputSmallProps = {
 
 export function FooterWithLinksAndInputSmall({
   formHeader,
-  formLabel,
   formDescription,
   links,
   onClick,
@@ -36,7 +33,7 @@ export function FooterWithLinksAndInputSmall({
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <FooterSection
-      testId="footer-with-links--and-input-small-section"
+      testId="footer-with-links-and-input-small-section"
       theme={theme}
     >
       <div className="container px-5 py-24 mx-auto">
@@ -44,6 +41,7 @@ export function FooterWithLinksAndInputSmall({
           {links.map((link, i) => (
             <FooterLinks
               {...link}
+              extendClass="lg:w-1/4 md:w-1/2"
               title={link.title}
               key={link.title + i}
               theme={theme}
@@ -74,6 +72,7 @@ export function FooterWithLinksAndInputSmall({
                 />
               </div>
               <Button
+                color={color}
                 text={buttonText}
                 onClick={(e) => {
                   onClick(e, getRefValue(inputRef));
