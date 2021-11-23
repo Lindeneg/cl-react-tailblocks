@@ -3,7 +3,7 @@ export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
 export { Button } from "./util/Button";
 export { Avatar } from "./util/Avatar";
-export { Section } from "./util/Section";
+export { Section, FooterSection } from "./util/Section";
 export { EmbeddedMap } from "./util/EmbeddedMap";
 export { Socials, IconWrapper } from "./util/Socials";
 export { Input, TextArea } from "./util/Input";
