@@ -38,6 +38,10 @@ export { FeatureWithIconSmall } from "./feature/FeatureWithIconSmall";
 export { FeatureWithIconBigCol } from "./feature/FeatureWithIconBigCol";
 export { FeatureWithIconItem } from "./feature/FeatureWithIconItem";
 export { FeatureWithImage } from "./feature/FeatureWithImage";
+export { Footer, FooterLinks } from "./footer/Footer";
+export { FooterWithLinks } from "./footer/FooterWithLinks";
+export { FooterWithLinksAndInputBig } from "./footer/FooterWithLinksAndInputBig";
+export { FooterWithLinksAndInputSmall } from "./footer/FooterWithLinksAndInputSmall";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -79,3 +83,7 @@ export type { FeatureWithIconSmallProps } from "./feature/FeatureWithIconSmall";
 export type { FeatureWithIconBigColProps } from "./feature/FeatureWithIconBigCol";
 export type { FeatureWithIconItemProps } from "./feature/FeatureWithIconItem";
 export type { FeatureWithImageProps } from "./feature/FeatureWithImage";
+export type { FooterProps, FooterLinksProps } from "./footer/Footer";
+export type { FooterWithLinksProps } from "./footer/FooterWithLinks";
+export type { FooterWithLinksAndInputBigProps } from "./footer/FooterWithLinksAndInputBig";
+export type { FooterWithLinksAndInputSmallProps } from "./footer/FooterWithLinksAndInputSmall";
