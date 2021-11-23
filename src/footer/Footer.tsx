@@ -81,58 +81,68 @@ export function Footer({
   credit,
   socials,
   linkNode,
+  withoutSection = false,
   theme = "light",
   color = "indigo",
-}: FooterProps) {
+}: FooterProps & { withoutSection?: boolean }) {
   const cls = getClass.bind(null, theme);
-  return (
-    <FooterSection testId="footer-with-links-section" theme={theme}>
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        {linkNode ? (
-          linkNode
-        ) : (
-          <a
-            className={cls(
-              "flex title-font font-medium items-center md:justify-start justify-center",
-              "text-gray-900",
-              "text-white"
-            )}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className={`w-10 h-10 p-2 text-white bg-${color}-500 rounded-full`}
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span className="ml-3 text-xl">{name}</span>
-          </a>
-        )}
-        <p
+  const jsx = (
+    <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      {linkNode ? (
+        linkNode
+      ) : (
+        <a
           className={cls(
-            "text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:py-2 sm:mt-0 mt-4",
-            "text-gray-500",
-            "text-gray-400 sm:border-gray-800"
+            "flex title-font font-medium items-center md:justify-start justify-center",
+            "text-gray-900",
+            "text-white"
           )}
         >
-          © {credit.year || ""} {name} —
-          <a
-            className={cls("ml-1", "text-gray-600", "text-gray-500 ")}
-            {...credit.aProps}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className={`w-10 h-10 p-2 text-white bg-${color}-500 rounded-full`}
+            viewBox="0 0 24 24"
           >
-            {credit.label}
-          </a>
-        </p>
-        <Socials
-          {...socials}
-          className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
-        />
-      </div>
-    </FooterSection>
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span className="ml-3 text-xl">{name}</span>
+        </a>
+      )}
+      <p
+        className={cls(
+          "text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:py-2 sm:mt-0 mt-4",
+          "text-gray-500",
+          "text-gray-400 sm:border-gray-800"
+        )}
+      >
+        © {credit.year || ""} {name} —
+        <a
+          className={cls("ml-1", "text-gray-600", "text-gray-500 ")}
+          {...credit.aProps}
+        >
+          {credit.label}
+        </a>
+      </p>
+      <Socials
+        {...socials}
+        className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+      />
+    </div>
+  );
+  return (
+    <>
+      {withoutSection ? (
+        jsx
+      ) : (
+        <FooterSection testId="footer-with-links-section" theme={theme}>
+          {jsx}
+        </FooterSection>
+      )}
+    </>
   );
 }
