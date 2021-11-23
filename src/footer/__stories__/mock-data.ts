@@ -89,5 +89,9 @@ export const MOCK_FOOTER = {
       rel: "no-referrer",
     },
   },
+};
+
+export const MOCK_FOOTER_WITH_LINKS = {
+  ...MOCK_FOOTER,
   ...MOCK_DATA_LINKS,
 };

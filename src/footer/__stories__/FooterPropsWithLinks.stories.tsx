@@ -1,27 +1,29 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { Footer, FooterProps } from "../Footer";
-import { MOCK_FOOTER } from "./mock-data";
+import { FooterWithLinks, FooterWithLinksProps } from "../FooterWithLinks";
+import { MOCK_FOOTER_WITH_LINKS } from "./mock-data";
 
 export default {
-  title: "Footer/Footer",
-  component: Footer,
+  title: "Footer/FooterWithLinks",
+  component: FooterWithLinks,
   argTypes: {
     linkNode: { control: "none" },
   },
 } as Meta;
 
-const MetaComp: Story<FooterProps> = (args) => <Footer {...args} />;
+const MetaComp: Story<FooterWithLinksProps> = (args) => (
+  <FooterWithLinks {...args} />
+);
 
 export const Light = MetaComp.bind({});
 Light.args = {
-  ...MOCK_FOOTER,
+  ...MOCK_FOOTER_WITH_LINKS,
   theme: "light",
   color: "indigo",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
-  ...MOCK_FOOTER,
+  ...MOCK_FOOTER_WITH_LINKS,
   theme: "dark",
   color: "indigo",
 };
