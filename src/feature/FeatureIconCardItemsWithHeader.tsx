@@ -3,7 +3,7 @@ import {
   FeatureWithIconItem,
   FeatureWithIconItemProps,
 } from "./FeatureWithIconItem";
-import { Section } from "../util/Section";
+import { FooterSection } from "../util/Section";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -32,7 +32,7 @@ export function FeatureIconCardItemsWithHeader({
 }: FeatureIconCardItemsWithHeaderProps) {
   const cls = getClass.bind(null, theme);
   return (
-    <Section testId="feature-with-icon-and-header-section" theme={theme}>
+    <FooterSection testId="feature-with-icon-and-header-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h2
@@ -76,6 +76,6 @@ export function FeatureIconCardItemsWithHeader({
           ))}
         </div>
       </div>
-    </Section>
+    </FooterSection>
   );
 }

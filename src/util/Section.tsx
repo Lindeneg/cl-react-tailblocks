@@ -28,3 +28,24 @@ export function Section({
     </section>
   );
 }
+
+export function FooterSection({
+  children,
+  testId = "footer-test-id",
+  extendClass = "",
+  theme = "light",
+}: SectionProps) {
+  return (
+    <footer
+      data-testid={testId}
+      className={getClass(
+        theme,
+        `body-font ${extendClass}`,
+        "text-gray-600",
+        "text-gray-400 bg-gray-900"
+      )}
+    >
+      {children}
+    </footer>
+  );
+}
