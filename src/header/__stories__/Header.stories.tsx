@@ -8,13 +8,13 @@ export default {
     linkNode: { control: "none" },
     onClick: { control: "none" },
     buttonNode: { control: "none" },
+    spanClass: { control: "none" },
   },
 } as Meta;
 
 const MetaComp: Story<HeaderProps> = (args) => <Header {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
+const props: HeaderProps = {
   links: [
     { label: "First Link" },
     { label: "Second Link" },
@@ -24,24 +24,68 @@ Light.args = {
   name: "Tailblocks",
   buttonText: "Button",
   orientation: "right",
-  theme: "light",
   color: "indigo",
+  theme: "light",
 };
 
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  links: [
-    { label: "First Link" },
-    { label: "Second Link" },
-    { label: "Third Link" },
-    { label: "Fourth Link" },
-  ],
-  name: "Tailblocks",
-  buttonText: "Button",
-  orientation: "right",
-  theme: "dark",
-  color: "indigo",
+export const RightLight = MetaComp.bind({});
+RightLight.args = {
+  ...props,
 };
-Dark.parameters = {
+
+export const RightDark = MetaComp.bind({});
+RightDark.args = {
+  ...props,
+  theme: "dark",
+};
+RightDark.parameters = {
+  backgrounds: { default: "dark" },
+};
+
+export const LeftLight = MetaComp.bind({});
+LeftLight.args = {
+  ...props,
+  orientation: "left",
+};
+
+export const LeftDark = MetaComp.bind({});
+LeftDark.args = {
+  ...props,
+  orientation: "left",
+  theme: "dark",
+};
+LeftDark.parameters = {
+  backgrounds: { default: "dark" },
+};
+
+export const MiddleLight = MetaComp.bind({});
+MiddleLight.args = {
+  ...props,
+  orientation: "middle",
+};
+
+export const MiddleDark = MetaComp.bind({});
+MiddleDark.args = {
+  ...props,
+  orientation: "middle",
+  theme: "dark",
+};
+MiddleDark.parameters = {
+  backgrounds: { default: "dark" },
+};
+
+export const SwapLight = MetaComp.bind({});
+SwapLight.args = {
+  ...props,
+  orientation: "swap",
+};
+
+export const SwapDark = MetaComp.bind({});
+SwapDark.args = {
+  ...props,
+  orientation: "swap",
+  theme: "dark",
+};
+SwapDark.parameters = {
   backgrounds: { default: "dark" },
 };
