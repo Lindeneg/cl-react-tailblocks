@@ -6,7 +6,7 @@ import {
 } from "../ContactWithSocials";
 
 export default {
-  title: "Contact",
+  title: "Contact/WithSocials",
   component: ContactWithSocials,
   argTypes: {
     onSubmit: { control: "none" },
@@ -20,8 +20,8 @@ const MetaComp: Story<ContactWithSocialsProps> = (args) => (
   <ContactWithSocials {...args} />
 );
 
-export const WithSocials = MetaComp.bind({});
-WithSocials.args = {
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
   label: "Contact Us",
