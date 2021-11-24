@@ -6,7 +6,7 @@ import { BlogItems, BlogItemsProps } from "../BlogItems";
 export default {
   title: "Blog/Default",
   component: BlogItems,
-  argTypes: {}
+  argTypes: {},
 } as Meta;
 
 const MetaComp: Story<BlogItemsProps> = (args) => <BlogItems {...args} />;

@@ -9,7 +9,7 @@ import {
 export default {
   title: "Blog/WithAvatar",
   component: BlogWithAvatarItems,
-  argTypes: {}
+  argTypes: {},
 } as Meta;
 
 const MetaComp: Story<BlogWithAvatarItemsProps> = (args) => (
