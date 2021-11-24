@@ -42,6 +42,7 @@ export { Footer, FooterLinks } from "./footer/Footer";
 export { FooterWithLinks } from "./footer/FooterWithLinks";
 export { FooterWithLinksAndInputBig } from "./footer/FooterWithLinksAndInputBig";
 export { FooterWithLinksAndInputSmall } from "./footer/FooterWithLinksAndInputSmall";
+export { Header } from "./header/Header";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -87,3 +88,4 @@ export type { FooterProps, FooterLinksProps } from "./footer/Footer";
 export type { FooterWithLinksProps } from "./footer/FooterWithLinks";
 export type { FooterWithLinksAndInputBigProps } from "./footer/FooterWithLinksAndInputBig";
 export type { FooterWithLinksAndInputSmallProps } from "./footer/FooterWithLinksAndInputSmall";
+export type { HeaderProps, HeaderOrientation } from "./header/Header";
