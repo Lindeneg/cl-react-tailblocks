@@ -6,27 +6,18 @@ import {
 } from "../ContentWithImageSmallItem";
 
 export default {
-  title: "Content/ContentWithImageSmallItem",
+  title: "Content/WithImage",
   component: ContentWithImageSmallItem,
+  argTypes: {},
 } as Meta;
 
 const MetaComp: Story<ContentWithImageSmallItemProps> = (args) => (
   <ContentWithImageSmallItem {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_DATA_SMALL_IMAGE_ENTRY,
+export const SmallItem = MetaComp.bind({});
+SmallItem.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_DATA_SMALL_IMAGE_ENTRY,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

@@ -6,7 +6,7 @@ import {
 } from "../ContentWithAvatarAndImage";
 
 export default {
-  title: "Content/ContentWithAvatarAndImage",
+  title: "Content/WithAvatarAndImage",
   component: ContentWithAvatarAndImage,
   argTypes: {
     linkNode: { control: "none" },
@@ -19,19 +19,9 @@ const MetaComp: Story<ContentWithAvatarAndImageProps> = (args) => (
   <ContentWithAvatarAndImage {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_AVATAR_AND_IMAGE_ENTRY,
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_AVATAR_AND_IMAGE_ENTRY,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

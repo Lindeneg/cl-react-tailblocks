@@ -4,33 +4,26 @@ import { MOCK_DATA_PLAIN_ENTRIES } from "./mock-data";
 import { ContentItems, ContentItemsProps } from "../ContentItems";
 
 export default {
-  title: "Content/ContentItems",
+  title: "Content/Default",
   component: ContentItems,
   argTypes: {
     onClick: { action: "onClick" },
+    theme: {
+      control: {
+        title: "theme",
+        data: ["light", "dark"],
+        defaultValue: "light",
+      },
+    },
   },
 } as Meta;
 
 const MetaComp: Story<ContentItemsProps> = (args) => <ContentItems {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  data: MOCK_DATA_PLAIN_ENTRIES.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onLearnMore")(e);
-    },
-  })),
-  label: "ROOF PARTY POLAROID",
-  title: "Master Cleanse Reliac Heirloom",
-  description:
-    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.",
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   data: MOCK_DATA_PLAIN_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
@@ -41,9 +34,4 @@ Dark.args = {
   title: "Master Cleanse Reliac Heirloom",
   description:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.",
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };
