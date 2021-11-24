@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { Hero, HeroProps } from "../Hero";
 
@@ -21,6 +22,18 @@ Light.args = {
   orientation: "right",
   theme: "light",
   color: "indigo",
+  btnLeft: {
+    buttonText: "Button",
+    onClick: (e) => {
+      action("onLeftButtonClick")(e);
+    },
+  },
+  btnRight: {
+    buttonText: "Button",
+    onClick: (e) => {
+      action("onRightButtonClick")(e);
+    },
+  },
 };
 
 export const Dark = MetaComp.bind({});
@@ -31,6 +44,18 @@ Dark.args = {
   orientation: "right",
   theme: "dark",
   color: "indigo",
+  btnLeft: {
+    buttonText: "Button",
+    onClick: (e) => {
+      action("onLeftButtonClick")(e);
+    },
+  },
+  btnRight: {
+    buttonText: "Button",
+    onClick: (e) => {
+      action("onRightButtonClick")(e);
+    },
+  },
 };
 Dark.parameters = {
   backgrounds: { default: "dark" },
