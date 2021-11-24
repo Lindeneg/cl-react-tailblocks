@@ -13,84 +13,25 @@ export default {
 
 const MetaComp: Story<HeroProps> = (args) => <Hero {...args} />;
 
-export const RightLight = MetaComp.bind({});
-RightLight.args = {
-  title: (
-    <span>
-      Before they sold out
-      <br className="hidden lg:inline-block" />
-      readymade gluten
-    </span>
-  ),
-  description: `Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-  plant cold-pressed tacos poke beard tote bag. Heirloom echo park
-  mlkshk tote bag selvage hot chicken authentic tumeric truffaut
-  hexagon try-hard chambray.`,
+export const Light = MetaComp.bind({});
+Light.args = {
+  title: "Microdosing synth tattooed vexillologist",
+  description: `Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon mustache umami snackwave tilde chillwave ugh. Pour-over meditation PBR&B pickled ennui celiac mlkshk freegan photo booth af fingerstache pitchfork.`,
   imgSrc: "https://dummyimage.com/720x600",
   orientation: "right",
   theme: "light",
   color: "indigo",
 };
 
-export const RightDark = MetaComp.bind({});
-RightDark.args = {
-  title: (
-    <span>
-      Before they sold out
-      <br className="hidden lg:inline-block" />
-      readymade gluten
-    </span>
-  ),
-  description: `Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-  plant cold-pressed tacos poke beard tote bag. Heirloom echo park
-  mlkshk tote bag selvage hot chicken authentic tumeric truffaut
-  hexagon try-hard chambray.`,
+export const Dark = MetaComp.bind({});
+Dark.args = {
+  title: "Microdosing synth tattooed vexillologist",
+  description: `Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt ramps hexagon mustache umami snackwave tilde chillwave ugh. Pour-over meditation PBR&B pickled ennui celiac mlkshk freegan photo booth af fingerstache pitchfork.`,
   imgSrc: "https://dummyimage.com/720x600",
   orientation: "right",
   theme: "dark",
   color: "indigo",
 };
-RightDark.parameters = {
-  backgrounds: { default: "dark" },
-};
-
-export const LeftLight = MetaComp.bind({});
-LeftLight.args = {
-  title: (
-    <span>
-      Before they sold out
-      <br className="hidden lg:inline-block" />
-      readymade gluten
-    </span>
-  ),
-  description: `Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-  plant cold-pressed tacos poke beard tote bag. Heirloom echo park
-  mlkshk tote bag selvage hot chicken authentic tumeric truffaut
-  hexagon try-hard chambray.`,
-  imgSrc: "https://dummyimage.com/720x600",
-  orientation: "left",
-  theme: "light",
-  color: "indigo",
-};
-
-export const LeftDark = MetaComp.bind({});
-LeftDark.args = {
-  title: (
-    <span>
-      Before they sold out
-      <br className="hidden lg:inline-block" />
-      readymade gluten
-    </span>
-  ),
-  description: `Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-  plant cold-pressed tacos poke beard tote bag. Heirloom echo park
-  mlkshk tote bag selvage hot chicken authentic tumeric truffaut
-  hexagon try-hard chambray.`,
-  imgSrc: "https://dummyimage.com/720x600",
-  orientation: "left",
-  theme: "dark",
-  color: "indigo",
-};
-LeftDark.parameters = {
+Dark.parameters = {
   backgrounds: { default: "dark" },
 };
