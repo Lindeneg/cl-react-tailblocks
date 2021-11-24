@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { CtaWithFormRow, CtaWithFormRowProps } from "../CtaWithFormRow";
 
 export default {
-  title: "Cta/CtaWithFormRow",
+  title: "Cta/WithForm",
   component: CtaWithFormRow,
   argTypes: {
     onSubmit: { control: "onSubmit" },
@@ -16,8 +16,8 @@ const MetaComp: Story<CtaWithFormRowProps> = (args) => (
   <CtaWithFormRow {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const Row = MetaComp.bind({});
+Row.args = {
   theme: "light",
   color: "indigo",
   title: "Slow-carb next level shoindcgoitch ethical authentic, poko scenester",
@@ -28,21 +28,4 @@ Light.args = {
   onSubmit: (_, topValue, bottomValue) => {
     action("onSubmit")(topValue, bottomValue);
   },
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  theme: "dark",
-  color: "indigo",
-  title: "Slow-carb next level shoindcgoitch ethical authentic, poko scenester",
-  description:
-    "Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.",
-  formHeader: "Sign Up",
-  bottomText: "Literally you probably haven't heard of them jean shorts.",
-  onSubmit: (_, topValue, bottomValue) => {
-    action("onSubmit")({ topValue, bottomValue });
-  },
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

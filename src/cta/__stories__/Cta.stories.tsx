@@ -11,21 +11,10 @@ export default {
 
 const MetaComp: Story<CtaProps> = (args) => <Cta {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
   title:
     "Slow-carb next level shoinddgoitch ethical authentic, scenester sriracha forage.",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  theme: "dark",
-  color: "indigo",
-  title:
-    "Slow-carb next level shoinddgoitch ethical authentic, scenester sriracha forage.",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };
