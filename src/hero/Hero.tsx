@@ -9,10 +9,12 @@ export type DoubleBtn = {
   btnRight?: { buttonText: string } & Pick<ButtonProps, "onClick">;
 };
 
+export type HeroOrientation = "right" | "left" | "middle";
+
 export type HeroProps = WithTheme<{
   title: string | React.ReactNode;
   description: string;
-  orientation?: "right" | "left" | "middle";
+  orientation?: HeroOrientation;
 }> &
   Image &
   DoubleBtn;
@@ -54,7 +56,7 @@ export function Hero({
       </div>
     );
   return (
-    <Section testId="header-section" theme={theme}>
+    <Section testId="hero-section" theme={theme}>
       <div
         className={`container mx-auto flex px-5 py-24 flex-col items-center ${
           orientation === "middle" ? "justify-center" : "md:flex-row"
