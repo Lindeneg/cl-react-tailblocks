@@ -17,3 +17,4 @@ yarn-error.log*
 lib
 test.template
 MISSING
+storybook-static

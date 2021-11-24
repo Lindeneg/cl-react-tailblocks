@@ -10,3 +10,4 @@ src
 yarn.lock
 test.template
 MISSING
+storybook-static
