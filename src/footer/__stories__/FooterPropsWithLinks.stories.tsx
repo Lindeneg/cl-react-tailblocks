@@ -3,7 +3,7 @@ import { FooterWithLinks, FooterWithLinksProps } from "../FooterWithLinks";
 import { MOCK_FOOTER_WITH_LINKS } from "./mock-data";
 
 export default {
-  title: "Footer/FooterWithLinks",
+  title: "Footer/WithLinks",
   component: FooterWithLinks,
   argTypes: {
     linkNode: { control: "none" },
@@ -14,19 +14,10 @@ const MetaComp: Story<FooterWithLinksProps> = (args) => (
   <FooterWithLinks {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_FOOTER_WITH_LINKS,
+export const Item = MetaComp.bind({});
+Item.args = {
+  reverse: false,
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_FOOTER_WITH_LINKS,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

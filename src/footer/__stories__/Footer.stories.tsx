@@ -3,7 +3,7 @@ import { Footer, FooterProps } from "../Footer";
 import { MOCK_FOOTER } from "./mock-data";
 
 export default {
-  title: "Footer/Footer",
+  title: "Footer/Default",
   component: Footer,
   argTypes: {
     linkNode: { control: "none" },
@@ -12,19 +12,9 @@ export default {
 
 const MetaComp: Story<FooterProps> = (args) => <Footer {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_FOOTER,
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_FOOTER,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

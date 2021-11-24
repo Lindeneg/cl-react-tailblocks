@@ -3,25 +3,25 @@ import { FooterLinks, FooterLinksProps } from "../Footer";
 import { MOCK_DATA_LINKS } from "./mock-data";
 
 export default {
-  title: "Footer/FooterLinks",
+  title: "Footer/Default",
   component: FooterLinks,
 } as Meta;
 
 const MetaComp: Story<FooterLinksProps> = (args) => <FooterLinks {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const LinksLight = MetaComp.bind({});
+LinksLight.args = {
   ...MOCK_DATA_LINKS.links[0],
   theme: "light",
   color: "indigo",
 };
 
-export const Dark = MetaComp.bind({});
-Dark.args = {
+export const LinksDark = MetaComp.bind({});
+LinksDark.args = {
   ...MOCK_DATA_LINKS.links[0],
   theme: "dark",
   color: "indigo",
 };
-Dark.parameters = {
+LinksDark.parameters = {
   backgrounds: { default: "dark" },
 };
