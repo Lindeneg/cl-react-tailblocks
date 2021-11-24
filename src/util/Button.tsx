@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeColor } from "../types";
 
 export type ButtonProps = {
-  text: string;
+  text?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   overrideClass?: string;
   extendClass?: string;
@@ -11,11 +11,11 @@ export type ButtonProps = {
 };
 
 export function Button({
-  text,
   overrideClass,
   extendClass,
   onClick,
   children,
+  text = "",
   color = "indigo",
 }: ButtonProps) {
   return (
