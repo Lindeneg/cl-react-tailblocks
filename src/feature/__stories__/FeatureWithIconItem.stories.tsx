@@ -6,7 +6,7 @@ import {
 import { MOCK_DATA_WITH_ICON_ENTRY } from "./mock-data";
 
 export default {
-  title: "Feature/FeatureWithIconItem",
+  title: "Feature/Default",
   component: FeatureWithIconItem,
   argTypes: {
     onClick: { control: "none" },
@@ -21,22 +21,22 @@ const MetaComp: Story<FeatureWithIconItemProps> = (args) => (
 
 export const Light = MetaComp.bind({});
 Light.args = {
+  theme: "light",
+  color: "indigo",
   ...MOCK_DATA_WITH_ICON_ENTRY,
   iconPlacement: "start",
   extendDivClass: "w-8 h-8 mr-3 flex-shrink-0 mb-5",
   extendSvgClass: "w-4 h-4",
-  theme: "light",
-  color: "indigo",
 };
 
 export const Dark = MetaComp.bind({});
 Dark.args = {
+  theme: "dark",
+  color: "indigo",
   ...MOCK_DATA_WITH_ICON_ENTRY,
   iconPlacement: "start",
   extendDivClass: "w-8 h-8 mr-3 flex-shrink-0 mb-5",
   extendSvgClass: "w-4 h-4",
-  theme: "dark",
-  color: "indigo",
 };
 Dark.parameters = {
   backgrounds: { default: "dark" },
