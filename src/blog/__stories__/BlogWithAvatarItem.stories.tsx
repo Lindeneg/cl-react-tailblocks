@@ -6,11 +6,12 @@ import {
 } from "../BlogWithAvatarItem";
 
 export default {
-  title: "Blog/BlogWithAvatarItem",
+  title: "Blog/WithAvatar",
   component: BlogWithAvatarItem,
   argTypes: {
     linkNode: { control: "none" },
     includeWrapperBg: { control: "none" },
+    imgAlt: { control: "none" },
     onClick: { action: "onClick" },
   },
 } as Meta;
@@ -19,19 +20,9 @@ const MetaComp: Story<BlogWithAvatarItemProps> = (args) => (
   <BlogWithAvatarItem {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_ENTRY_WITH_AVATAR,
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_ENTRY_WITH_AVATAR,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

@@ -6,7 +6,7 @@ import {
 } from "../BlogWithImageItem";
 
 export default {
-  title: "Blog/BlogWithImageItem",
+  title: "Blog/WithImage",
   component: BlogWithImageItem,
   argTypes: {
     linkNode: { control: "none" },
@@ -19,19 +19,9 @@ const MetaComp: Story<BlogWithImageItemProps> = (args) => (
   <BlogWithImageItem {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_ENTRY_WITH_IMG,
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_ENTRY_WITH_IMG,
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

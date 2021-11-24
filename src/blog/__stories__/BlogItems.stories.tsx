@@ -4,35 +4,21 @@ import { MOCK_ENTRIES } from "./mock-data";
 import { BlogItems, BlogItemsProps } from "../BlogItems";
 
 export default {
-  title: "Blog/BlogItems",
+  title: "Blog/Default",
   component: BlogItems,
+  argTypes: {}
 } as Meta;
 
 const MetaComp: Story<BlogItemsProps> = (args) => <BlogItems {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  data: MOCK_ENTRIES.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onClick")(e);
-    },
-  })),
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   data: MOCK_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
       action("onClick")(e);
     },
   })),
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };
