@@ -7,7 +7,7 @@ import {
 import { MOCK_DATA_WITH_ICON_BIG_ENTRIES } from "./mock-data";
 
 export default {
-  title: "Feature/FeatureWithIconBigCol",
+  title: "Feature/WithIconBig",
   component: FeatureWithIconBigCol,
   argTypes: {
     onClick: { control: "none" },
@@ -18,8 +18,8 @@ const MetaComp: Story<FeatureWithIconBigColProps> = (args) => (
   <FeatureWithIconBigCol {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const ItemsCol = MetaComp.bind({});
+ItemsCol.args = {
   data: MOCK_DATA_WITH_ICON_BIG_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
@@ -29,20 +29,4 @@ Light.args = {
   buttonText: "Button",
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  data: MOCK_DATA_WITH_ICON_BIG_ENTRIES.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onLearnMore")(e);
-    },
-  })),
-  buttonText: "Button",
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

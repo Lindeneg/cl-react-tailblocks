@@ -178,6 +178,7 @@ export function Header({
       aClass={cls(...orientationMap.a[orientation])}
       spanClass={orientation === "swap" ? "xl:block lg:hidden" : ""}
       theme={theme}
+      color={color}
     />
   );
   const nav = (

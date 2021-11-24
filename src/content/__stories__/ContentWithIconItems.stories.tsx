@@ -6,35 +6,31 @@ import {
 } from "../ContentWithIconItems";
 
 export default {
-  title: "Content/ContentWithIconItems",
+  title: "Content/WithIcon",
   component: ContentWithIconItems,
+  argTypes: {
+    onClick: { control: "none" },
+    theme: {
+      control: {
+        title: "theme",
+        data: ["light", "dark"],
+        defaultValue: "light",
+      },
+    },
+  },
 } as Meta;
 
 const MetaComp: Story<ContentWithIconItemsProps> = (args) => (
   <ContentWithIconItems {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  data: MOCK_DATA_ICON_ENTRIES,
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
-  buttonText: "Button",
-  title: "Pitchfork Kickstarter Taxidermy",
-  description:
-    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   data: MOCK_DATA_ICON_ENTRIES,
-  theme: "dark",
-  color: "indigo",
   buttonText: "Button",
   title: "Pitchfork Kickstarter Taxidermy",
   description:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

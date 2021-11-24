@@ -3,28 +3,30 @@ import { MOCK_DATA_PLAIN_ENTRY } from "./mock-data";
 import { ContentItem, ContentItemProps } from "../ContentItem";
 
 export default {
-  title: "Content/ContentItem",
+  title: "Content/Default",
   component: ContentItem,
   argTypes: {
     linkNode: { control: "none" },
+    theme: { control: "none" },
+    onClick: { control: "none" },
   },
 } as Meta;
 
 const MetaComp: Story<ContentItemProps> = (args) => <ContentItem {...args} />;
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const ItemLight = MetaComp.bind({});
+ItemLight.args = {
   ...MOCK_DATA_PLAIN_ENTRY,
   theme: "light",
   color: "indigo",
 };
 
-export const Dark = MetaComp.bind({});
-Dark.args = {
+export const ItemDark = MetaComp.bind({});
+ItemDark.args = {
   ...MOCK_DATA_PLAIN_ENTRY,
   theme: "dark",
   color: "indigo",
 };
-Dark.parameters = {
+ItemDark.parameters = {
   backgrounds: { default: "dark" },
 };

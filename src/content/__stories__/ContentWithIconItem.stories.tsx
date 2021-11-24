@@ -6,10 +6,12 @@ import {
 } from "../ContentWithIconItem";
 
 export default {
-  title: "Content/ContentWithIconItem",
+  title: "Content/WithIcon",
   component: ContentWithIconItem,
   argTypes: {
+    theme: { control: "none" },
     linkNode: { control: "none" },
+    iconNode: { control: "none" },
   },
 } as Meta;
 
@@ -17,19 +19,19 @@ const MetaComp: Story<ContentWithIconItemProps> = (args) => (
   <ContentWithIconItem {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_DATA_ICON_ENTRY,
+export const ItemLight = MetaComp.bind({});
+ItemLight.args = {
   theme: "light",
   color: "indigo",
+  ...MOCK_DATA_ICON_ENTRY,
 } as ContentWithIconItemProps;
 
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  ...MOCK_DATA_ICON_ENTRY,
+export const ItemDark = MetaComp.bind({});
+ItemDark.args = {
   theme: "dark",
   color: "indigo",
+  ...MOCK_DATA_ICON_ENTRY,
 } as ContentWithIconItemProps;
-Dark.parameters = {
+ItemDark.parameters = {
   backgrounds: { default: "dark" },
 };

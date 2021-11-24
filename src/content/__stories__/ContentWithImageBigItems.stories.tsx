@@ -7,16 +7,25 @@ import {
 } from "../ContentWithImageBigItems";
 
 export default {
-  title: "Content/ContentWithImageBigItems",
+  title: "Content/WithImage",
   component: ContentWithImageBigItems,
+  argTypes: {
+    theme: {
+      control: {
+        title: "theme",
+        data: ["light", "dark"],
+        defaultValue: "light",
+      },
+    },
+  },
 } as Meta;
 
 const MetaComp: Story<ContentWithImageBigItemsProps> = (args) => (
   <ContentWithImageBigItems {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const BigItems = MetaComp.bind({});
+BigItems.args = {
   data: MOCK_DATA_BIG_IMAGE_ENTRIES.map((e) => ({
     ...e,
     onClick: (e) => {
@@ -25,19 +34,4 @@ Light.args = {
   })),
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  data: MOCK_DATA_BIG_IMAGE_ENTRIES.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onClick")(e);
-    },
-  })),
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

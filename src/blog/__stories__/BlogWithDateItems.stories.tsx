@@ -7,37 +7,23 @@ import {
 } from "../BlogWithDateItems";
 
 export default {
-  title: "Blog/BlogWithDateItems",
+  title: "Blog/WithDate",
   component: BlogWithDateItems,
+  argTypes: {},
 } as Meta;
 
 const MetaComp: Story<BlogWithDateItemsProps> = (args) => (
   <BlogWithDateItems {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  data: MOCK_ENTRIES_WITH_DATE.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onClick")(e);
-    },
-  })),
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   data: MOCK_ENTRIES_WITH_DATE.map((e) => ({
     ...e,
     onClick: (e) => {
       action("onClick")(e);
     },
   })),
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

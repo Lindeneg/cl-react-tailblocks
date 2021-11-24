@@ -6,9 +6,10 @@ import {
 } from "../ContentWithImageBigItem";
 
 export default {
-  title: "Content/ContentWithImageBigItem",
+  title: "Content/WithImage",
   component: ContentWithImageBigItem,
   argTypes: {
+    theme: { control: "none" },
     onClick: { control: "none" },
   },
 } as Meta;
@@ -17,19 +18,19 @@ const MetaComp: Story<ContentWithImageBigItemProps> = (args) => (
   <ContentWithImageBigItem {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const BigItemLight = MetaComp.bind({});
+BigItemLight.args = {
   ...MOCK_DATA_BIG_IMAGE_ENTRY,
   theme: "light",
   color: "indigo",
 };
 
-export const Dark = MetaComp.bind({});
-Dark.args = {
+export const BigItemDark = MetaComp.bind({});
+BigItemDark.args = {
   ...MOCK_DATA_BIG_IMAGE_ENTRY,
   theme: "dark",
   color: "indigo",
 };
-Dark.parameters = {
+BigItemDark.parameters = {
   backgrounds: { default: "dark" },
 };

@@ -6,7 +6,7 @@ import {
 import { MOCK_DATA_LINKS, MOCK_FOOTER } from "./mock-data";
 
 export default {
-  title: "Footer/FooterWithLinksAndInputSmall",
+  title: "Footer/WithLinksAndInput",
   component: FooterWithLinksAndInputSmall,
   argTypes: {
     linkNode: { control: "none" },
@@ -19,22 +19,10 @@ const MetaComp: Story<FooterWithLinksAndInputSmallProps> = (args) => (
   <FooterWithLinksAndInputSmall {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  ...MOCK_FOOTER,
-  formHeader: "SUBSCRIBE",
-  inputProps: {
-    label: "Placeholder",
-  },
-  formDescription: "Bitters chicharrones fanny pack waistcoat green juice",
-  buttonText: "Button",
-  links: [...MOCK_DATA_LINKS.links].slice(0, 3),
+export const Small = MetaComp.bind({});
+Small.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   ...MOCK_FOOTER,
   formHeader: "SUBSCRIBE",
   inputProps: {
@@ -43,9 +31,4 @@ Dark.args = {
   formDescription: "Bitters chicharrones fanny pack waistcoat green juice",
   buttonText: "Button",
   links: [...MOCK_DATA_LINKS.links].slice(0, 3),
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

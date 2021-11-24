@@ -6,16 +6,22 @@ import {
 } from "../ContactWithSocials";
 
 export default {
-  title: "Contact/ContactWithSocials",
+  title: "Contact/WithSocials",
   component: ContactWithSocials,
+  argTypes: {
+    onSubmit: { control: "none" },
+    textAreaProps: { control: "none" },
+    inputRightProps: { control: "none" },
+    inputLeftProps: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<ContactWithSocialsProps> = (args) => (
   <ContactWithSocials {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
   label: "Contact Us",
@@ -31,26 +37,4 @@ Light.args = {
   onSubmit: (_, inputRight, inputLeft, textArea) => {
     action("onSubmit")({ inputRight, inputLeft, textArea });
   },
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
-  theme: "dark",
-  color: "indigo",
-  label: "Contact Us",
-  description:
-    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.",
-  buttonLabel: "Submit",
-  street: "49 Smith St.",
-  city: "Saint Cloud, MN 56301",
-  email: "example@email.com",
-  facebook: "https://facebook.com",
-  twitter: "https://twitter.com",
-  instagram: "https://instagram.com",
-  onSubmit: (_, inputRight, inputLeft, textArea) => {
-    action("onSubmit")({ inputRight, inputLeft, textArea });
-  },
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };

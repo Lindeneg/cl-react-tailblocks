@@ -7,29 +7,23 @@ import {
 import { MOCK_DATA_WITH_ICON_ENTRIES } from "./mock-data";
 
 export default {
-  title: "Feature/FeatureWithIconSmall",
+  title: "Feature/WithIconSmall",
   component: FeatureWithIconSmall,
+  argTypes: {
+    onClick: { control: "none" },
+    linkNode: { control: "none" },
+    iconNode: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<FeatureWithIconSmallProps> = (args) => (
   <FeatureWithIconSmall {...args} />
 );
 
-export const Light = MetaComp.bind({});
-Light.args = {
-  title: "Raw Denim Heirloom Man Braid Selfies Wayfarers",
-  data: MOCK_DATA_WITH_ICON_ENTRIES.map((e) => ({
-    ...e,
-    onClick: (e) => {
-      action("onClick")(e);
-    },
-  })),
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
-};
-
-export const Dark = MetaComp.bind({});
-Dark.args = {
   title: "Raw Denim Heirloom Man Braid Selfies Wayfarers",
   data: MOCK_DATA_WITH_ICON_ENTRIES.map((e) => ({
     ...e,
@@ -37,9 +31,4 @@ Dark.args = {
       action("onClick")(e);
     },
   })),
-  theme: "dark",
-  color: "indigo",
-};
-Dark.parameters = {
-  backgrounds: { default: "dark" },
 };
