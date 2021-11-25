@@ -3,31 +3,35 @@ import { Button, ButtonProps } from "../util/Button";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
+export type Prices = {
+  price: string | number;
+  per?: string;
+};
+
 export type PricingCardProps = WithTheme<{
   label: string;
-  pricing: string | number;
   features: Array<
     | {
         iconNode: React.ReactNode;
       }
     | string
   >;
-  per?: string;
   selectedTag?: string;
   selected?: boolean;
   buttonText?: string;
   bottomText?: string;
 }> &
+  Prices &
   Pick<ButtonProps, "onClick">;
 
 export function PricingCard({
   features,
   label,
-  pricing,
-  per,
+  price,
   bottomText,
   onClick,
   selected = false,
+  per,
   selectedTag = "POPULAR",
   buttonText = "Button",
   theme = "light",
@@ -68,7 +72,7 @@ export function PricingCard({
             >
               {per ? (
                 <>
-                  <span>{pricing}</span>
+                  <span>{price}</span>
                   <span
                     className={cls(
                       "text-lg ml-1 font-normal",
@@ -80,7 +84,7 @@ export function PricingCard({
                   </span>
                 </>
               ) : (
-                <>{pricing}</>
+                <>{price}</>
               )}
             </h1>
           </>
@@ -104,7 +108,7 @@ export function PricingCard({
             >
               {per ? (
                 <>
-                  <span>{pricing}</span>
+                  <span>{price}</span>
                   <span
                     className={cls(
                       "text-lg ml-1 font-normal",
@@ -116,7 +120,7 @@ export function PricingCard({
                   </span>
                 </>
               ) : (
-                <>{pricing}</>
+                <>{price}</>
               )}
             </h1>
           </>
