@@ -22,9 +22,10 @@ Item.args = {
         "Mixtape chillwave tumeric",
       ],
       bottomText: "Literally you probably haven't heard of them jean shorts.",
-      label: "PRO",
-      pricing: "$12",
-      per: "/mo",
+      label: "START",
+      prices: {
+        price: "Free",
+      },
       selected: false,
     },
     {
@@ -33,14 +34,20 @@ Item.args = {
         "Tumeric plaid portland",
         "Mixtape chillwave tumeric",
         "Vexillologist pitchfork",
-        "Tumeric plaid portland",
-        "Mixtape chillwave tumeric",
       ],
       bottomText: "Literally you probably haven't heard of them jean shorts.",
       label: "PRO",
-      pricing: "$12",
-      per: "/mo",
-      selected: true,
+      prices: [
+        {
+          price: "$12",
+          per: "/month",
+        },
+        {
+          price: "$140",
+          per: "/year",
+        },
+      ],
+      selected: false,
     },
   ],
   description:
