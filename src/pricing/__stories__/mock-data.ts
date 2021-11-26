@@ -24,7 +24,6 @@ export const MOCK_DATA_CARDS = {
       prices: {
         price: "Free",
       },
-      selected: false,
     },
     {
       features: [
@@ -46,7 +45,6 @@ export const MOCK_DATA_CARDS = {
         },
       ] as [Prices, Prices],
       comparisons: ["", "$456"] as [string, string],
-      selected: false,
     },
     {
       features: [
@@ -69,7 +67,7 @@ export const MOCK_DATA_CARDS = {
         },
       ] as [Prices, Prices],
       comparisons: ["", "$672"] as [string, string],
-      selected: true,
+      selected: false,
     },
     {
       features: [

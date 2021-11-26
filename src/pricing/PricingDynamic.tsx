@@ -7,7 +7,7 @@ import { getClass } from "../shared";
 
 export type PricingDynamicProps = WithTheme<{
   data: Array<
-    WithoutTheme<PricingCardProps, "price" | "comparison"> & {
+    WithoutTheme<PricingCardProps, "price" | "comparison" | "selected"> & {
       prices: [Prices, Prices] | Prices;
       comparisons?: [string | React.ReactNode, string | React.ReactNode];
     }
@@ -15,18 +15,20 @@ export type PricingDynamicProps = WithTheme<{
   description: string;
   options: [string, string];
   title?: string;
+  selectedCardLabel?: string;
 }>;
 
 export function PricingDynamic({
   data,
   description,
   options,
+  selectedCardLabel,
   title = "Pricing",
   theme = "light",
   color = "indigo",
 }: PricingDynamicProps) {
   const cls = getClass.bind(null, theme);
-  const [selectedIdx, setSelectedIdx] = useState<number>(0);
+  const [selectedPriceIdx, setSelectedPriceIdx] = useState<number>(0);
   return (
     <Section
       testId="price-dynamic-section"
@@ -58,40 +60,46 @@ export function PricingDynamic({
           >
             <Button
               overrideClass={`py-1 px-4 focus:outline-none ${
-                selectedIdx === 0 ? `bg-${color}-500 text-white` : ""
+                selectedPriceIdx === 0 ? `bg-${color}-500 text-white` : ""
               }`}
               text={options[0]}
               onClick={() => {
-                setSelectedIdx(0);
+                setSelectedPriceIdx(0);
               }}
             />
             <Button
               overrideClass={`py-1 px-4 focus:outline-none ${
-                selectedIdx === 1 ? `bg-${color}-500 text-white` : ""
+                selectedPriceIdx === 1 ? `bg-${color}-500 text-white` : ""
               }`}
               text={options[1]}
               onClick={() => {
-                setSelectedIdx(1);
+                setSelectedPriceIdx(1);
               }}
             />
           </div>
         </div>
         <div className="flex flex-wrap -m-4">
-          {data.map(({ prices, comparisons, ...entry }, i) => {
+          {data.map(({ prices, comparisons, onClick, ...entry }, i) => {
             let selectedPrice: string | number;
             let selectedPer: string | undefined;
             if (Array.isArray(prices)) {
-              const { price, per } = prices[selectedIdx];
+              const { price, per } = prices[selectedPriceIdx];
               selectedPrice = price;
               selectedPer = per;
             } else {
               selectedPrice = prices.price;
               selectedPer = prices.per;
             }
+            console.log(entry.label, selectedCardLabel);
             return (
               <PricingCard
                 {...entry}
-                comparison={comparisons && comparisons[selectedIdx]}
+                onClick={onClick}
+                selected={
+                  selectedCardLabel?.toLocaleLowerCase() ===
+                  entry.label.toLowerCase()
+                }
+                comparison={comparisons && comparisons[selectedPriceIdx]}
                 price={selectedPrice}
                 per={selectedPer}
                 key={entry.label + i}

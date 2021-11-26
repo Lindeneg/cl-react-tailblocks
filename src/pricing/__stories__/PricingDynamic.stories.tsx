@@ -13,9 +13,10 @@ const MetaComp: Story<PricingDynamicProps> = (args) => (
   <PricingDynamic {...args} />
 );
 
-export const Item = MetaComp.bind({});
-Item.args = {
+export const Items = MetaComp.bind({});
+Items.args = {
   theme: "light",
   color: "indigo",
+  selectedCardLabel: "pro",
   ...MOCK_DATA_CARDS,
 };
