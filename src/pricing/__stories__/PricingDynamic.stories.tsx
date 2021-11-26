@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { PricingDynamic, PricingDynamicProps } from "../PricingDynamic";
+import { MOCK_DATA_CARDS } from "./mock-data";
 
 export default {
   title: "Pricing/PricingDynamic",
@@ -14,46 +15,7 @@ const MetaComp: Story<PricingDynamicProps> = (args) => (
 
 export const Item = MetaComp.bind({});
 Item.args = {
-  data: [
-    {
-      features: [
-        "Vexillologist pitchfork",
-        "Tumeric plaid portland",
-        "Mixtape chillwave tumeric",
-      ],
-      bottomText: "Literally you probably haven't heard of them jean shorts.",
-      label: "START",
-      prices: {
-        price: "Free",
-      },
-      selected: false,
-    },
-    {
-      features: [
-        "Vexillologist pitchfork",
-        "Tumeric plaid portland",
-        "Mixtape chillwave tumeric",
-        "Vexillologist pitchfork",
-      ],
-      bottomText: "Literally you probably haven't heard of them jean shorts.",
-      label: "PRO",
-      prices: [
-        {
-          price: "$12",
-          per: "/month",
-        },
-        {
-          price: "$140",
-          per: "/year",
-        },
-      ],
-      selected: false,
-    },
-  ],
-  description:
-    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical.",
-  title: "Pricing",
   theme: "light",
   color: "indigo",
-  options: ["Monthly", "Annually"],
+  ...MOCK_DATA_CARDS,
 };
