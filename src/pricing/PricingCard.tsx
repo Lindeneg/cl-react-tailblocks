@@ -20,6 +20,7 @@ export type PricingCardProps = WithTheme<{
   selected?: boolean;
   buttonText?: string;
   bottomText?: string;
+  comparison?: string | React.ReactNode;
 }> &
   Prices &
   Pick<ButtonProps, "onClick">;
@@ -32,6 +33,7 @@ export function PricingCard({
   onClick,
   selected = false,
   per,
+  comparison,
   selectedTag = "POPULAR",
   buttonText = "Button",
   theme = "light",
@@ -72,7 +74,16 @@ export function PricingCard({
             >
               {per ? (
                 <>
-                  <span>{price}</span>
+                  {comparison ? (
+                    typeof comparison === "string" ? (
+                      <span className="line-through text-lg mr-2">
+                        {comparison}
+                      </span>
+                    ) : (
+                      <>{comparison}</>
+                    )
+                  ) : null}
+                  <>{price}</>
                   <span
                     className={cls(
                       "text-lg ml-1 font-normal",
@@ -108,6 +119,15 @@ export function PricingCard({
             >
               {per ? (
                 <>
+                  {comparison ? (
+                    typeof comparison === "string" ? (
+                      <span className="line-through text-lg mr-2">
+                        {comparison}
+                      </span>
+                    ) : (
+                      <>{price}</>
+                    )
+                  ) : null}
                   <span>{price}</span>
                   <span
                     className={cls(

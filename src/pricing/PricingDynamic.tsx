@@ -7,8 +7,9 @@ import { getClass } from "../shared";
 
 export type PricingDynamicProps = WithTheme<{
   data: Array<
-    WithoutTheme<PricingCardProps, "price"> & {
+    WithoutTheme<PricingCardProps, "price" | "comparison"> & {
       prices: [Prices, Prices] | Prices;
+      comparisons?: [string | React.ReactNode, string | React.ReactNode];
     }
   >;
   description: string;
@@ -76,7 +77,7 @@ export function PricingDynamic({
           </div>
         </div>
         <div className="flex flex-wrap -m-4">
-          {data.map(({ prices, ...entry }, i) => {
+          {data.map(({ prices, comparisons, ...entry }, i) => {
             let selectedPrice: string | number;
             let selectedPer: string | undefined;
             if (Array.isArray(prices)) {
@@ -90,6 +91,7 @@ export function PricingDynamic({
             return (
               <PricingCard
                 {...entry}
+                comparison={comparisons && comparisons[selectedIdx]}
                 price={selectedPrice}
                 per={selectedPer}
                 key={entry.label + i}
