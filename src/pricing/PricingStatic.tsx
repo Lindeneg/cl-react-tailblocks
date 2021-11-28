@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
-import { LearnMore, LearnMoreProps } from "../util/LearnMore";
+import { LearnMore } from "../util/LearnMore";
 import { Theme, WithTheme } from "../types";
 import { getClass } from "../shared";
+
+type PricingEvent<T extends HTMLAnchorElement | HTMLButtonElement> = (
+  event: React.MouseEvent<T, MouseEvent>,
+  chosenIndex: number
+) => void;
 
 type Constraint = string | ((theme: Theme) => React.ReactNode);
 
@@ -14,11 +19,8 @@ export type PricingStaticProps = WithTheme<{
   data: [Constraint, ...Constraint[]][];
   buttonText?: string;
   selectedIndex?: number;
-  onLearnMore?: Pick<LearnMoreProps, "onClick">["onClick"];
-  onClick: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    chosenIndex: number
-  ) => void;
+  onLearnMore?: PricingEvent<HTMLAnchorElement>;
+  onClick: PricingEvent<HTMLButtonElement>;
 }>;
 
 const headerClass = [
@@ -40,6 +42,7 @@ export function PricingStatic({
   color = "indigo",
 }: PricingStaticProps) {
   const cls = getClass.bind(null, theme);
+  const [idx, setIdx] = useState<number>(selectedIndex);
   return (
     <Section testId="pricing-static-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">
@@ -111,12 +114,12 @@ export function PricingStatic({
                       )}
                     >
                       <input
-                        onChange={(e) => {
-                          console.log(e);
+                        onChange={() => {
+                          setIdx(i);
                         }}
                         name="plan"
                         type="radio"
-                        checked={selectedIndex === i}
+                        checked={idx === i}
                       />
                     </td>
                   </tr>
@@ -127,13 +130,19 @@ export function PricingStatic({
         </div>
         <div className="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
           {onLearnMore && (
-            <LearnMore onClick={onLearnMore} theme={theme} color={color} />
+            <LearnMore
+              onClick={(e) => {
+                onLearnMore(e, idx);
+              }}
+              theme={theme}
+              color={color}
+            />
           )}
           <Button
             extendClass="flex ml-auto"
             text={buttonText}
             onClick={(e) => {
-              onClick(e, selectedIndex);
+              onClick(e, idx);
             }}
             color={color}
           />
