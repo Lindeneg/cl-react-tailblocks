@@ -8,7 +8,10 @@ import { Theme } from "../../types";
 export default {
   title: "Pricing/PricingStatic",
   component: PricingStatic,
-  argTypes: {},
+  argTypes: {
+    onLearnMore: { control: "none" },
+    onClick: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<PricingStaticProps> = (args) => (
