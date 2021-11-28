@@ -90,7 +90,6 @@ export function PricingDynamic({
               selectedPrice = prices.price;
               selectedPer = prices.per;
             }
-            console.log(entry.label, selectedCardLabel);
             return (
               <PricingCard
                 {...entry}
