@@ -49,102 +49,55 @@ export function PricingCard({
           selected ? `border-${color}-500` : "border-gray-700"
         )}
       >
-        {selected ? (
-          <>
-            <span
-              className={`bg-${color}-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl`}
-            >
-              {selectedTag}
-            </span>
-            <h2
-              className={cls(
-                "text-sm tracking-widest title-font mb-1 font-medium",
-                "",
-                "text-gray-400"
-              )}
-            >
-              {label}
-            </h2>
-            <h1
-              className={cls(
-                "text-5xl leading-none flex items-center pb-4 mb-4 border-b",
-                "text-gray-900 border-gray-200",
-                "text-white border-gray-800"
-              )}
-            >
-              {per ? (
-                <>
-                  {comparison ? (
-                    typeof comparison === "string" ? (
-                      <span className="line-through text-lg mr-2">
-                        {comparison}
-                      </span>
-                    ) : (
-                      <>{comparison}</>
-                    )
-                  ) : null}
-                  <>{price}</>
-                  <span
-                    className={cls(
-                      "text-lg ml-1 font-normal",
-                      "text-gray-500",
-                      "text-gray-400"
-                    )}
-                  >
-                    {per}
-                  </span>
-                </>
-              ) : (
-                <>{price}</>
-              )}
-            </h1>
-          </>
-        ) : (
-          <>
-            <h2
-              className={cls(
-                "text-sm tracking-widest title-font mb-1 font-medium",
-                "",
-                "text-gray-400"
-              )}
-            >
-              {label}
-            </h2>
-            <h1
-              className={cls(
-                "text-5xl pb-4 mb-4 border-b flex items-center leading-none",
-                "text-gray-900 border-gray-200",
-                "text-white border-gray-800"
-              )}
-            >
-              {per ? (
-                <>
-                  {comparison ? (
-                    typeof comparison === "string" ? (
-                      <span className="line-through text-lg mr-2">
-                        {comparison}
-                      </span>
-                    ) : (
-                      <>{price}</>
-                    )
-                  ) : null}
-                  <span>{price}</span>
-                  <span
-                    className={cls(
-                      "text-lg ml-1 font-normal",
-                      "text-gray-500",
-                      "text-gray-400"
-                    )}
-                  >
-                    {per}
-                  </span>
-                </>
-              ) : (
-                <>{price}</>
-              )}
-            </h1>
-          </>
+        {selected && (
+          <span
+            className={`bg-${color}-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl`}
+          >
+            {selectedTag}
+          </span>
         )}
+        <h2
+          className={cls(
+            "text-sm tracking-widest title-font mb-1 font-medium",
+            "",
+            "text-gray-400"
+          )}
+        >
+          {label}
+        </h2>
+        <h1
+          className={cls(
+            "text-5xl leading-none flex items-center pb-4 mb-4 border-b",
+            "text-gray-900 border-gray-200",
+            "text-white border-gray-800"
+          )}
+        >
+          {per ? (
+            <>
+              {comparison ? (
+                typeof comparison === "string" ? (
+                  <span className="line-through text-lg mr-2">
+                    {comparison}
+                  </span>
+                ) : (
+                  <>{comparison}</>
+                )
+              ) : null}
+              <>{price}</>
+              <span
+                className={cls(
+                  "text-lg ml-1 font-normal",
+                  "text-gray-500",
+                  "text-gray-400"
+                )}
+              >
+                {per}
+              </span>
+            </>
+          ) : (
+            <>{price}</>
+          )}
+        </h1>
         {features.map((feature, i) => {
           if (typeof feature !== "string") {
             return <React.Fragment key={i}>{feature.iconNode}</React.Fragment>;
