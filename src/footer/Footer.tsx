@@ -13,14 +13,14 @@ export type AReactProps = Omit<
 >;
 
 export type AProps = {
-  label: string;
+  label?: string;
   aProps?: AReactProps;
   extendClass?: string;
 };
 
 export type FooterLinksProps = WithTheme<{
   title: string;
-  links: Array<{ node: React.ReactNode } | AProps>;
+  links: Array<{ node?: React.ReactNode } & AProps>;
   extendClass?: string;
 }>;
 
@@ -48,7 +48,7 @@ export function FooterLinks({
             return <React.Fragment key={i}>{link.node}</React.Fragment>;
           }
           return (
-            <li key={link.label + i}>
+            <li key={i}>
               <a
                 {...link.aProps}
                 className={cls(
@@ -68,22 +68,19 @@ export function FooterLinks({
 }
 
 export type FooterProps = WithTheme<{
-  name: string;
-  socials: Omit<SocialsProps, "className">;
-}> &
-  (
-    | {
-        credit: {
-          year?: string | number;
-        } & AProps;
-      }
-    | { linkNode: React.ReactNode }
-  );
+  name?: string;
+  socials?: Omit<SocialsProps, "className">;
+}> & {
+  credit?: {
+    year?: string | number;
+  } & AProps;
+  linkNode?: React.ReactNode;
+};
 
 export function Footer({
-  name,
-  socials,
   withoutSection = false,
+  socials = {},
+  name = "",
   theme = "light",
   color = "indigo",
   ...props
@@ -92,7 +89,7 @@ export function Footer({
   const jsx = (
     <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
       {"linkNode" in props ? (
-        props.linkNode
+        <>{props.linkNode}</>
       ) : (
         <a
           className={cls(
@@ -124,12 +121,12 @@ export function Footer({
             "text-gray-400 sm:border-gray-800"
           )}
         >
-          © {props.credit.year || ""} {name} —
+          © {props.credit?.year || ""} {name} —
           <a
             className={cls("ml-1", "text-gray-600", "text-gray-500 ")}
-            {...props.credit.aProps}
+            {...props.credit?.aProps}
           >
-            {props.credit.label}
+            {props.credit?.label}
           </a>
         </p>
       )}
@@ -142,7 +139,7 @@ export function Footer({
   return (
     <>
       {withoutSection ? (
-        jsx
+        <>{jsx}</>
       ) : (
         <FooterSection testId="footer-with-links-section" theme={theme}>
           {jsx}

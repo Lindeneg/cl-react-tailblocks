@@ -50,7 +50,7 @@ export function FeatureWithIconItem({
           {description}
         </p>
         {linkNode ? (
-          linkNode
+          <>{linkNode}</>
         ) : (
           <LearnMore
             extendClass="mt-3"

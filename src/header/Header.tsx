@@ -56,7 +56,7 @@ const orientationMap: {
 };
 
 type LinkProps = WithTheme<{
-  aClass: string;
+  aClass?: string;
   spanClass?: string;
   linkNode?: React.ReactNode;
   name?: string;
@@ -64,7 +64,7 @@ type LinkProps = WithTheme<{
 
 function Link({
   linkNode,
-  aClass,
+  aClass = "",
   spanClass = "",
   name = "",
   color = "indigo",
@@ -91,12 +91,12 @@ function Link({
 }
 
 type NavProps = {
-  links: Array<Omit<AProps, "extendClass"> | { node: React.ReactNode }>;
-  navClass: string;
-  aClass: string;
+  links: Array<Omit<AProps, "extendClass"> & { node?: React.ReactNode }>;
+  navClass?: string;
+  aClass?: string;
 };
 
-function Nav({ links, navClass, aClass }: NavProps) {
+function Nav({ links, navClass = "", aClass = "" }: NavProps) {
   return (
     <nav className={navClass}>
       {links.map((link, i) => {
@@ -104,7 +104,7 @@ function Nav({ links, navClass, aClass }: NavProps) {
           return <React.Fragment key={i}>{link.node}</React.Fragment>;
         }
         return (
-          <a {...link.aProps} key={link.label + i} className={aClass}>
+          <a {...link.aProps} key={i} className={aClass}>
             {link.label}
           </a>
         );
@@ -114,8 +114,8 @@ function Nav({ links, navClass, aClass }: NavProps) {
 }
 
 type ButtonProps = WithTheme<{
-  buttonText: string;
-  className: string;
+  buttonText?: string;
+  className?: string;
   buttonNode?: React.ReactNode;
 }> &
   Pick<BaseButtonProps, "onClick">;
@@ -123,8 +123,8 @@ type ButtonProps = WithTheme<{
 function Button({
   buttonNode,
   onClick,
-  buttonText,
-  className,
+  buttonText = "",
+  className = "",
   color = "indigo",
 }: ButtonProps) {
   if (buttonNode) {

@@ -57,7 +57,7 @@ export function BlogWithDateItem({
         </h2>
         <p className="leading-relaxed">{content}</p>
         {linkNode ? (
-          linkNode
+          <>{linkNode}</>
         ) : (
           <div className="mt-4">
             <LearnMore

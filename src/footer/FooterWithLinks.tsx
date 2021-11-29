@@ -46,7 +46,7 @@ export function FooterWithLinks({
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         {reverse && jsx}
         {"linkNode" in props ? (
-          props.linkNode
+          <>{props.linkNode}</>
         ) : (
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <a
@@ -85,12 +85,12 @@ export function FooterWithLinks({
                 "text-gray-400"
               )}
             >
-              © {props.credit.year || ""} {name} —
+              © {props.credit?.year || ""} {name} —
               <a
                 className={cls("ml-1", "text-gray-600", "text-gray-400")}
-                {...props.credit.aProps}
+                {...props.credit?.aProps}
               >
-                {props.credit.label}
+                {props.credit?.label}
               </a>
             </p>
           )}

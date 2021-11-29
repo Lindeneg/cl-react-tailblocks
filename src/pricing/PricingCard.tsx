@@ -10,12 +10,7 @@ export type Prices = {
 
 export type PricingCardProps = WithTheme<{
   label: string;
-  features: Array<
-    | {
-        iconNode: React.ReactNode;
-      }
-    | string
-  >;
+  features: Array<React.ReactNode | string>;
   selectedTag?: string;
   selected?: boolean;
   buttonText?: string;
@@ -100,7 +95,7 @@ export function PricingCard({
         </h1>
         {features.map((feature, i) => {
           if (typeof feature !== "string") {
-            return <React.Fragment key={i}>{feature.iconNode}</React.Fragment>;
+            return <React.Fragment key={i}>{feature}</React.Fragment>;
           }
           return (
             <p
