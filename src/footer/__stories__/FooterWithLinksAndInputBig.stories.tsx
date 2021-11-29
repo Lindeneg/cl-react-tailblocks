@@ -6,7 +6,7 @@ import {
 import { MOCK_DATA_LINKS, MOCK_FOOTER } from "./mock-data";
 
 export default {
-  title: "Footer/WithLinksAndInput",
+  title: "Footer/FooterWithLinksAndInputBig",
   component: FooterWithLinksAndInputBig,
   argTypes: {
     linkNode: { control: "none" },

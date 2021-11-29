@@ -6,7 +6,7 @@ import {
 } from "../BlogWithAvatarItem";
 
 export default {
-  title: "Blog/WithAvatar",
+  title: "Blog/BlogWithAvatarItem",
   component: BlogWithAvatarItem,
   argTypes: {
     linkNode: { control: "none" },

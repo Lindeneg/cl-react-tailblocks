@@ -3,7 +3,7 @@ import { MOCK_ENTRY_WITH_DATE } from "./mock-data";
 import { BlogWithDateItem, BlogWithDateItemProps } from "../BlogWithDateItem";
 
 export default {
-  title: "Blog/WithDate",
+  title: "Blog/BlogWithDateItem",
   component: BlogWithDateItem,
   argTypes: {
     linkNode: { control: "none" },

@@ -3,7 +3,7 @@ import { MOCK_ENTRY } from "./mock-data";
 import { BlogItem, BlogItemProps } from "../BlogItem";
 
 export default {
-  title: "Blog/Default",
+  title: "Blog/BlogItem",
   component: BlogItem,
   argTypes: {
     linkNode: { control: "none" },

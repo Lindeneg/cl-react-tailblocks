@@ -3,7 +3,7 @@ import { MOCK_DATA_PLAIN_ENTRY } from "./mock-data";
 import { ContentItem, ContentItemProps } from "../ContentItem";
 
 export default {
-  title: "Content/Default",
+  title: "Content/ContentItem",
   component: ContentItem,
   argTypes: {
     linkNode: { control: "none" },

@@ -3,7 +3,7 @@ import { FooterLinks, FooterLinksProps } from "../Footer";
 import { MOCK_DATA_LINKS } from "./mock-data";
 
 export default {
-  title: "Footer/Default",
+  title: "Footer/FooterLinks",
   component: FooterLinks,
 } as Meta;
 

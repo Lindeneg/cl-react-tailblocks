@@ -7,7 +7,7 @@ import {
 import { MOCK_DATA_WITH_ICON_CARD_ENTRIES } from "./mock-data";
 
 export default {
-  title: "Feature/WithCardIcon",
+  title: "Feature/FeatureIconCardItems",
   component: FeatureIconCardItems,
 } as Meta;
 

@@ -4,7 +4,7 @@ import { MOCK_ENTRIES } from "./mock-data";
 import { BlogItems, BlogItemsProps } from "../BlogItems";
 
 export default {
-  title: "Blog/Default",
+  title: "Blog/BlogItems",
   component: BlogItems,
   argTypes: {},
 } as Meta;

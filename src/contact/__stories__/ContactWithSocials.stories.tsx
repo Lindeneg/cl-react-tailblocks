@@ -6,7 +6,7 @@ import {
 } from "../ContactWithSocials";
 
 export default {
-  title: "Contact/WithSocials",
+  title: "Contact/ContactWithSocials",
   component: ContactWithSocials,
   argTypes: {
     onSubmit: { control: "none" },

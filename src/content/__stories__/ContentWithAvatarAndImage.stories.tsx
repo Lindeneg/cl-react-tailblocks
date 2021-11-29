@@ -6,7 +6,7 @@ import {
 } from "../ContentWithAvatarAndImage";
 
 export default {
-  title: "Content/WithAvatarAndImage",
+  title: "Content/ContentWithAvatarAndImage",
   component: ContentWithAvatarAndImage,
   argTypes: {
     linkNode: { control: "none" },

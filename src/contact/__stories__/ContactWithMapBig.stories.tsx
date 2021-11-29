@@ -6,7 +6,7 @@ import {
 } from "../ContactWithMapBig";
 
 export default {
-  title: "Contact/WithMap",
+  title: "Contact/ContactWithMapBig",
   component: ContactWithMapBig,
   argTypes: {
     onSubmit: { control: "none" },
@@ -19,8 +19,8 @@ const MetaComp: Story<ContactWithMapBigProps> = (args) => (
   <ContactWithMapBig {...args} />
 );
 
-export const Big = MetaComp.bind({});
-Big.args = {
+export const Item = MetaComp.bind({});
+Item.args = {
   theme: "light",
   color: "indigo",
   label: "Feedback",

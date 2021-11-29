@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { Hero, HeroProps } from "../Hero";
 
 export default {
-  title: "Hero/Default",
+  title: "Hero/Hero",
   component: Hero,
   argTypes: {
     imgAlt: { control: "none" },
