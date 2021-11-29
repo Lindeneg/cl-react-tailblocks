@@ -1,7 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { PricingStatic, PricingStaticProps } from "../PricingStatic";
-import { MOCK_DATA_CARDS } from "./mock-data";
 import { getClass } from "../../shared";
 import { Theme } from "../../types";
 

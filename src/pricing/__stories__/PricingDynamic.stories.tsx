@@ -19,4 +19,10 @@ Items.args = {
   color: "indigo",
   selectedCardLabel: "pro",
   ...MOCK_DATA_CARDS,
+  data: MOCK_DATA_CARDS.data.map((e) => ({
+    ...e,
+    onClick: (e) => {
+      action("onClick")(e);
+    },
+  })),
 };
