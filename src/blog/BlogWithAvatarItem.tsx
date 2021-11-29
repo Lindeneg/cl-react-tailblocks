@@ -60,7 +60,7 @@ export function BlogWithAvatarItem({
         )}
       >
         {linkNode ? (
-          linkNode
+          <>{linkNode}</>
         ) : (
           <LearnMore
             onClick={onClick}

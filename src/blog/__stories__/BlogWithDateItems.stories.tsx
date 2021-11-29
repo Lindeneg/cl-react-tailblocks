@@ -7,7 +7,7 @@ import {
 } from "../BlogWithDateItems";
 
 export default {
-  title: "Blog/WithDate",
+  title: "Blog/BlogWithDateItems",
   component: BlogWithDateItems,
   argTypes: {},
 } as Meta;

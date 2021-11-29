@@ -68,7 +68,7 @@ export function BlogWithImageItem({
           <p className="leading-relaxed mb-3">{content}</p>
           <div className="flex items-center place-content-between flex-wrap">
             {linkNode ? (
-              linkNode
+              <>{linkNode}</>
             ) : (
               <LearnMore
                 onClick={onClick}

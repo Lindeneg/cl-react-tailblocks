@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
 import { LearnMore } from "../util/LearnMore";
-import { Theme, WithTheme } from "../types";
+import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
 type PricingEvent<T extends HTMLAnchorElement | HTMLButtonElement> = (
@@ -10,7 +10,7 @@ type PricingEvent<T extends HTMLAnchorElement | HTMLButtonElement> = (
   chosenIndex: number
 ) => void;
 
-type Constraint = string | ((theme: Theme) => React.ReactNode);
+type Constraint = string | React.ReactNode;
 
 export type PricingStaticProps = WithTheme<{
   title: string;
@@ -72,9 +72,7 @@ export function PricingStatic({
                       </th>
                     );
                   }
-                  return (
-                    <React.Fragment key={i}>{entry(theme)}</React.Fragment>
-                  );
+                  return <React.Fragment key={i}>{entry}</React.Fragment>;
                 })}
                 <th className={cls(...headerClass)}></th>
               </tr>
@@ -101,9 +99,7 @@ export function PricingStatic({
                         );
                       }
                       return (
-                        <React.Fragment key={i + k}>
-                          {entry(theme)}
-                        </React.Fragment>
+                        <React.Fragment key={i + k}>{entry}</React.Fragment>
                       );
                     })}
                     <td

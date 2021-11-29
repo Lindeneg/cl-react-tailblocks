@@ -6,7 +6,7 @@ import {
 } from "../ContentWithImageSmallItem";
 
 export default {
-  title: "Content/WithImage",
+  title: "Content/ContentWithImageSmallItem",
   component: ContentWithImageSmallItem,
   argTypes: {},
 } as Meta;

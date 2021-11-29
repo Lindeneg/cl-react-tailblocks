@@ -4,7 +4,7 @@ import { FeatureWithImage, FeatureWithImageProps } from "../FeatureWithImage";
 import { MOCK_DATA_WITH_IMAGE_ENTRIES } from "./mock-data";
 
 export default {
-  title: "Feature/WithImage",
+  title: "Feature/FeatureWithImage",
   component: FeatureWithImage,
 } as Meta;
 

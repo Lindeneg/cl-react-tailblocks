@@ -6,7 +6,7 @@ import {
 } from "../ContentWithIconItem";
 
 export default {
-  title: "Content/WithIcon",
+  title: "Content/ContentWithIconItem",
   component: ContentWithIconItem,
   argTypes: {
     theme: { control: "none" },

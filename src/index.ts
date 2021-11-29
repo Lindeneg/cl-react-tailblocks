@@ -45,6 +45,9 @@ export { FooterWithLinksAndInputSmall } from "./footer/FooterWithLinksAndInputSm
 export { Header } from "./header/Header";
 export { Hero } from "./hero/Hero";
 export { HeroWithInput } from "./hero/HeroWithInput";
+export { PricingCard } from "./pricing/PricingCard";
+export { PricingDynamic } from "./pricing/PricingDynamic";
+export { PricingStatic } from "./pricing/PricingStatic";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -93,3 +96,6 @@ export type { FooterWithLinksAndInputSmallProps } from "./footer/FooterWithLinks
 export type { HeaderProps, HeaderOrientation } from "./header/Header";
 export type { HeroProps, HeroOrientation } from "./hero/Hero";
 export type { HeroWithInputProps } from "./hero/HeroWithInput";
+export type { PricingCardProps } from "./pricing/PricingCard";
+export type { PricingDynamicProps } from "./pricing/PricingDynamic";
+export type { PricingStaticProps } from "./pricing/PricingStatic";

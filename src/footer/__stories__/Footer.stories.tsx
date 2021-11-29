@@ -3,7 +3,7 @@ import { Footer, FooterProps } from "../Footer";
 import { MOCK_FOOTER } from "./mock-data";
 
 export default {
-  title: "Footer/Default",
+  title: "Footer/Footer",
   component: Footer,
   argTypes: {
     linkNode: { control: "none" },

@@ -6,7 +6,7 @@ import {
 } from "../BlogWithImageItem";
 
 export default {
-  title: "Blog/WithImage",
+  title: "Blog/BlogWithImageItem",
   component: BlogWithImageItem,
   argTypes: {
     linkNode: { control: "none" },

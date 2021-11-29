@@ -7,7 +7,7 @@ import {
 import { MOCK_DATA_WITH_ICON_ENTRIES } from "./mock-data";
 
 export default {
-  title: "Feature/WithIconSmall",
+  title: "Feature/FeatureWithIconSmall",
   component: FeatureWithIconSmall,
   argTypes: {
     onClick: { control: "none" },

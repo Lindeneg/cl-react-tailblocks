@@ -2,7 +2,7 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { HeroWithInput, HeroWithInputProps } from "../HeroWithInput";
 
 export default {
-  title: "Hero/WithInput",
+  title: "Hero/HeroWithInput",
   component: HeroWithInput,
   argTypes: {
     inputProps: { control: "none" },

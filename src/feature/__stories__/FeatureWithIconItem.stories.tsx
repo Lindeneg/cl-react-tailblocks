@@ -6,7 +6,7 @@ import {
 import { MOCK_DATA_WITH_ICON_ENTRY } from "./mock-data";
 
 export default {
-  title: "Feature/Default",
+  title: "Feature/FeatureWithIconItem",
   component: FeatureWithIconItem,
   argTypes: {
     onClick: { control: "none" },

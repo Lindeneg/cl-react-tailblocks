@@ -41,7 +41,7 @@ export function ContentWithAvatarAndImage({
           <div className="flex flex-col sm:flex-row mt-10">
             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
               {iconNode ? (
-                iconNode
+                <>{iconNode}</>
               ) : (
                 <div
                   className={cls(
@@ -91,7 +91,7 @@ export function ContentWithAvatarAndImage({
             >
               <p className="leading-relaxed text-lg mb-4">{content}</p>
               {linkNode ? (
-                linkNode
+                <>{linkNode}</>
               ) : (
                 <LearnMore {...linkProps} theme={theme} color={color} />
               )}

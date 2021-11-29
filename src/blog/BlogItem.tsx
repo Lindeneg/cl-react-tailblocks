@@ -65,7 +65,7 @@ export function BlogItem({
         </h1>
         <p className="leading-relaxed mb-3">{content}</p>
         {linkNode ? (
-          linkNode
+          <>{linkNode}</>
         ) : (
           <LearnMore
             onClick={onClick}

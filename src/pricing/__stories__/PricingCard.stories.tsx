@@ -3,7 +3,7 @@ import { PricingCard, PricingCardProps } from "../PricingCard";
 import { MOCK_DATA_CARD } from "./mock-data";
 
 export default {
-  title: "Pricing/Card",
+  title: "Pricing/PricingCard",
   component: PricingCard,
   argTypes: {
     theme: { control: "none" },

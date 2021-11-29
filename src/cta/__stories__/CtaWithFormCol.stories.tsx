@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { CtaWithFormCol, CtaWithFormColProps } from "../CtaWithFormCol";
 
 export default {
-  title: "Cta/WithForm",
+  title: "Cta/CtaWithFormCol",
   component: CtaWithFormCol,
   argTypes: {
     onSubmit: { control: "onSubmit" },

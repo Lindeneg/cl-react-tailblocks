@@ -6,7 +6,7 @@ import {
 } from "../ContentWithImageBigItem";
 
 export default {
-  title: "Content/WithImage",
+  title: "Content/ContentWithImageBigItem",
   component: ContentWithImageBigItem,
   argTypes: {
     theme: { control: "none" },

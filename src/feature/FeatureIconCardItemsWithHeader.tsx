@@ -56,7 +56,7 @@ export function FeatureIconCardItemsWithHeader({
         </div>
         <div className="flex flex-wrap -m-4">
           {data.map((entry, i) => (
-            <div className="p-4 md:w-1/3">
+            <div key={entry.title + i} className="p-4 md:w-1/3">
               <FeatureWithIconItem
                 {...entry}
                 outerClass={cls(
@@ -69,7 +69,6 @@ export function FeatureIconCardItemsWithHeader({
                 extendDivClass="w-8 h-8 mr-3 flex-shrink-0"
                 extendSvgClass="w-4 h-4"
                 color={color}
-                key={entry.title + i}
                 theme={theme}
               />
             </div>

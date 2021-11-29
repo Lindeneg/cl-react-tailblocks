@@ -3,7 +3,7 @@ import { FooterWithLinks, FooterWithLinksProps } from "../FooterWithLinks";
 import { MOCK_FOOTER_WITH_LINKS } from "./mock-data";
 
 export default {
-  title: "Footer/WithLinks",
+  title: "Footer/FooterWithLinks",
   component: FooterWithLinks,
   argTypes: {
     linkNode: { control: "none" },

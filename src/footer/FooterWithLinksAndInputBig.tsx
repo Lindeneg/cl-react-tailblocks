@@ -89,7 +89,7 @@ export function FooterWithLinksAndInputBig({
       <div className={cls("", "bg-gray-100", "bg-gray-800 bg-opacity-75")}>
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           {"linkNode" in props ? (
-            props.linkNode
+            <>{props.linkNode}</>
           ) : (
             <p
               className={cls(
@@ -98,12 +98,12 @@ export function FooterWithLinksAndInputBig({
                 "text-gray-400"
               )}
             >
-              © {props.credit.year || ""} {name} —
+              © {props.credit?.year || ""} {name} —
               <a
                 className={cls("ml-1", "text-gray-600", "text-gray-500 ")}
-                {...props.credit.aProps}
+                {...props.credit?.aProps}
               >
-                {props.credit.label}
+                {props.credit?.label}
               </a>
             </p>
           )}

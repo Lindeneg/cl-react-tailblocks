@@ -6,7 +6,7 @@ import {
 } from "../ContentWithIconItems";
 
 export default {
-  title: "Content/WithIcon",
+  title: "Content/ContentWithIconItems",
   component: ContentWithIconItems,
   argTypes: {
     onClick: { control: "none" },

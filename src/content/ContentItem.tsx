@@ -48,7 +48,7 @@ export function ContentItem({
         {description}
       </p>
       {linkNode ? (
-        linkNode
+        <>{linkNode}</>
       ) : (
         <LearnMore
           theme={theme}

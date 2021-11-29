@@ -4,7 +4,7 @@ import { MOCK_DATA_PLAIN_ENTRIES } from "./mock-data";
 import { ContentItems, ContentItemsProps } from "../ContentItems";
 
 export default {
-  title: "Content/Default",
+  title: "Content/ContentItems",
   component: ContentItems,
   argTypes: {
     onClick: { action: "onClick" },
