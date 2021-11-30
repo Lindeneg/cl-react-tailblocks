@@ -1,0 +1,47 @@
+import React from "react";
+import { StepEntry, StepEntryIsolatedProps } from "./StepEntry";
+import { Section } from "../util/Section";
+import { WithTheme, Image } from "../types";
+
+export type StepWithImageProps = WithTheme<{
+  steps: Array<StepEntryIsolatedProps>;
+}> &
+  Image;
+
+export function StepWithImage({
+  steps,
+  imgSrc,
+  imgAlt = "step-with-image",
+  theme = "light",
+  color = "indigo",
+}: StepWithImageProps) {
+  return (
+    <Section testId="step-with-image-section" theme={theme}>
+      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+        <div className="flex flex-wrap w-full">
+          <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+            {steps.map(({ label, ...step }, idx) => {
+              const isLast = idx === steps.length - 1;
+              return (
+                <StepEntry
+                  {...step}
+                  key={idx}
+                  label={label || `STEP ${idx + 1}`}
+                  extendWrapperClass={isLast ? "" : "pb-12"}
+                  withLine={!isLast}
+                  theme={theme}
+                  color={color}
+                />
+              );
+            })}
+          </div>
+          <img
+            className="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
+            src={imgSrc}
+            alt={imgAlt}
+          />
+        </div>
+      </div>
+    </Section>
+  );
+}
