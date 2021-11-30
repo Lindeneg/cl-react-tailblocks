@@ -48,6 +48,9 @@ export { HeroWithInput } from "./hero/HeroWithInput";
 export { PricingCard } from "./pricing/PricingCard";
 export { PricingDynamic } from "./pricing/PricingDynamic";
 export { PricingStatic } from "./pricing/PricingStatic";
+export { Step } from "./step/Step";
+export { StepEntry } from "./step/StepEntry";
+export { StepWithImage } from "./step/StepWithImage";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
@@ -97,5 +100,6 @@ export type { HeaderProps, HeaderOrientation } from "./header/Header";
 export type { HeroProps, HeroOrientation } from "./hero/Hero";
 export type { HeroWithInputProps } from "./hero/HeroWithInput";
 export type { PricingCardProps } from "./pricing/PricingCard";
-export type { PricingDynamicProps } from "./pricing/PricingDynamic";
-export type { PricingStaticProps } from "./pricing/PricingStatic";
+export type { StepProps } from "./step/Step";
+export type { StepEntryProps, StepEntryIsolatedProps } from "./step/StepEntry";
+export type { StepWithImageProps } from "./step/StepWithImage";
