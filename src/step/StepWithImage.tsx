@@ -28,7 +28,13 @@ export function StepWithImage({
                   key={idx}
                   label={label || `STEP ${idx + 1}`}
                   extendWrapperClass={isLast ? "" : "pb-12"}
-                  withLine={!isLast}
+                  extendDivClass={`flex-shrink-0 w-10 h-10 rounded-full bg-${color}-500 inline-flex items-center justify-center text-white relative z-10`}
+                  extendSvgClass="w-5 h-5"
+                  line={
+                    isLast
+                      ? null
+                      : { extendWrapperClass: "w-10", extendLineClass: "w-1" }
+                  }
                   theme={theme}
                   color={color}
                 />
