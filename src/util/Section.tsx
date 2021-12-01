@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -12,8 +13,9 @@ export function Section({
   children,
   testId = "section-test-id",
   extendClass = "",
-  theme = "light",
+  ...props
 }: SectionProps) {
+  const { theme } = useMaybeTheme(props);
   return (
     <section
       data-testid={testId}
@@ -33,8 +35,9 @@ export function FooterSection({
   children,
   testId = "footer-test-id",
   extendClass = "",
-  theme = "light",
+  ...props
 }: SectionProps) {
+  const { theme } = useMaybeTheme(props);
   return (
     <footer
       data-testid={testId}
@@ -54,8 +57,9 @@ export function HeaderSection({
   children,
   testId = "header-test-id",
   extendClass = "",
-  theme = "light",
+  ...props
 }: SectionProps) {
+  const { theme } = useMaybeTheme(props);
   return (
     <footer
       data-testid={testId}

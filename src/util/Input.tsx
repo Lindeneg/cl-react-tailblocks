@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, ReactHTMLInputElementProps, ThemeColor } from "../types";
 import { getClass } from "../shared";
 
@@ -21,18 +22,19 @@ export function Base<T extends "input" | "text-area">({
   element,
   label,
   elementRef,
+  theme,
+  color,
   extendClass = "",
-  theme = "light",
-  color = "indigo",
   ...props
 }: BaseProps<T>) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const inputProps = {
     ...props,
     className: cls(
-      `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-${color}-500 transition-colors duration-200 ease-in-out ${extendClass}`,
-      `bg-white border-gray-300 focus:ring-${color}-200 text-gray-700`,
-      `bg-gray-800 border-gray-700 focus:ring-${color}-900 text-gray-100`
+      `rounded border focus:ring-2 text-base outline-none py-1 px-3 focus:border-${cxt.color}-500 transition-colors duration-200 ease-in-out ${extendClass}`,
+      `bg-white border-gray-300 focus:ring-${cxt.color}-200 text-gray-700`,
+      `bg-gray-800 border-gray-700 focus:ring-${cxt.color}-900 text-gray-100`
     ),
   };
   let content: JSX.Element | null;
@@ -76,8 +78,11 @@ export type InputProps = Omit<BaseProps<"input">, "element" | "color"> & {
   themeColor?: ThemeColor;
 };
 
-export function Input({ themeColor, ...props }: InputProps) {
-  return <Base {...props} color={themeColor} element="input" />;
+export function Input({ themeColor, theme, ...props }: InputProps) {
+  const cxt = useMaybeTheme({ theme, color: themeColor });
+  return (
+    <Base {...props} theme={cxt.theme} color={cxt.color} element="input" />
+  );
 }
 
 export type TextAreaProps = Omit<
@@ -87,6 +92,9 @@ export type TextAreaProps = Omit<
   themeColor?: ThemeColor;
 };
 
-export function TextArea({ themeColor, ...props }: TextAreaProps) {
-  return <Base {...props} color={themeColor} element="text-area" />;
+export function TextArea({ themeColor, theme, ...props }: TextAreaProps) {
+  const cxt = useMaybeTheme({ theme, color: themeColor });
+  return (
+    <Base {...props} theme={cxt.theme} color={cxt.color} element="text-area" />
+  );
 }

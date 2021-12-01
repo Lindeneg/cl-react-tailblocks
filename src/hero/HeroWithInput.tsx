@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { HeroProps } from "./Hero";
-import { Img, ImgProps } from "../util/Img";
+import { Img } from "../util/Img";
 import { Section } from "../util/Section";
 import { Input, InputProps } from "../util/Input";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { getClass, getRefValue } from "../shared";
 
 type BtnOnClickProps = Pick<ButtonProps, "onClick">;
@@ -30,9 +31,9 @@ export function HeroWithInput({
   orientation = "right",
   imgAlt = "hero-image",
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: HeroWithInputProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const inputRef = useRef<HTMLInputElement>(null);
   const img =

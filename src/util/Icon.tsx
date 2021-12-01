@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -54,9 +55,9 @@ export function Icon({
   overrideDivClass = "",
   extendDivClass = "",
   extendSvgClass = "",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: IconProps) {
+  const { theme, color } = useMaybeTheme(props);
   if (!icon && !iconNode) {
     return null;
   }

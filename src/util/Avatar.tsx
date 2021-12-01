@@ -1,5 +1,6 @@
 import React from "react";
 import { Img, ImgProps } from "../util/Img";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -18,9 +19,10 @@ export function Avatar({
   role,
   imgSrc,
   imgNode,
-  theme = "light",
   imgAlt = "avatar-image",
+  ...props
 }: AvatarProps) {
+  const { theme } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <a className="inline-flex items-center">

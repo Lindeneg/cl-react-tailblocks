@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -7,11 +8,8 @@ export type EmbeddedMapProps = WithTheme<{
   className?: string;
 }>;
 
-export function EmbeddedMap({
-  src,
-  className,
-  theme = "light",
-}: EmbeddedMapProps) {
+export function EmbeddedMap({ src, className, ...props }: EmbeddedMapProps) {
+  const { theme } = useMaybeTheme(props);
   return (
     <iframe
       data-testid="embedded-map-iframe"

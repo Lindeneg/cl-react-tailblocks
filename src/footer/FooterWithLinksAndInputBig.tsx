@@ -4,6 +4,7 @@ import { Socials } from "../util/Socials";
 import { Input } from "../util/Input";
 import { FooterSection } from "../util/Section";
 import { Button } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -26,18 +27,19 @@ export function FooterWithLinksAndInputBig({
   links,
   onClick,
   inputProps,
+  theme,
+  color,
   bottomText = "",
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
   ...props
 }: FooterWithLinksAndInputBigProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <FooterSection
       testId="footer-with-links-and-input-big-section"
-      theme={theme}
+      theme={cxt.theme}
     >
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
@@ -47,7 +49,7 @@ export function FooterWithLinksAndInputBig({
               extendClass="lg:w-1/6 md:w-1/2"
               title={link.title}
               key={link.title + i}
-              theme={theme}
+              theme={cxt.theme}
             />
           ))}
         </div>
@@ -62,14 +64,14 @@ export function FooterWithLinksAndInputBig({
                 name="footer-field"
                 label="Placeholder"
                 elementRef={inputRef}
-                theme={theme}
-                themeColor={color}
+                theme={cxt.theme}
+                themeColor={cxt.color}
                 extendClass="w-full leading-8"
                 {...inputProps}
               />
             </div>
             <Button
-              color={color}
+              color={cxt.color}
               text={buttonText}
               onClick={(e) => {
                 onClick(e, getRefValue(inputRef));

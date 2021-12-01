@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -14,7 +15,8 @@ export type StatProps = WithTheme<{
   comments?: number | null;
 }>;
 
-export function Stat({ views, comments, theme = "light" }: StatProps) {
+export function Stat({ views, comments, ...props }: StatProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <>
       {typeof views === "number" && typeof comments === "number" && (

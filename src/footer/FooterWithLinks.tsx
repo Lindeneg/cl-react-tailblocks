@@ -2,6 +2,7 @@ import React from "react";
 import { FooterProps, FooterLinks, FooterLinksProps } from "./Footer";
 import { Socials } from "../util/Socials";
 import { FooterSection } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -16,12 +17,13 @@ export function FooterWithLinks({
   description,
   socials,
   links,
-  theme = "light",
-  color = "indigo",
+  theme,
+  color,
   reverse = false,
   ...props
 }: FooterWithLinksProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const jsx = (
     <div
       className={`flex-grow flex flex-wrap ${
@@ -36,13 +38,13 @@ export function FooterWithLinks({
           extendClass="lg:w-1/4 md:w-1/2"
           title={link.title}
           key={link.title + i}
-          theme={theme}
+          theme={cxt.theme}
         />
       ))}
     </div>
   );
   return (
-    <FooterSection testId="footer-with-links-section" theme={theme}>
+    <FooterSection testId="footer-with-links-section" theme={cxt.theme}>
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         {reverse && jsx}
         {"linkNode" in props ? (
@@ -63,7 +65,7 @@ export function FooterWithLinks({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                className={`w-10 h-10 text-white p-2 bg-${color}-500 rounded-full`}
+                className={`w-10 h-10 text-white p-2 bg-${cxt.color}-500 rounded-full`}
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>

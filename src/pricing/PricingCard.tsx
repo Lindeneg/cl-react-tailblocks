@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -31,9 +32,9 @@ export function PricingCard({
   comparison,
   selectedTag = "POPULAR",
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: PricingCardProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div className="p-4 xl:w-1/4 md:w-1/2 w-full">

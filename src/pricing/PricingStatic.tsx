@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
 import { LearnMore } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -38,9 +39,9 @@ export function PricingStatic({
   onClick,
   selectedIndex = -1,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: PricingStaticProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const [idx, setIdx] = useState<number>(selectedIndex);
   return (

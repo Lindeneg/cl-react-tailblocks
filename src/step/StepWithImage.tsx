@@ -2,6 +2,7 @@ import React from "react";
 import { StepEntry, StepEntryIsolatedProps } from "./StepEntry";
 import { Img, ImgProps } from "../util/Img";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 
 export type StepWithImageProps = WithTheme<{
@@ -14,9 +15,9 @@ export function StepWithImage({
   imgSrc,
   imgNode,
   imgAlt = "step-with-image",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: StepWithImageProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="step-with-image-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto flex flex-wrap">

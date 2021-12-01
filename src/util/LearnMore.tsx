@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -11,10 +12,10 @@ export type LearnMoreProps = WithTheme<{
 export function LearnMore({
   onClick,
   extendClass = "",
-  theme = "light",
-  color = "indigo",
   linkText = "Learn More",
+  ...props
 }: LearnMoreProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <a
       onClick={onClick}

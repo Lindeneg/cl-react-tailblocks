@@ -3,6 +3,7 @@ import { Footer, FooterLinks, FooterLinksProps, FooterProps } from "./Footer";
 import { Input } from "../util/Input";
 import { FooterSection } from "../util/Section";
 import { Button } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -24,17 +25,18 @@ export function FooterWithLinksAndInputSmall({
   links,
   onClick,
   inputProps,
+  theme,
+  color,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
   ...footerProps
 }: FooterWithLinksAndInputSmallProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <FooterSection
       testId="footer-with-links-and-input-small-section"
-      theme={theme}
+      theme={cxt.theme}
     >
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap md:text-left text-center order-first">
@@ -44,7 +46,7 @@ export function FooterWithLinksAndInputSmall({
               extendClass="lg:w-1/4 md:w-1/2"
               title={link.title}
               key={link.title + i}
-              theme={theme}
+              theme={cxt.theme}
             />
           ))}
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
@@ -65,14 +67,14 @@ export function FooterWithLinksAndInputSmall({
                   name="footer-field"
                   label="Placeholder"
                   elementRef={inputRef}
-                  theme={theme}
-                  themeColor={color}
+                  theme={cxt.theme}
+                  themeColor={cxt.color}
                   extendClass="w-full leading-8"
                   {...inputProps}
                 />
               </div>
               <Button
-                color={color}
+                color={cxt.color}
                 text={buttonText}
                 onClick={(e) => {
                   onClick(e, getRefValue(inputRef));
@@ -91,7 +93,12 @@ export function FooterWithLinksAndInputSmall({
         </div>
       </div>
       <div className={cls("", "bg-gray-100", "bg-gray-800 bg-opacity-75")}>
-        <Footer {...footerProps} theme={theme} color={color} withoutSection />
+        <Footer
+          {...footerProps}
+          theme={cxt.theme}
+          color={cxt.color}
+          withoutSection
+        />
       </div>
     </FooterSection>
   );

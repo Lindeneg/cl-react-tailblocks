@@ -5,6 +5,7 @@ import {
 } from "./FeatureWithIconItem";
 import { Section } from "../util/Section";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 
 export type FeatureWithIconBigColProps = WithTheme<{
@@ -26,9 +27,9 @@ export function FeatureWithIconBigCol({
   data,
   onClick,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: FeatureWithIconBigColProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="feature-with-icon-big-col-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">

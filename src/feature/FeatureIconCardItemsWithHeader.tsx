@@ -4,6 +4,7 @@ import {
   FeatureWithIconItemProps,
 } from "./FeatureWithIconItem";
 import { FooterSection } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -27,9 +28,9 @@ export function FeatureIconCardItemsWithHeader({
   label,
   title,
   data,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: FeatureIconCardItemsWithHeaderProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <FooterSection testId="feature-with-icon-and-header-section" theme={theme}>

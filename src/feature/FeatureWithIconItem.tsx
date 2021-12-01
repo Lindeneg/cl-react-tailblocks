@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon, IconProps } from "../util/Icon";
 import { LearnMore, LearnMoreProps } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -22,19 +23,20 @@ export function FeatureWithIconItem({
   linkNode,
   onClick,
   linkText,
+  theme,
+  color,
   tightClass = null,
   iconPlacement = "start",
   outerClass = "",
   innerClass = "",
-  theme = "light",
-  color = "indigo",
   ...iconProps
 }: FeatureWithIconItemProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   return !tightClass ? (
     <div className={outerClass}>
       {iconPlacement === "start" && (
-        <Icon {...iconProps} theme={theme} color={color} />
+        <Icon {...iconProps} theme={cxt.theme} color={cxt.color} />
       )}
       <div className={innerClass}>
         <h2
@@ -56,19 +58,19 @@ export function FeatureWithIconItem({
             extendClass="mt-3"
             linkText={linkText}
             onClick={onClick}
-            theme={theme}
-            color={color}
+            theme={cxt.theme}
+            color={cxt.color}
           />
         )}
       </div>
       {iconPlacement === "end" && (
-        <Icon {...iconProps} theme={theme} color={color} />
+        <Icon {...iconProps} theme={cxt.theme} color={cxt.color} />
       )}
     </div>
   ) : (
     <div className={outerClass}>
       <div className={tightClass}>
-        <Icon {...iconProps} theme={theme} color={color} />
+        <Icon {...iconProps} theme={cxt.theme} color={cxt.color} />
         <h2
           className={cls(
             "text-lg title-font font-medium",
@@ -88,8 +90,8 @@ export function FeatureWithIconItem({
             extendClass="mt-3"
             linkText={linkText}
             onClick={onClick}
-            theme={theme}
-            color={color}
+            theme={cxt.theme}
+            color={cxt.color}
           />
         )}
       </div>
