@@ -52,7 +52,7 @@ export function Hero({
         }`}
       >
         <Img
-          imgClass="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
+          imgClass="object-cover object-center rounded"
           imgSrc={imgSrc}
           imgAlt={imgAlt}
           imgNode={imgNode}

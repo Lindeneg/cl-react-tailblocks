@@ -12,6 +12,7 @@ export default {
     theme: { control: "none" },
     linkNode: { control: "none" },
     iconNode: { control: "none" },
+    svgNode: { control: "none" },
   },
 } as Meta;
 
