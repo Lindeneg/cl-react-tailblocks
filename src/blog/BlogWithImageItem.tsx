@@ -1,15 +1,15 @@
 import React from "react";
 import { BlogItemProps } from "./BlogItem";
+import { Img, ImgProps } from "../util/Img";
 import { LearnMore } from "../util/LearnMore";
 import { Stat } from "../util/Stat";
-import { Image, WithTheme, WithoutTheme } from "../types";
+import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
-export type BlogWithImageItemProps = WithTheme<Image> &
-  WithoutTheme<BlogItemProps>;
+export type BlogWithImageItemProps = WithTheme<ImgProps> &
+  WithoutTheme<BlogItemProps, "extendClass">;
 
 export function BlogWithImageItem({
-  imgSrc,
   label,
   title,
   content,
@@ -18,10 +18,10 @@ export function BlogWithImageItem({
   comments,
   onClick,
   linkText,
+  includeWrapperBg = true,
   theme = "light",
   color = "indigo",
-  imgAlt = "blog-with-image-alt",
-  includeWrapperBg = true,
+  ...imgProps
 }: BlogWithImageItemProps) {
   const cls = getClass.bind(null, theme);
   return (
@@ -41,10 +41,10 @@ export function BlogWithImageItem({
           "border-gray-800"
         )}
       >
-        <img
-          className="lg:h-48 md:h-36 w-full object-cover object-center"
-          src={imgSrc}
-          alt={imgAlt}
+        <Img
+          imgAlt="blog-with-image-alt"
+          imgClass="lg:h-48 md:h-36 w-full object-cover object-center"
+          {...imgProps}
         />
         <div className="p-6">
           <h2

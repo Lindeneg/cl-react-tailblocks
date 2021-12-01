@@ -1,16 +1,18 @@
 import React from "react";
 import { StepEntry, StepEntryIsolatedProps } from "./StepEntry";
+import { Img, ImgProps } from "../util/Img";
 import { Section } from "../util/Section";
-import { WithTheme, Image } from "../types";
+import { WithTheme } from "../types";
 
 export type StepWithImageProps = WithTheme<{
   steps: Array<StepEntryIsolatedProps>;
 }> &
-  Image;
+  ImgProps;
 
 export function StepWithImage({
   steps,
   imgSrc,
+  imgNode,
   imgAlt = "step-with-image",
   theme = "light",
   color = "indigo",
@@ -41,10 +43,11 @@ export function StepWithImage({
               );
             })}
           </div>
-          <img
-            className="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
-            src={imgSrc}
-            alt={imgAlt}
+          <Img
+            imgClass="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
+            imgSrc={imgSrc}
+            imgAlt={imgAlt}
+            imgNode={imgNode}
           />
         </div>
       </div>

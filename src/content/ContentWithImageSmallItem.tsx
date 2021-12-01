@@ -1,5 +1,6 @@
 import React from "react";
-import { WithTheme, Image } from "../types";
+import { Img, ImgProps } from "../util/Img";
+import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
 export type ContentWithImageSmallItemProps = WithTheme<{
@@ -7,13 +8,14 @@ export type ContentWithImageSmallItemProps = WithTheme<{
   label: string;
   description: string;
 }> &
-  Image;
+  ImgProps;
 
 export function ContentWithImageSmallItem({
   title,
   label,
   description,
   imgSrc,
+  imgNode,
   imgAlt = "content-with-image-small-img",
   theme = "light",
   color = "indigo",
@@ -25,10 +27,11 @@ export function ContentWithImageSmallItem({
         data-testid="content-with-image-small-item-div"
         className={cls("p-6 rounded-lg", "bg-gray-100", "bg-gray-800")}
       >
-        <img
-          className="h-40 rounded w-full object-cover object-center mb-6"
-          src={imgSrc}
-          alt={imgAlt}
+        <Img
+          imgClass="h-40 rounded w-full object-cover object-center mb-6"
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+          imgNode={imgNode}
         />
         <h3
           className={cls(

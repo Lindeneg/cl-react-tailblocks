@@ -1,7 +1,8 @@
 import React from "react";
 import { Section } from "../util/Section";
+import { Img, ImgProps } from "../util/Img";
 import { LearnMore, LearnMoreProps } from "../util/LearnMore";
-import { WithTheme, WithoutTheme, Image } from "../types";
+import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
 export type ContentWithAvatarAndImageProps = WithTheme<{
@@ -12,7 +13,7 @@ export type ContentWithAvatarAndImageProps = WithTheme<{
   iconNode?: React.ReactNode;
 }> &
   WithoutTheme<LearnMoreProps> &
-  Image;
+  ImgProps;
 
 export function ContentWithAvatarAndImage({
   title,
@@ -21,6 +22,7 @@ export function ContentWithAvatarAndImage({
   imgSrc,
   linkNode,
   iconNode,
+  imgNode,
   imgAlt = "content-image",
   theme = "light",
   color = "indigo",
@@ -32,10 +34,11 @@ export function ContentWithAvatarAndImage({
       <div className="container px-5 py-24 mx-auto flex flex-col">
         <div className="lg:w-4/6 mx-auto">
           <div className="rounded-lg h-64 overflow-hidden">
-            <img
-              className="object-cover object-center h-full w-full"
-              src={imgSrc}
-              alt={imgAlt}
+            <Img
+              imgClass="object-cover object-center h-full w-full"
+              imgSrc={imgSrc}
+              imgAlt={imgAlt}
+              imgNode={imgNode}
             />
           </div>
           <div className="flex flex-col sm:flex-row mt-10">

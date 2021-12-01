@@ -10,6 +10,7 @@ export default {
   component: BlogWithImageItem,
   argTypes: {
     linkNode: { control: "none" },
+    imgNode: { control: "none" },
     includeWrapperBg: { control: "none" },
     onClick: { action: "onClick" },
   },

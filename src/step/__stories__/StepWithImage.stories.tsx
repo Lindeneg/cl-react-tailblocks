@@ -6,7 +6,9 @@ import { MOCK_STEPS } from "./mock-data";
 export default {
   title: "Step/StepWithImage",
   component: StepWithImage,
-  argTypes: {},
+  argTypes: {
+    imgNode: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<StepWithImageProps> = (args) => (
