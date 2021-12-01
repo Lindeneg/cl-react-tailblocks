@@ -1,6 +1,7 @@
 export { getClass, getRefValue } from "./shared";
 export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
+export { Img } from "./util/Img";
 export { Button } from "./util/Button";
 export { Avatar } from "./util/Avatar";
 export { Section, FooterSection } from "./util/Section";
@@ -55,6 +56,7 @@ export { StepWithImage } from "./step/StepWithImage";
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type { LearnMoreProps } from "./util/LearnMore";
 export type { StatProps } from "./util/Stat";
+export type { ImgProps, MetaImgProps } from "./util/Img";
 export type { ButtonProps } from "./util/Button";
 export type { AvatarProps } from "./util/Avatar";
 export type { SectionProps } from "./util/Section";
