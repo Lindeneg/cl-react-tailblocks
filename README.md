@@ -17,3 +17,21 @@ Tailblocks components that are not implemented are specified in the `MISSING` fi
 ### Docs
 
 The only form of documentation for now is via `storybook`, which is located here [here](https://lindeneg.github.io/cl-react-tailblocks/).
+
+However, a few patterns are as follows:
+
+##### Theme
+
+You can specify a global theme using `React.Context`. A `ThemeContextProvider` is exposed and can be used for this purpose. On top of that, each component takes two optional props: `theme` and `color`.
+
+- If no provider is used and no theme props are specified, the default values are `light` and `indigo`.
+
+- If a provider is used and no theme props are specified, the provider context will be used.
+
+- If a provider is used and theme props specified, the theme props will override the context for that specific component.
+
+##### Nodes
+
+Some props, such as links, images, svgs and so on, always allows for an optional node that should contain a `React.ReactNode` - or in some cases a function that returns a `React.ReactNode`. This will override the default node, allowing for decent component customization.
+
+The pattern is that all of those optional node props will have property names that end on `node` and be prefixed with it's context. So a custom `React.ReactNode` for a `link`, will always have the property name `linkNode`, for an `svg` it will always be `svgNode` and so on.
