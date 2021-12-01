@@ -1,12 +1,14 @@
 ### cl-react-tailblocks
 
-[TypeScript](https://www.typescriptlang.org/) implementation of [Tailblocks](https://tailblocks.cc/) components. [react](https://www.npmjs.com/package/react), [react-dom](https://www.npmjs.com/package/react-dom) and [tailwindcss](https://www.npmjs.com/package/tailwindcss) are [peerDependencies](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies) and are thus expected to already be in your project.
+[TypeScript](https://www.typescriptlang.org/) implementation of [Tailblocks](https://tailblocks.cc/) components.
 
 All components supports a `light` and `dark` theme as well as these colors: `indigo | yellow | red | purple | pink | blue | green`
 
 Tailblocks components that are not implemented are specified in the `MISSING` file.
 
 ### Install
+
+[react](https://www.npmjs.com/package/react), [react-dom](https://www.npmjs.com/package/react-dom) and [tailwindcss](https://www.npmjs.com/package/tailwindcss) are [peerDependencies](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies) and are thus expected to already be in your project.
 
 `yarn add cl-react-tailblocks`
 
@@ -32,6 +34,6 @@ You can specify a global theme using `React.Context`. A `ThemeContextProvider` i
 
 ##### Nodes
 
-Some props, such as links, images, svgs and so on, always allows for an optional node that should contain a `React.ReactNode` - or in some cases a function that returns a `React.ReactNode`. This will override the default node, allowing for decent component customization.
+Some props, such as links, images, svgs and so on, always allows for an optional node that should contain a `React.ReactNode` - or in some cases a `function` that returns a `React.ReactNode`. This will override the default node, allowing for decent component customization.
 
-The pattern is that all of those optional node props will have property names that end on `node` and be prefixed with it's context. So a custom `React.ReactNode` for a `link`, will always have the property name `linkNode`, for an `svg` it will always be `svgNode` and so on.
+The pattern is that all of those optional node props will have property names that end on `Node` and be prefixed with it's context. So a custom node for a `link`, will always have the property name `linkNode`, for an `svg` it will always be `svgNode` and so on.
