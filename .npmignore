@@ -2,7 +2,6 @@ __mocks__
 .github
 .storybook
 src
-examples
 .gitignore
 /node_modules
 /.pnp
