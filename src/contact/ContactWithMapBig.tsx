@@ -3,6 +3,7 @@ import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { Section } from "../util/Section";
 import { EmbeddedMap } from "../util/EmbeddedMap";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -24,9 +25,9 @@ export function ContactWithMapBig({
   mapIframeSrc,
   inputProps = {},
   textAreaProps = {},
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContactWithMapBigProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const inputRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);

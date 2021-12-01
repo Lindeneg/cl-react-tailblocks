@@ -1,5 +1,6 @@
 import React from "react";
 import { Img, ImgProps } from "../util/Img";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -17,9 +18,9 @@ export function ContentWithImageSmallItem({
   imgSrc,
   imgNode,
   imgAlt = "content-with-image-small-img",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentWithImageSmallItemProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div className="xl:w-1/4 md:w-1/2 p-4">

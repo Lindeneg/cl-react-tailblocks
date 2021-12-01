@@ -2,6 +2,7 @@ import React from "react";
 import { Section } from "../util/Section";
 import { Img, ImgProps } from "../util/Img";
 import { LearnMore, LearnMoreProps } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -23,14 +24,15 @@ export function ContentWithAvatarAndImage({
   linkNode,
   iconNode,
   imgNode,
+  theme,
+  color,
   imgAlt = "content-image",
-  theme = "light",
-  color = "indigo",
   ...linkProps
 }: ContentWithAvatarAndImageProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   return (
-    <Section testId="content-with-avatar-and-image-section" theme={theme}>
+    <Section testId="content-with-avatar-and-image-section" theme={cxt.theme}>
       <div className="container px-5 py-24 mx-auto flex flex-col">
         <div className="lg:w-4/6 mx-auto">
           <div className="rounded-lg h-64 overflow-hidden">
@@ -78,7 +80,7 @@ export function ContentWithAvatarAndImage({
                   {title}
                 </h2>
                 <div
-                  className={`w-12 h-1 rounded mt-2 mb-4 bg-${color}-500`}
+                  className={`w-12 h-1 rounded mt-2 mb-4 bg-${cxt.color}-500`}
                 ></div>
                 <p className={cls("text-base", "", "text-gray-400")}>
                   {description}
@@ -96,7 +98,7 @@ export function ContentWithAvatarAndImage({
               {linkNode ? (
                 <>{linkNode}</>
               ) : (
-                <LearnMore {...linkProps} theme={theme} color={color} />
+                <LearnMore {...linkProps} theme={cxt.theme} color={cxt.color} />
               )}
             </div>
           </div>

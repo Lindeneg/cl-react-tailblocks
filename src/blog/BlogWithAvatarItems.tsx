@@ -4,6 +4,7 @@ import {
   BlogWithAvatarItemProps,
 } from "./BlogWithAvatarItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 
 export type BlogWithAvatarItemsProps = WithTheme<{
@@ -12,9 +13,9 @@ export type BlogWithAvatarItemsProps = WithTheme<{
 
 export function BlogWithAvatarItems({
   data,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: BlogWithAvatarItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section
       theme={theme}

@@ -3,6 +3,7 @@ import { Section } from "../util/Section";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
 import { Socials, SocialConstraints } from "../util/Socials";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -32,21 +33,22 @@ export function ContactWithSocials({
   city,
   email,
   street,
+  theme,
+  color,
   inputRightProps = {},
   inputLeftProps = {},
   textAreaProps = {},
-  theme = "light",
-  color = "indigo",
   ...socials
 }: ContactWithSocialsProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const inputRightRef = useRef<HTMLInputElement>(null);
   const inputLeftRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <Section
       testId="contact-with-socials-section"
-      theme={theme}
+      theme={cxt.theme}
       extendClass="relative"
     >
       <div className="container px-5 py-24 mx-auto">
@@ -74,8 +76,8 @@ export function ContactWithSocials({
                   name="name"
                   label="Name"
                   elementRef={inputLeftRef}
-                  theme={theme}
-                  themeColor={color}
+                  theme={cxt.theme}
+                  themeColor={cxt.color}
                   extendClass="w-full leading-8"
                   {...inputLeftProps}
                 />
@@ -89,8 +91,8 @@ export function ContactWithSocials({
                   name="email"
                   label="Email"
                   elementRef={inputRightRef}
-                  theme={theme}
-                  themeColor={color}
+                  theme={cxt.theme}
+                  themeColor={cxt.color}
                   extendClass="w-full leading-8"
                   {...inputRightProps}
                 />
@@ -104,8 +106,8 @@ export function ContactWithSocials({
                   name="message"
                   label="Message"
                   elementRef={textAreaRef}
-                  theme={theme}
-                  themeColor={color}
+                  theme={cxt.theme}
+                  themeColor={cxt.color}
                   extendClass="w-full h-32 resize-none leading-6"
                   {...textAreaProps}
                 />
@@ -113,7 +115,7 @@ export function ContactWithSocials({
             </div>
             <div className="p-2 w-full">
               <Button
-                color={color}
+                color={cxt.color}
                 text={buttonLabel || "Button"}
                 extendClass="flex mx-auto"
                 onClick={(e) => {
@@ -135,7 +137,11 @@ export function ContactWithSocials({
             >
               {email && (
                 <a
-                  className={cls("", `text-${color}-500`, `text-${color}-400`)}
+                  className={cls(
+                    "",
+                    `text-${cxt.color}-500`,
+                    `text-${cxt.color}-400`
+                  )}
                 >
                   {email}
                 </a>

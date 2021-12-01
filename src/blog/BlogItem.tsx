@@ -1,6 +1,7 @@
 import React from "react";
 import { LearnMore, LearnMoreProps } from "../util/LearnMore";
 import { Stat, StatProps } from "../util/Stat";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -11,7 +12,7 @@ export type BlogItemProps = WithTheme<{
   linkNode?: React.ReactNode;
   includeWrapperBg?: boolean;
 }> &
-  WithoutTheme<LearnMoreProps> &
+  WithoutTheme<LearnMoreProps, "extendClass"> &
   WithoutTheme<StatProps>;
 
 export function BlogItem({
@@ -23,10 +24,10 @@ export function BlogItem({
   comments,
   views,
   onClick,
-  theme = "light",
-  color = "indigo",
   includeWrapperBg = true,
+  ...props
 }: BlogItemProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div

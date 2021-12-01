@@ -1,6 +1,7 @@
 import React from "react";
 import { Img, ImgProps } from "../util/Img";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -20,9 +21,9 @@ export function ContentWithImageBigItem({
   onClick,
   buttonText = "Button",
   imgAlt = "content-image.item",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentWithImageBigItemProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div className="sm:w-1/2 mb-10 px-4">

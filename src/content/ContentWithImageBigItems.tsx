@@ -4,6 +4,7 @@ import {
   ContentWithImageBigItemProps,
 } from "./ContentWithImageBigItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 
 export type ContentWithImageBigItemsProps = WithTheme<{
@@ -12,9 +13,9 @@ export type ContentWithImageBigItemsProps = WithTheme<{
 
 export function ContentWithImageBigItems({
   data,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentWithImageBigItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="content-with-image-big-items-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">

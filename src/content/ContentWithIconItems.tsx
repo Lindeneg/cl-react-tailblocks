@@ -5,6 +5,7 @@ import {
 } from "./ContentWithIconItem";
 import { Section } from "../util/Section";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -22,9 +23,9 @@ export function ContentWithIconItems({
   description,
   onClick,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentWithIconItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <Section testId="content-with-icons-section" theme={theme}>

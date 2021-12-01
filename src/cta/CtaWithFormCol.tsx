@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
 import { Input } from "../util/Input";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -23,11 +24,11 @@ export function CtaWithFormCol({
   description,
   onSubmit,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
   inputLeftProps = {},
   inputRightProps = {},
+  ...props
 }: CtaWithFormColProps) {
+  const { theme, color } = useMaybeTheme(props);
   const inputLeftRef = useRef<HTMLInputElement>(null);
   const inputRightRef = useRef<HTMLInputElement>(null);
   return (

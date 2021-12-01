@@ -2,6 +2,7 @@ import React from "react";
 import { ContentItem, ContentItemProps } from "./ContentItem";
 import { Button, ButtonProps } from "../util/Button";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -19,9 +20,9 @@ export function ContentItems({
   title,
   description,
   onClick,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <Section
