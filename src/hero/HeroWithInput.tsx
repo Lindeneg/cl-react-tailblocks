@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { HeroProps } from "./Hero";
+import { Img, ImgProps } from "../util/Img";
 import { Section } from "../util/Section";
 import { Input, InputProps } from "../util/Input";
 import { Button, ButtonProps } from "../util/Button";
@@ -20,6 +21,7 @@ export function HeroWithInput({
   title,
   description,
   imgSrc,
+  imgNode,
   onGooglePlayClick,
   onAppleStoreClick,
   onSubmit,
@@ -35,10 +37,11 @@ export function HeroWithInput({
   const inputRef = useRef<HTMLInputElement>(null);
   const img =
     orientation === "middle" ? (
-      <img
-        className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-        alt={imgAlt}
-        src={imgSrc}
+      <Img
+        imgClass="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
+        imgNode={imgNode}
       />
     ) : (
       <div
@@ -46,10 +49,11 @@ export function HeroWithInput({
           orientation === "left" ? "mb-10 md:mb-0" : ""
         }`}
       >
-        <img
-          className="object-cover object-center rounded"
-          alt={imgAlt}
-          src={imgSrc}
+        <Img
+          imgClass="object-cover object-center rounded"
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+          imgNode={imgNode}
         />
       </div>
     );

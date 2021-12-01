@@ -7,6 +7,7 @@ export default {
   component: Hero,
   argTypes: {
     imgAlt: { control: "none" },
+    imgNode: { control: "none" },
     btnLeft: { control: "none" },
     btnRight: { control: "none" },
   },

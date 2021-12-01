@@ -1,6 +1,7 @@
 import React from "react";
+import { Img, ImgProps } from "../util/Img";
 import { Button, ButtonProps } from "../util/Button";
-import { WithTheme, Image } from "../types";
+import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
 export type ContentWithImageBigItemProps = WithTheme<{
@@ -9,12 +10,13 @@ export type ContentWithImageBigItemProps = WithTheme<{
   buttonText?: string;
 }> &
   Pick<ButtonProps, "onClick"> &
-  Image;
+  ImgProps;
 
 export function ContentWithImageBigItem({
   title,
   description,
   imgSrc,
+  imgNode,
   onClick,
   buttonText = "Button",
   imgAlt = "content-image.item",
@@ -25,10 +27,11 @@ export function ContentWithImageBigItem({
   return (
     <div className="sm:w-1/2 mb-10 px-4">
       <div className="rounded-lg h-64 overflow-hidden">
-        <img
-          className="object-cover object-center h-full w-full"
-          src={imgSrc}
-          alt={imgAlt}
+        <Img
+          imgClass="object-cover object-center h-full w-full"
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+          imgNode={imgNode}
         />
       </div>
       <h2

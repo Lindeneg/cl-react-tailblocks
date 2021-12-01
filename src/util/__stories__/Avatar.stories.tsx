@@ -5,6 +5,9 @@ import { Avatar, AvatarProps } from "../Avatar";
 export default {
   title: "Util/Avatar",
   component: Avatar,
+  argTypes: {
+    imgNode: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<AvatarProps> = (args) => <Avatar {...args} />;

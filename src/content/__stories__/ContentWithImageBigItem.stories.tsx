@@ -11,6 +11,7 @@ export default {
   argTypes: {
     theme: { control: "none" },
     onClick: { control: "none" },
+    imgNode: { control: "none" },
   },
 } as Meta;
 

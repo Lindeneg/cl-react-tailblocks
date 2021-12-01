@@ -8,7 +8,9 @@ import {
 export default {
   title: "Content/ContentWithImageSmallItem",
   component: ContentWithImageSmallItem,
-  argTypes: {},
+  argTypes: {
+    imgNode: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<ContentWithImageSmallItemProps> = (args) => (

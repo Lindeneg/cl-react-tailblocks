@@ -6,6 +6,7 @@ export default {
   component: HeroWithInput,
   argTypes: {
     inputProps: { control: "none" },
+    imgNode: { control: "none" },
     onSubmit: { control: "none" },
     onGooglePlayClick: { control: "none" },
     onAppleStoreClick: { control: "none" },

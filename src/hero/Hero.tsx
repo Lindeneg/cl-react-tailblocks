@@ -1,7 +1,8 @@
 import React from "react";
+import { Img, ImgProps } from "../util/Img";
 import { Section } from "../util/Section";
 import { Button, ButtonProps } from "../util/Button";
-import { WithTheme, Image } from "../types";
+import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
 export type DoubleBtn = {
@@ -16,13 +17,14 @@ export type HeroProps = WithTheme<{
   description: string;
   orientation?: HeroOrientation;
 }> &
-  Image &
+  ImgProps &
   DoubleBtn;
 
 export function Hero({
   title,
   description,
   imgSrc,
+  imgNode,
   btnLeft = {
     buttonText: "Button",
   },
@@ -37,10 +39,11 @@ export function Hero({
   const cls = getClass.bind(null, theme);
   const img =
     orientation === "middle" ? (
-      <img
-        className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-        alt={imgAlt}
-        src={imgSrc}
+      <Img
+        imgClass="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
+        imgNode={imgNode}
       />
     ) : (
       <div
@@ -48,10 +51,11 @@ export function Hero({
           orientation === "left" ? "mb-10 md:mb-0" : ""
         }`}
       >
-        <img
-          className="object-cover object-center rounded"
-          alt={imgAlt}
-          src={imgSrc}
+        <Img
+          imgClass="object-cover object-center rounded"
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+          imgNode={imgNode}
         />
       </div>
     );

@@ -11,6 +11,7 @@ export default {
   argTypes: {
     linkNode: { control: "none" },
     iconNode: { control: "none" },
+    imgNode: { control: "none" },
     onClick: { control: "none" },
   },
 } as Meta;

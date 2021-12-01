@@ -10,6 +10,7 @@ export default {
   component: BlogWithAvatarItem,
   argTypes: {
     linkNode: { control: "none" },
+    imgNode: { control: "none" },
     includeWrapperBg: { control: "none" },
     imgAlt: { control: "none" },
     onClick: { action: "onClick" },

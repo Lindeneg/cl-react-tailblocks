@@ -6,6 +6,9 @@ import { MOCK_DATA_WITH_IMAGE_ENTRIES } from "./mock-data";
 export default {
   title: "Feature/FeatureWithImage",
   component: FeatureWithImage,
+  argTypes: {
+    imgNode: { control: "none" },
+  },
 } as Meta;
 
 const MetaComp: Story<FeatureWithImageProps> = (args) => (
