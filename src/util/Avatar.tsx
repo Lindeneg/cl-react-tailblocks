@@ -1,5 +1,6 @@
 import React from "react";
-import { WithTheme, Image } from "../types";
+import { Img, ImgProps } from "../util/Img";
+import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
 export type AvatarProps = WithTheme<{
@@ -8,7 +9,7 @@ export type AvatarProps = WithTheme<{
   name: string;
   role: string;
 }> &
-  Image;
+  ImgProps;
 
 export function Avatar({
   height,
@@ -16,17 +17,19 @@ export function Avatar({
   name,
   role,
   imgSrc,
+  imgNode,
   theme = "light",
   imgAlt = "avatar-image",
 }: AvatarProps) {
   const cls = getClass.bind(null, theme);
   return (
     <a className="inline-flex items-center">
-      <img
-        data-testid="avatar-image"
-        alt={imgAlt}
-        src={imgSrc}
-        className={`w-${width} h-${height} rounded-full flex-shrink-0 object-cover object-center`}
+      <Img
+        testId="avatar-image"
+        imgClass={`w-${width} h-${height} rounded-full flex-shrink-0 object-cover object-center`}
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
+        imgNode={imgNode}
       />
       <span className="flex-grow flex flex-col pl-4">
         <span

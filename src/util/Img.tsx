@@ -1,13 +1,22 @@
 import React from "react";
 
-export type ImgProps = {
+export type MetaImgProps = {
   imgClass?: string;
   imgSrc?: string;
   imgAlt?: string;
+  testId?: string;
   imgNode?: ((intendedClass: string) => React.ReactNode) | React.ReactNode;
 };
 
-export function Img({ imgNode, imgSrc, imgAlt, imgClass = "" }: ImgProps) {
+export type ImgProps = Omit<MetaImgProps, "imgClass" | "testId">;
+
+export function Img({
+  imgNode,
+  imgSrc,
+  imgAlt,
+  testId = "test-id-image",
+  imgClass = "",
+}: MetaImgProps) {
   if (imgNode) {
     if (imgNode instanceof Function) {
       return <>{imgNode(imgClass)}</>;
@@ -15,6 +24,13 @@ export function Img({ imgNode, imgSrc, imgAlt, imgClass = "" }: ImgProps) {
       return <>{imgNode}</>;
     }
   } else {
-    return <img className={imgClass} src={imgSrc} alt={imgAlt} />;
+    return (
+      <img
+        data-testid={testId}
+        className={imgClass}
+        src={imgSrc}
+        alt={imgAlt}
+      />
+    );
   }
 }
