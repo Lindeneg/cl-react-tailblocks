@@ -10,7 +10,7 @@ Tailblocks components that are not implemented are specified in the `MISSING` fi
 
 ### Install
 
-
+`yarn add cl-react-tailblocks`
 
 ### Why?
 
@@ -18,4 +18,4 @@ Tailblocks components that are not implemented are specified in the `MISSING` fi
 
 ### Docs
 
-The only form of documentation for now is via `storybook`. Take a look [here](https://lindeneg.github.io/cl-react-tailblocks/).
+The only form of documentation for now is via `storybook`, which is here [here](https://lindeneg.github.io/cl-react-tailblocks/), or the two examples in the `examples` folder.
