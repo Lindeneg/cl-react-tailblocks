@@ -21,6 +21,7 @@ export function useMaybeTheme(
 
   let t: Theme;
   let c: ThemeColor;
+  let f: Pick<ThemeContextType, "setContext">["setContext"];
 
   if (initial.theme) {
     t = initial.theme;
@@ -36,6 +37,13 @@ export function useMaybeTheme(
   } else {
     c = "indigo";
   }
+  if (initial.setContext) {
+    f = initial.setContext;
+  } else if (cxt?.setContext) {
+    f = cxt.setContext;
+  } else {
+    f = () => {};
+  }
 
-  return { theme: t, color: c, setContext: () => {} };
+  return { theme: t, color: c, setContext: f };
 }
