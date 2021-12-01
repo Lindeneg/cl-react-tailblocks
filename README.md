@@ -1,7 +1,5 @@
 ### cl-react-tailblocks
 
-### What?
-
 [TypeScript](https://www.typescriptlang.org/) implementation of [Tailblocks](https://tailblocks.cc/) components. [react](https://www.npmjs.com/package/react), [react-dom](https://www.npmjs.com/package/react-dom) and [tailwindcss](https://www.npmjs.com/package/tailwindcss) are [peerDependencies](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies) and are thus expected to already be in your project.
 
 All components supports a `light` and `dark` theme as well as these colors: `indigo | yellow | red | purple | pink | blue | green`
