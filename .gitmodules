@@ -1,0 +1,3 @@
+[submodule "cl-react-tailblocks-example"]
+	path = cl-react-tailblocks-example
+	url = git@github.com:Lindeneg/cl-react-tailblocks-example.git
