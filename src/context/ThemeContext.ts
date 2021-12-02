@@ -1,12 +1,18 @@
 import { createContext } from "react";
 import { Theme, ThemeColor } from "../types";
 
-export type ThemeContextType = {
+export type SetContext = (newState: {
+  theme?: Theme;
+  color?: ThemeColor;
+}) => void;
+
+export type ThemeContextContent = {
   theme: Theme;
   color: ThemeColor;
-  setContext: (newState: { theme?: Theme; color?: ThemeColor }) => void;
+};
+
+export type ThemeContextType = ThemeContextContent & {
+  setContext?: SetContext;
 };
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
-
-export const ThemeContextProvider = ThemeContext.Provider;

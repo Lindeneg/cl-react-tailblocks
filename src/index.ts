@@ -1,5 +1,5 @@
 export { getClass, getRefValue } from "./shared";
-export { ThemeContext, ThemeContextProvider } from "./context/ThemeContext";
+export { ThemeContext } from "./context/ThemeContext";
 export { useMaybeTheme } from "./hooks/useMaybeTheme";
 export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
@@ -56,7 +56,11 @@ export { StepEntry } from "./step/StepEntry";
 export { StepWithImage } from "./step/StepWithImage";
 
 export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
-export type { ThemeContextType } from "./context/ThemeContext";
+export type {
+  ThemeContextType,
+  ThemeContextContent,
+  SetContext,
+} from "./context/ThemeContext";
 export type { LearnMoreProps } from "./util/LearnMore";
 export type { StatProps } from "./util/Stat";
 export type { ImgProps, MetaImgProps } from "./util/Img";

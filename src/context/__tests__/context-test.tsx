@@ -2,10 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { BlogItem } from "../../blog/BlogItem";
 import { MOCK_ENTRY_WITH_IMG } from "../../blog/__stories__/mock-data";
-import {
-  ThemeContextProvider,
-  ThemeContextType,
-} from "../ThemeContext";
+import { ThemeContext, ThemeContextType } from "../ThemeContext";
 import userEvent from "@testing-library/user-event";
 
 function renderWithContext(
@@ -13,7 +10,7 @@ function renderWithContext(
   providerProps?: Partial<ThemeContextType>
 ) {
   return render(
-    <ThemeContextProvider
+    <ThemeContext.Provider
       value={{
         theme: providerProps?.theme || "light",
         color: providerProps?.color || "indigo",
@@ -21,7 +18,7 @@ function renderWithContext(
       }}
     >
       {element}
-    </ThemeContextProvider>
+    </ThemeContext.Provider>
   );
 }
 
