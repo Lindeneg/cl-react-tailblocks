@@ -7,7 +7,6 @@ import { getClass } from "../shared";
 export type ContentItemProps = WithTheme<{
   label: string;
   description: string;
-  linkNode?: React.ReactNode;
 }> &
   WithoutTheme<LearnMoreProps, "extendClass">;
 
@@ -48,16 +47,13 @@ export function ContentItem({
       >
         {description}
       </p>
-      {linkNode ? (
-        <>{linkNode}</>
-      ) : (
-        <LearnMore
-          theme={theme}
-          color={color}
-          onClick={onClick}
-          linkText={linkText}
-        />
-      )}
+      <LearnMore
+        theme={theme}
+        color={color}
+        onClick={onClick}
+        linkText={linkText}
+        linkNode={linkNode}
+      />
     </div>
   );
 }

@@ -69,16 +69,13 @@ export function BlogWithImageItem({
           </h1>
           <p className="leading-relaxed mb-3">{content}</p>
           <div className="flex items-center place-content-between flex-wrap">
-            {linkNode ? (
-              <>{linkNode}</>
-            ) : (
-              <LearnMore
-                onClick={onClick}
-                theme={cxt.theme}
-                color={cxt.color}
-                linkText={linkText}
-              />
-            )}
+            <LearnMore
+              onClick={onClick}
+              theme={cxt.theme}
+              color={cxt.color}
+              linkText={linkText}
+              linkNode={linkNode}
+            />
             <div className="mt-2 sm:mt-0">
               <Stat
                 views={views}

@@ -12,7 +12,6 @@ export type FeatureWithIconItemProps = WithTheme<{
   tightClass?: string | null;
   title: string;
   description: string;
-  linkNode?: React.ReactNode;
 }> &
   WithoutTheme<IconProps> &
   WithoutTheme<LearnMoreProps>;
@@ -51,17 +50,14 @@ export function FeatureWithIconItem({
         <p className={cls("leading-relaxed text-base", "", "text-gray-400")}>
           {description}
         </p>
-        {linkNode ? (
-          <>{linkNode}</>
-        ) : (
-          <LearnMore
-            extendClass="mt-3"
-            linkText={linkText}
-            onClick={onClick}
-            theme={cxt.theme}
-            color={cxt.color}
-          />
-        )}
+        <LearnMore
+          extendClass="mt-3"
+          linkText={linkText}
+          onClick={onClick}
+          theme={cxt.theme}
+          color={cxt.color}
+          linkNode={linkNode}
+        />
       </div>
       {iconPlacement === "end" && (
         <Icon {...iconProps} theme={cxt.theme} color={cxt.color} />
@@ -83,17 +79,14 @@ export function FeatureWithIconItem({
       </div>
       <div className={innerClass}>
         <p className="leading-relaxed text-base">{description}</p>
-        {linkNode ? (
-          linkNode
-        ) : (
-          <LearnMore
-            extendClass="mt-3"
-            linkText={linkText}
-            onClick={onClick}
-            theme={cxt.theme}
-            color={cxt.color}
-          />
-        )}
+        <LearnMore
+          extendClass="mt-3"
+          linkText={linkText}
+          onClick={onClick}
+          theme={cxt.theme}
+          color={cxt.color}
+          linkNode={linkNode}
+        />
       </div>
     </div>
   );
