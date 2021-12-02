@@ -18,13 +18,13 @@ Tailblocks components that are not implemented are specified in the `MISSING` fi
 
 ### Docs
 
-The only form of documentation for now is via `storybook`, which is located here [here](https://lindeneg.github.io/cl-react-tailblocks/).
+The only form of documentation for now is via `storybook`, which is located here [here](https://lindeneg.github.io/cl-react-tailblocks/) or an example repository located [here](https://github.com/Lindeneg/cl-react-tailblocks-example).
 
 However, a few patterns are as follows:
 
 ##### Theme
 
-You can specify a global theme using `React.Context`. A `ThemeContextProvider` is exposed and can be used for this purpose. On top of that, each component takes two optional props: `theme` and `color`.
+You can specify a global theme using `React.Context`. A `ThemeContext` is exposed and can be used for this purpose. On top of that, each component takes two optional props: `theme` and `color`.
 
 - If no provider is used and no theme props are specified, the default values are `light` and `indigo`.
 
