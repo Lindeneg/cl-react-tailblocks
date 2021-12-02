@@ -4,6 +4,7 @@ import {
   FeatureWithIconItemProps,
 } from "./FeatureWithIconItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -23,9 +24,9 @@ export type FeatureIconCardItemsProps = WithTheme<{
 
 export function FeatureIconCardItems({
   data,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: FeatureIconCardItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="feature-with-icon-cards-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto flex flex-wrap">

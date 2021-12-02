@@ -1,6 +1,7 @@
 import React from "react";
 import { StepEntry, StepEntryIsolatedProps } from "./StepEntry";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -8,7 +9,8 @@ export type StepProps = WithTheme<{
   steps: Array<StepEntryIsolatedProps>;
 }>;
 
-export function Step({ steps, theme = "light", color = "indigo" }: StepProps) {
+export function Step({ steps, ...props }: StepProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="step-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto flex flex-wrap">

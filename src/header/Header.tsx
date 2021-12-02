@@ -5,6 +5,7 @@ import {
   Button as BaseButton,
   ButtonProps as BaseButtonProps,
 } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -67,8 +68,9 @@ function Link({
   aClass = "",
   spanClass = "",
   name = "",
-  color = "indigo",
+  ...props
 }: LinkProps) {
+  const { color } = useMaybeTheme(props);
   return linkNode ? (
     <>{linkNode}</>
   ) : (
@@ -125,8 +127,9 @@ function Button({
   onClick,
   buttonText = "",
   className = "",
-  color = "indigo",
+  ...props
 }: ButtonProps) {
+  const { color } = useMaybeTheme(props);
   if (buttonNode) {
     return <>{buttonNode}</>;
   }
@@ -165,20 +168,21 @@ export function Header({
   links,
   buttonNode,
   onClick,
+  theme,
+  color,
   orientation = "right",
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
   ...linkProps
 }: HeaderProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const linkJsx = (
     <Link
       {...linkProps}
       aClass={cls(...orientationMap.a[orientation])}
       spanClass={orientation === "swap" ? "xl:block lg:hidden" : ""}
-      theme={theme}
-      color={color}
+      theme={cxt.theme}
+      color={cxt.color}
     />
   );
   const nav = (
@@ -195,14 +199,14 @@ export function Header({
         "bg-gray-100 hover:bg-gray-200",
         "bg-gray-800 hover:bg-gray-700"
       )}
-      color={color}
+      color={cxt.color}
       buttonNode={buttonNode}
       buttonText={buttonText}
       onClick={onClick}
     />
   );
   return (
-    <HeaderSection testId="header-section" theme={theme}>
+    <HeaderSection testId="header-section" theme={cxt.theme}>
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         {orientation === "swap" ? (
           <>

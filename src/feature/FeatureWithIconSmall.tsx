@@ -4,6 +4,7 @@ import {
   FeatureWithIconItemProps,
 } from "./FeatureWithIconItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -25,9 +26,9 @@ export type FeatureWithIconSmallProps = WithTheme<{
 export function FeatureWithIconSmall({
   title,
   data,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: FeatureWithIconSmallProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="feature-icon-small-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">

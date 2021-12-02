@@ -1,6 +1,7 @@
 import React from "react";
 import { Section } from "../util/Section";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -14,9 +15,9 @@ export function Cta({
   title,
   onClick,
   buttonText = "Button",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: CtaProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section testId="cta-section" theme={theme}>
       <div className="container px-5 py-24 mx-auto">

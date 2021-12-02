@@ -3,6 +3,7 @@ import { BlogItemProps } from "./BlogItem";
 import { Avatar, AvatarProps } from "../util/Avatar";
 import { Stat } from "../util/Stat";
 import { LearnMore } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -17,12 +18,13 @@ export function BlogWithAvatarItem({
   onClick,
   views,
   comments,
-  theme = "light",
-  color = "indigo",
+  theme,
+  color,
   includeWrapperBg = true,
   ...avatarProps
 }: BlogWithAvatarItemProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   return (
     <div
       data-testid="blog-with-avatar-item-outer"
@@ -35,7 +37,7 @@ export function BlogWithAvatarItem({
       <span
         className={cls(
           "inline-block py-1 px-2 rounded text-xs font-medium tracking-widest",
-          `bg-${color}-50 text-${color}-500`,
+          `bg-${cxt.color}-50 text-${cxt.color}-500`,
           "bg-gray-800 text-gray-400"
         )}
       >
@@ -64,16 +66,21 @@ export function BlogWithAvatarItem({
         ) : (
           <LearnMore
             onClick={onClick}
-            theme={theme}
-            color={color}
+            theme={cxt.theme}
+            color={cxt.color}
             linkText={linkText}
           />
         )}
         <div className="mt-2 sm:mt-0">
-          <Stat views={views} comments={comments} theme={theme} color={color} />
+          <Stat
+            views={views}
+            comments={comments}
+            theme={cxt.theme}
+            color={cxt.color}
+          />
         </div>
       </div>
-      <Avatar {...avatarProps} theme={theme} color={color} />
+      <Avatar {...avatarProps} theme={cxt.theme} color={cxt.color} />
     </div>
   );
 }

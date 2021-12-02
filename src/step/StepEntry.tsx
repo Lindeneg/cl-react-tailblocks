@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon, IconProps } from "../util/Icon";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -33,19 +34,25 @@ export function StepEntry({
   description,
   children,
   divInnerWrapperClass,
+  theme,
+  color,
   smallText = false,
   line = null,
   label = "",
   extendWrapperClass = "",
   extendDivClass = "",
-  theme = "light",
-  color = "indigo",
   ...iconProps
 }: StepEntryProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const jsx = (
     <>
-      <Icon overrideDivClass={extendDivClass} {...iconProps} />
+      <Icon
+        {...iconProps}
+        overrideDivClass={extendDivClass}
+        theme={cxt.theme}
+        color={cxt.color}
+      />
       <div
         className={`flex-grow ${smallText ? "pl-4" : "sm:pl-6 mt-6 sm:mt-0"}`}
       >

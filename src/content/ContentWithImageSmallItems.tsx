@@ -4,6 +4,7 @@ import {
   ContentWithImageSmallItemProps,
 } from "./ContentWithImageSmallItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme, WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -17,9 +18,9 @@ export function ContentWithImageSmallItems({
   data,
   title,
   description,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentWithImageSmallItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <Section testId="content-with-image-small-items-section" theme={theme}>

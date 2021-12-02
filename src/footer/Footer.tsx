@@ -1,6 +1,7 @@
 import React from "react";
 import { FooterSection } from "../util/Section";
 import { Socials, SocialsProps } from "../util/Socials";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -28,8 +29,9 @@ export function FooterLinks({
   title,
   links,
   extendClass = "",
-  theme = "light",
+  ...props
 }: FooterLinksProps) {
+  const { theme } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div className={`w-full px-4 ${extendClass}`}>
@@ -78,14 +80,15 @@ export type FooterProps = WithTheme<{
 };
 
 export function Footer({
+  theme,
+  color,
   withoutSection = false,
   socials = {},
   name = "",
-  theme = "light",
-  color = "indigo",
   ...props
 }: FooterProps & { withoutSection?: boolean }) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   const jsx = (
     <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
       {"linkNode" in props ? (
@@ -105,7 +108,7 @@ export function Footer({
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            className={`w-10 h-10 p-2 text-white bg-${color}-500 rounded-full`}
+            className={`w-10 h-10 p-2 text-white bg-${cxt.color}-500 rounded-full`}
             viewBox="0 0 24 24"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -141,7 +144,7 @@ export function Footer({
       {withoutSection ? (
         <>{jsx}</>
       ) : (
-        <FooterSection testId="footer-with-links-section" theme={theme}>
+        <FooterSection testId="footer-with-links-section" theme={cxt.theme}>
           {jsx}
         </FooterSection>
       )}

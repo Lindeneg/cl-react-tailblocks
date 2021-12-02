@@ -1,6 +1,7 @@
 import React from "react";
 import { BlogItemProps } from "./BlogItem";
 import { LearnMore } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -17,10 +18,10 @@ export function BlogWithDateItem({
   linkNode,
   linkText,
   onClick,
-  theme = "light",
-  color = "indigo",
   includeWrapperBg = true,
+  ...props
 }: BlogWithDateItemProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div

@@ -3,11 +3,12 @@ import { BlogItemProps } from "./BlogItem";
 import { Img, ImgProps } from "../util/Img";
 import { LearnMore } from "../util/LearnMore";
 import { Stat } from "../util/Stat";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
 export type BlogWithImageItemProps = WithTheme<ImgProps> &
-  WithoutTheme<BlogItemProps, "extendClass">;
+  WithoutTheme<BlogItemProps>;
 
 export function BlogWithImageItem({
   label,
@@ -18,12 +19,13 @@ export function BlogWithImageItem({
   comments,
   onClick,
   linkText,
+  theme,
+  color,
   includeWrapperBg = true,
-  theme = "light",
-  color = "indigo",
   ...imgProps
 }: BlogWithImageItemProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   return (
     <div
       data-testid="blog-with-image-item-outer"
@@ -72,8 +74,8 @@ export function BlogWithImageItem({
             ) : (
               <LearnMore
                 onClick={onClick}
-                theme={theme}
-                color={color}
+                theme={cxt.theme}
+                color={cxt.color}
                 linkText={linkText}
               />
             )}
@@ -81,8 +83,8 @@ export function BlogWithImageItem({
               <Stat
                 views={views}
                 comments={comments}
-                theme={theme}
-                color={color}
+                theme={cxt.theme}
+                color={cxt.color}
               />
             </div>
           </div>

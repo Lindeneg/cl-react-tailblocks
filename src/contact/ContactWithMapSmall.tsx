@@ -3,6 +3,7 @@ import { Section } from "../util/Section";
 import { EmbeddedMap } from "../util/EmbeddedMap";
 import { Input, TextArea } from "../util/Input";
 import { Button } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { SharedFormProps, ReactInputProps } from "../types";
 import { getClass, getRefValue } from "../shared";
 
@@ -33,9 +34,9 @@ export function ContactWithMapSmall({
   inputTopProps = {},
   inputBottomProps = {},
   textAreaProps = {},
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContactWithMapSmallProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const inputTopRef = useRef<HTMLInputElement>(null);
   const inputBottomRef = useRef<HTMLInputElement>(null);

@@ -1,4 +1,5 @@
 import React from "react";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { ThemeColor } from "../types";
 
 export type ButtonProps = {
@@ -16,8 +17,9 @@ export function Button({
   onClick,
   children,
   text = "",
-  color = "indigo",
+  ...props
 }: ButtonProps) {
+  const { color } = useMaybeTheme(props);
   return (
     <button
       onClick={onClick}

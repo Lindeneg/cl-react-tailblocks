@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Prices, PricingCard, PricingCardProps } from "./PricingCard";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -24,9 +25,9 @@ export function PricingDynamic({
   options,
   selectedCardLabel,
   title = "Pricing",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: PricingDynamicProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const [selectedPriceIdx, setSelectedPriceIdx] = useState<number>(0);
   return (

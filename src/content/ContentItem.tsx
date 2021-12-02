@@ -1,5 +1,6 @@
 import React from "react";
 import { LearnMore, LearnMoreProps } from "../util/LearnMore";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithoutTheme, WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -8,7 +9,7 @@ export type ContentItemProps = WithTheme<{
   description: string;
   linkNode?: React.ReactNode;
 }> &
-  WithoutTheme<LearnMoreProps>;
+  WithoutTheme<LearnMoreProps, "extendClass">;
 
 export function ContentItem({
   label,
@@ -16,9 +17,9 @@ export function ContentItem({
   linkText,
   onClick,
   linkNode,
-  theme = "light",
-  color = "indigo",
+  ...props
 }: ContentItemProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   return (
     <div

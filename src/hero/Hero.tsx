@@ -2,6 +2,7 @@ import React from "react";
 import { Img, ImgProps } from "../util/Img";
 import { Section } from "../util/Section";
 import { Button, ButtonProps } from "../util/Button";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -33,9 +34,9 @@ export function Hero({
   },
   imgAlt = "hero-image",
   orientation = "right",
-  theme = "light",
-  color = "indigo",
+  ...props
 }: HeroProps) {
+  const { theme, color } = useMaybeTheme(props);
   const cls = getClass.bind(null, theme);
   const img =
     orientation === "middle" ? (

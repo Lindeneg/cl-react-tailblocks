@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon, IconProps } from "../util/Icon";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme, WithoutTheme } from "../types";
 import { getClass } from "../shared";
 
@@ -12,11 +13,12 @@ export type ContentWithIconItemProps = WithTheme<{
 export function ContentWithIconItem({
   title,
   description,
-  theme = "light",
-  color = "indigo",
+  theme,
+  color,
   ...iconProps
 }: ContentWithIconItemProps) {
-  const cls = getClass.bind(null, theme);
+  const cxt = useMaybeTheme({ theme, color });
+  const cls = getClass.bind(null, cxt.theme);
   return (
     <div className="xl:w-1/3 md:w-1/2 p-4">
       <div
@@ -29,8 +31,8 @@ export function ContentWithIconItem({
       >
         <Icon
           {...iconProps}
-          theme={theme}
-          color={color}
+          theme={cxt.theme}
+          color={cxt.color}
           extendDivClass="w-10 h-10 mb-4"
           extendSvgClass="w-6 h-6"
         />

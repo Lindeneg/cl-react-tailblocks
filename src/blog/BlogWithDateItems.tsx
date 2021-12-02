@@ -2,17 +2,15 @@ import React from "react";
 import { WithoutTheme, WithTheme } from "../types";
 import { BlogWithDateItem, BlogWithDateItemProps } from "./BlogWithDateItem";
 import { Section } from "../util/Section";
+import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { getClass } from "../shared";
 
 export type BlogWithDateItemsProps = WithTheme<{
   data: Array<WithoutTheme<BlogWithDateItemProps, "includeWrapperBg">>;
 }>;
 
-export function BlogWithDateItems({
-  data,
-  theme = "light",
-  color = "indigo",
-}: BlogWithDateItemsProps) {
+export function BlogWithDateItems({ data, ...props }: BlogWithDateItemsProps) {
+  const { theme, color } = useMaybeTheme(props);
   return (
     <Section
       theme={theme}
