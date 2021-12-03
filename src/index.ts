@@ -1,5 +1,6 @@
 export { getClass, getRefValue } from "./shared";
 export { ThemeContext } from "./context/ThemeContext";
+export { ThemeContextProvider } from "./context/ThemeContextProvider";
 export { useMaybeTheme } from "./hooks/useMaybeTheme";
 export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
@@ -61,6 +62,7 @@ export type {
   ThemeContextContent,
   SetContext,
 } from "./context/ThemeContext";
+export type { ThemeContextProviderProps } from "./context/ThemeContextProvider";
 export type { LearnMoreProps } from "./util/LearnMore";
 export type { StatProps } from "./util/Stat";
 export type { ImgProps, MetaImgProps } from "./util/Img";

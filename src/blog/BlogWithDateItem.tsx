@@ -57,18 +57,15 @@ export function BlogWithDateItem({
           {title}
         </h2>
         <p className="leading-relaxed">{content}</p>
-        {linkNode ? (
-          <>{linkNode}</>
-        ) : (
-          <div className="mt-4">
-            <LearnMore
-              onClick={onClick}
-              theme={theme}
-              color={color}
-              linkText={linkText}
-            />
-          </div>
-        )}
+        <div className="mt-4">
+          <LearnMore
+            onClick={onClick}
+            theme={theme}
+            color={color}
+            linkText={linkText}
+            linkNode={linkNode}
+          />
+        </div>
       </div>
     </div>
   );

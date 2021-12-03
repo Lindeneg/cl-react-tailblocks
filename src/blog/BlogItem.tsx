@@ -9,7 +9,6 @@ export type BlogItemProps = WithTheme<{
   label: string;
   title: string;
   content: string;
-  linkNode?: React.ReactNode;
   includeWrapperBg?: boolean;
 }> &
   WithoutTheme<LearnMoreProps, "extendClass"> &
@@ -65,16 +64,13 @@ export function BlogItem({
           {title}
         </h1>
         <p className="leading-relaxed mb-3">{content}</p>
-        {linkNode ? (
-          <>{linkNode}</>
-        ) : (
-          <LearnMore
-            onClick={onClick}
-            theme={theme}
-            color={color}
-            linkText={linkText}
-          />
-        )}
+        <LearnMore
+          onClick={onClick}
+          theme={theme}
+          color={color}
+          linkText={linkText}
+          linkNode={linkNode}
+        />
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
           <div>
             <Stat

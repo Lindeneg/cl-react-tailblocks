@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Section } from "../util/Section";
 import { Button } from "../util/Button";
-import { LearnMore } from "../util/LearnMore";
+import { LearnMore, LearnMoreProps } from "../util/LearnMore";
 import { useMaybeTheme } from "../hooks/useMaybeTheme";
 import { WithTheme } from "../types";
 import { getClass } from "../shared";
@@ -22,7 +22,8 @@ export type PricingStaticProps = WithTheme<{
   selectedIndex?: number;
   onLearnMore?: PricingEvent<HTMLAnchorElement>;
   onClick: PricingEvent<HTMLButtonElement>;
-}>;
+}> &
+  Pick<LearnMoreProps, "linkNode" | "linkText">;
 
 const headerClass = [
   "px-4 py-3 title-font tracking-wider font-medium text-sm rounded-tl rounded-bl",
@@ -35,6 +36,8 @@ export function PricingStatic({
   description,
   headers,
   data,
+  linkNode,
+  linkText,
   onLearnMore,
   onClick,
   selectedIndex = -1,
@@ -126,13 +129,15 @@ export function PricingStatic({
           </table>
         </div>
         <div className="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-          {onLearnMore && (
+          {(onLearnMore || linkNode) && (
             <LearnMore
               onClick={(e) => {
-                onLearnMore(e, idx);
+                onLearnMore && onLearnMore(e, idx);
               }}
               theme={theme}
               color={color}
+              linkText={linkText}
+              linkNode={linkNode}
             />
           )}
           <Button

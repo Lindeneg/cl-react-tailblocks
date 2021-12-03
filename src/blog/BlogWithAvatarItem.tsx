@@ -61,16 +61,13 @@ export function BlogWithAvatarItem({
           "border-gray-800"
         )}
       >
-        {linkNode ? (
-          <>{linkNode}</>
-        ) : (
-          <LearnMore
-            onClick={onClick}
-            theme={cxt.theme}
-            color={cxt.color}
-            linkText={linkText}
-          />
-        )}
+        <LearnMore
+          onClick={onClick}
+          theme={cxt.theme}
+          color={cxt.color}
+          linkText={linkText}
+          linkNode={linkNode}
+        />
         <div className="mt-2 sm:mt-0">
           <Stat
             views={views}

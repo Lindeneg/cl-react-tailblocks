@@ -10,7 +10,6 @@ export type ContentWithAvatarAndImageProps = WithTheme<{
   title: string;
   description: string;
   content: string;
-  linkNode?: React.ReactNode;
   iconNode?: React.ReactNode;
 }> &
   WithoutTheme<LearnMoreProps> &
@@ -21,7 +20,6 @@ export function ContentWithAvatarAndImage({
   description,
   content,
   imgSrc,
-  linkNode,
   iconNode,
   imgNode,
   theme,
@@ -95,11 +93,7 @@ export function ContentWithAvatarAndImage({
               )}
             >
               <p className="leading-relaxed text-lg mb-4">{content}</p>
-              {linkNode ? (
-                <>{linkNode}</>
-              ) : (
-                <LearnMore {...linkProps} theme={cxt.theme} color={cxt.color} />
-              )}
+              <LearnMore {...linkProps} theme={cxt.theme} color={cxt.color} />
             </div>
           </div>
         </div>

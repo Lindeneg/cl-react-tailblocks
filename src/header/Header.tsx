@@ -93,7 +93,7 @@ function Link({
 }
 
 type NavProps = {
-  links: Array<Omit<AProps, "extendClass"> & { node?: React.ReactNode }>;
+  links: Array<Omit<AProps, "extendClass"> & { linkNode?: React.ReactNode }>;
   navClass?: string;
   aClass?: string;
 };
@@ -102,8 +102,8 @@ function Nav({ links, navClass = "", aClass = "" }: NavProps) {
   return (
     <nav className={navClass}>
       {links.map((link, i) => {
-        if ("node" in link) {
-          return <React.Fragment key={i}>{link.node}</React.Fragment>;
+        if ("linkNode" in link) {
+          return <React.Fragment key={i}>{link.linkNode}</React.Fragment>;
         }
         return (
           <a {...link.aProps} key={i} className={aClass}>

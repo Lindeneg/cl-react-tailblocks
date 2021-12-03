@@ -24,7 +24,7 @@ However, a few patterns are as follows:
 
 ##### Theme
 
-You can specify a global theme using `React.Context`. A `ThemeContext` is exposed and can be used for this purpose. On top of that, each component takes two optional props: `theme` and `color`.
+You can specify a global theme using `React.Context`. A `ThemeContextProvider` is exposed and can be used for this purpose. On top of that, each component takes two optional props: `theme` and `color`.
 
 - If no provider is used and no theme props are specified, the default values are `light` and `indigo`.
 
