@@ -8,14 +8,14 @@ import userEvent from "@testing-library/user-event";
 
 function renderWithContext(
   element: React.ReactElement,
-  providerProps?: Partial<ThemeContextType>
+  providerProps?: Partial<ThemeContextType<{ cb: () => void }>>
 ) {
   return render(
-    <ThemeContextProvider
+    <ThemeContextProvider<{ cb: () => void }>
       value={{
         theme: providerProps?.theme || "light",
         color: providerProps?.color || "indigo",
-        setContext: providerProps?.setContext || (() => {}),
+        cb: () => {},
       }}
     >
       {element}
@@ -90,7 +90,7 @@ describe("ThemeContext", () => {
         onClick={fn}
         linkText="Switch Theme"
       />,
-      { setContext: fn }
+      { cb: fn }
     );
     userEvent.click(getByText("Switch Theme"));
     expect(fn).toHaveBeenCalledTimes(1);
