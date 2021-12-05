@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
-import { Theme } from "..";
 import { ThemeContext, ThemeContextType } from "./ThemeContext";
 
-export type ThemeContextProviderProps = {
+export type ThemeContextProviderProps<T extends Record<string, unknown>> = {
   children: React.ReactNode;
-  value: ThemeContextType<{ callback: (theme: Theme) => void }>;
+  value: ThemeContextType<T>;
 };
 
-export function ThemeContextProvider({
+export function ThemeContextProvider<T extends Record<string, unknown>>({
   children,
   value,
-}: ThemeContextProviderProps) {
+}: ThemeContextProviderProps<T>) {
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
