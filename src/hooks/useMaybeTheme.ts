@@ -15,35 +15,27 @@ If context is undefined and individual theme props are undefined,
 the default props will be used. */
 
 export function useMaybeTheme(
-  initial: Partial<ThemeContextType>
-): ThemeContextType {
+  initial?: Partial<ThemeContextType<{}>>
+): ThemeContextType<{}> {
   const cxt = useContext(ThemeContext);
 
   let t: Theme;
   let c: ThemeColor;
-  let f: Pick<ThemeContextType, "setContext">["setContext"];
 
-  if (initial.theme) {
+  if (initial?.theme) {
     t = initial.theme;
   } else if (cxt?.theme) {
     t = cxt.theme;
   } else {
     t = "light";
   }
-  if (initial.color) {
+  if (initial?.color) {
     c = initial.color;
   } else if (cxt?.color) {
     c = cxt.color;
   } else {
     c = "indigo";
   }
-  if (initial.setContext) {
-    f = initial.setContext;
-  } else if (cxt?.setContext) {
-    f = cxt.setContext;
-  } else {
-    f = () => {};
-  }
 
-  return { theme: t, color: c, setContext: f };
+  return { theme: t, color: c };
 }
