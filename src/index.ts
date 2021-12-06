@@ -2,6 +2,7 @@ export { getClass, getRefValue } from "./shared";
 export { ThemeContext } from "./context/ThemeContext";
 export { ThemeContextProvider } from "./context/ThemeContextProvider";
 export { useMaybeTheme } from "./hooks/useMaybeTheme";
+export { useTheme } from "./hooks/useTheme";
 export { LearnMore } from "./util/LearnMore";
 export { Stat } from "./util/Stat";
 export { Img } from "./util/Img";
@@ -60,7 +61,6 @@ export type { Theme, ThemeColor, WithTheme, WithoutTheme } from "./types";
 export type {
   ThemeContextType,
   ThemeContextContent,
-  SetContext,
 } from "./context/ThemeContext";
 export type { ThemeContextProviderProps } from "./context/ThemeContextProvider";
 export type { LearnMoreProps } from "./util/LearnMore";
