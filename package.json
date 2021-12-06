@@ -1,6 +1,6 @@
 {
   "name": "cl-react-tailblocks",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Tailblocks implementation in React + TypeScript",
   "license": "MIT",
   "main": "lib/index.cjs.js",
