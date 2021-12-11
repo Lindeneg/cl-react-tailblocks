@@ -9,6 +9,13 @@ export type ButtonProps = {
   extendClass?: string;
   color?: ThemeColor;
   children?: React.ReactNode;
+  btnProps?: Omit<
+    React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    >,
+    "onClick" | "className" | "children"
+  >;
 };
 
 export function Button({
@@ -17,11 +24,13 @@ export function Button({
   onClick,
   children,
   text = "",
+  btnProps = {},
   ...props
 }: ButtonProps) {
   const { color } = useMaybeTheme(props);
   return (
     <button
+      {...btnProps}
       onClick={onClick}
       className={`${
         overrideClass

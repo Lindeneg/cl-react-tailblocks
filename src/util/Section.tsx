@@ -61,7 +61,7 @@ export function HeaderSection({
 }: SectionProps) {
   const { theme } = useMaybeTheme(props);
   return (
-    <footer
+    <header
       data-testid={testId}
       className={getClass(
         theme,
@@ -71,6 +71,6 @@ export function HeaderSection({
       )}
     >
       {children}
-    </footer>
+    </header>
   );
 }
